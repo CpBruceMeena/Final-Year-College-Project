@@ -1,0 +1,2311 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://data-flair.training/blogs/svm-kernel-functions/ -->
+<html class="js gr__data-flair_training" lang="en-US" slick-uniqueid="3"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style id="stndz-style"></style><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="profile" href="http://gmpg.org/xfn/11"><link rel="pingback" href="https://data-flair.training/blogs/xmlrpc.php"><style id="wfc-style-fonts-body" data-origin="server">/* Setting : Default website font */ 
+body {
+font-family : Georgia,Georgia,serif!important;
+}</style><link type="text/css" media="all" href="./explanation of kernels in SVR_files/autoptimize_565603d9d10cc6219b95f2a2a55ff049.css" rel="stylesheet"><title>Kernel Functions-Introduction to SVM Kernel &amp; Examples - DataFlair</title> <script type="text/javascript" async="" src="./explanation of kernels in SVR_files/recaptcha__en.js.download"></script><script type="text/javascript" async="" src="./explanation of kernels in SVR_files/recaptcha__en.js.download"></script><script type="text/javascript" async="" src="./explanation of kernels in SVR_files/analytics.js.download"></script><script type="text/javascript" async="" src="./explanation of kernels in SVR_files/recaptcha__en.js.download"></script><script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script> <meta name="description" content="Introduction to SVM Kernel &amp; Kernel Functions-Polynomial,Gaussian,RBF,Laplace RBF,Hyperbolic tangent kernel,Bessel function,ANOVA radial basis,Linear spline"><link rel="canonical" href="https://data-flair.training/blogs/svm-kernel-functions/"><meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="Kernel Functions-Introduction to SVM Kernel &amp; Examples - DataFlair"><meta property="og:description" content="Introduction to SVM Kernel &amp; Kernel Functions-Polynomial,Gaussian,RBF,Laplace RBF,Hyperbolic tangent kernel,Bessel function,ANOVA radial basis,Linear spline"><meta property="og:url" content="https://data-flair.training/blogs/svm-kernel-functions/"><meta property="og:site_name" content="DataFlair"><meta property="article:publisher" content="https://www.facebook.com/DataFlairWS/"><meta property="article:tag" content="Kernel Function"><meta property="article:tag" content="Kernel Functions Examples"><meta property="article:tag" content="Kernel Methods"><meta property="article:tag" content="machine learning"><meta property="article:tag" content="SVM"><meta property="article:tag" content="SVM Kernel"><meta property="article:tag" content="SVM Kernel Functions"><meta property="article:tag" content="SVM KErnel Tricks"><meta property="article:section" content="Machine Learning Tutorials"><meta property="article:published_time" content="2017-08-12T12:29:07+00:00"><meta property="article:modified_time" content="2018-11-16T12:32:10+00:00"><meta property="og:updated_time" content="2018-11-16T12:32:10+00:00"><meta property="fb:app_id" content="353250252066879"><meta property="og:image" content="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/svm-kernel-functions-2.jpg"><meta property="og:image:secure_url" content="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/svm-kernel-functions-2.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="628"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:description" content="Introduction to SVM Kernel &amp; Kernel Functions-Polynomial,Gaussian,RBF,Laplace RBF,Hyperbolic tangent kernel,Bessel function,ANOVA radial basis,Linear spline"><meta name="twitter:title" content="Kernel Functions-Introduction to SVM Kernel &amp; Examples - DataFlair"><meta name="twitter:site" content="@DataFlairWS"><meta name="twitter:image" content="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/svm-kernel-functions-2.jpg"><meta name="twitter:creator" content="@DataFlairWS"> <script type="application/ld+json" class="yoast-schema-graph yoast-schema-graph--main">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://data-flair.training/blogs/#organization","name":"DataFlair","url":"https://data-flair.training/blogs/","sameAs":["https://www.facebook.com/DataFlairWS/","https://www.linkedin.com/company/dataflair-web-services-pvt-ltd/","https://www.youtube.com/user/DataFlairWS","https://twitter.com/DataFlairWS"],"logo":{"@type":"ImageObject","@id":"https://data-flair.training/blogs/#logo","url":"https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2016/07/Data-Flair.png","width":106,"height":48,"caption":"DataFlair"},"image":{"@id":"https://data-flair.training/blogs/#logo"}},{"@type":"WebSite","@id":"https://data-flair.training/blogs/#website","url":"https://data-flair.training/blogs/","name":"DataFlair","publisher":{"@id":"https://data-flair.training/blogs/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://data-flair.training/blogs/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://data-flair.training/blogs/svm-kernel-functions/#primaryimage","url":"https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/svm-kernel-functions-2.jpg","width":1200,"height":628,"caption":"Kernel Functions-Introduction to SVM Kernel &amp; Examples"},{"@type":"WebPage","@id":"https://data-flair.training/blogs/svm-kernel-functions/#webpage","url":"https://data-flair.training/blogs/svm-kernel-functions/","inLanguage":"en-US","name":"Kernel Functions-Introduction to SVM Kernel &amp; Examples - DataFlair","isPartOf":{"@id":"https://data-flair.training/blogs/#website"},"primaryImageOfPage":{"@id":"https://data-flair.training/blogs/svm-kernel-functions/#primaryimage"},"datePublished":"2017-08-12T12:29:07+00:00","dateModified":"2018-11-16T12:32:10+00:00","description":"Introduction to SVM Kernel & Kernel Functions-Polynomial,Gaussian,RBF,Laplace RBF,Hyperbolic tangent kernel,Bessel function,ANOVA radial basis,Linear spline","breadcrumb":{"@id":"https://data-flair.training/blogs/svm-kernel-functions/#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://data-flair.training/blogs/svm-kernel-functions/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://data-flair.training/blogs/","url":"https://data-flair.training/blogs/","name":"Blog Home"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"https://data-flair.training/blogs/category/machine-learning/","url":"https://data-flair.training/blogs/category/machine-learning/","name":"Machine Learning Tutorials"}},{"@type":"ListItem","position":3,"item":{"@type":"WebPage","@id":"https://data-flair.training/blogs/svm-kernel-functions/","url":"https://data-flair.training/blogs/svm-kernel-functions/","name":"Kernel Functions-Introduction to SVM Kernel &amp; Examples"}}]},{"@type":"Article","@id":"https://data-flair.training/blogs/svm-kernel-functions/#article","isPartOf":{"@id":"https://data-flair.training/blogs/svm-kernel-functions/#webpage"},"author":{"@id":"https://data-flair.training/blogs/#/schema/person/367594433e71a7902afed0d4506d5fa7"},"headline":"Kernel Functions-Introduction to SVM Kernel &amp; Examples","datePublished":"2017-08-12T12:29:07+00:00","dateModified":"2018-11-16T12:32:10+00:00","commentCount":"9","mainEntityOfPage":{"@id":"https://data-flair.training/blogs/svm-kernel-functions/#webpage"},"publisher":{"@id":"https://data-flair.training/blogs/#organization"},"image":{"@id":"https://data-flair.training/blogs/svm-kernel-functions/#primaryimage"},"keywords":"Kernel Function,Kernel Functions Examples,Kernel Methods,machine learning,SVM,SVM Kernel,SVM Kernel Functions,SVM KErnel Tricks","articleSection":"Machine Learning Tutorials"},{"@type":["Person"],"@id":"https://data-flair.training/blogs/#/schema/person/367594433e71a7902afed0d4506d5fa7","name":"DataFlair Team","sameAs":[]}]}</script> <link rel="dns-prefetch" href="https://www.google.com/"><link rel="dns-prefetch" href="https://s.w.org/"><link href="https://www.googletagmanager.com/" rel="preconnect"><link rel="alternate" type="application/rss+xml" title="DataFlair » Feed" href="https://data-flair.training/blogs/feed/"><link rel="alternate" type="application/rss+xml" title="DataFlair » Comments Feed" href="https://data-flair.training/blogs/comments/feed/"><link id="hu-user-gfont" href="./explanation of kernels in SVR_files/css" rel="stylesheet" type="text/css"><link rel="alternate" type="application/rss+xml" title="DataFlair » Kernel Functions-Introduction to SVM Kernel &amp; Examples Comments Feed" href="https://data-flair.training/blogs/svm-kernel-functions/feed/"> <script>window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/data-flair.training\/blogs\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);</script><script src="./explanation of kernels in SVR_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script> <style>img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style><style id="hueman-main-style-inline-css">body { font-family:'Source Sans Pro', Arial, sans-serif;font-size:1.00rem }@media only screen and (min-width: 720px) {
+        .nav > li { font-size:1.00rem; }
+      }.container-inner { max-width: 2560px; }.sidebar .widget { padding-left: 20px; padding-right: 20px; padding-top: 20px; }::selection { background-color: #fea101; }
+::-moz-selection { background-color: #fea101; }a,a+span.hu-external::after,.themeform label .required,#flexslider-featured .flex-direction-nav .flex-next:hover,#flexslider-featured .flex-direction-nav .flex-prev:hover,.post-hover:hover .post-title a,.post-title a:hover,.sidebar.s1 .post-nav li a:hover i,.content .post-nav li a:hover i,.post-related a:hover,.sidebar.s1 .widget_rss ul li a,#footer .widget_rss ul li a,.sidebar.s1 .widget_calendar a,#footer .widget_calendar a,.sidebar.s1 .alx-tab .tab-item-category a,.sidebar.s1 .alx-posts .post-item-category a,.sidebar.s1 .alx-tab li:hover .tab-item-title a,.sidebar.s1 .alx-tab li:hover .tab-item-comment a,.sidebar.s1 .alx-posts li:hover .post-item-title a,#footer .alx-tab .tab-item-category a,#footer .alx-posts .post-item-category a,#footer .alx-tab li:hover .tab-item-title a,#footer .alx-tab li:hover .tab-item-comment a,#footer .alx-posts li:hover .post-item-title a,.comment-tabs li.active a,.comment-awaiting-moderation,.child-menu a:hover,.child-menu .current_page_item > a,.wp-pagenavi a{ color: #fea101; }.themeform input[type="submit"],.themeform button[type="submit"],.sidebar.s1 .sidebar-top,.sidebar.s1 .sidebar-toggle,#flexslider-featured .flex-control-nav li a.flex-active,.post-tags a:hover,.sidebar.s1 .widget_calendar caption,#footer .widget_calendar caption,.author-bio .bio-avatar:after,.commentlist li.bypostauthor > .comment-body:after,.commentlist li.comment-author-admin > .comment-body:after{ background-color: #fea101; }.post-format .format-container { border-color: #fea101; }.sidebar.s1 .alx-tabs-nav li.active a,#footer .alx-tabs-nav li.active a,.comment-tabs li.active a,.wp-pagenavi a:hover,.wp-pagenavi a:active,.wp-pagenavi span.current{ border-bottom-color: #fea101!important; }.sidebar.s2 .post-nav li a:hover i,
+.sidebar.s2 .widget_rss ul li a,
+.sidebar.s2 .widget_calendar a,
+.sidebar.s2 .alx-tab .tab-item-category a,
+.sidebar.s2 .alx-posts .post-item-category a,
+.sidebar.s2 .alx-tab li:hover .tab-item-title a,
+.sidebar.s2 .alx-tab li:hover .tab-item-comment a,
+.sidebar.s2 .alx-posts li:hover .post-item-title a { color: #65abf6; }
+.sidebar.s2 .sidebar-top,.sidebar.s2 .sidebar-toggle,.post-comments,.jp-play-bar,.jp-volume-bar-value,.sidebar.s2 .widget_calendar caption{ background-color: #65abf6; }.sidebar.s2 .alx-tabs-nav li.active a { border-bottom-color: #65abf6; }
+.post-comments span:before { border-right-color: #65abf6; }
+      .search-expand,
+              #nav-topbar.nav-container { background-color: #5ba1ec}@media only screen and (min-width: 720px) {
+                #nav-topbar .nav ul { background-color: #5ba1ec; }
+              }.is-scrolled #header .nav-container.desktop-sticky,
+              .is-scrolled #header .search-expand { background-color: #5ba1ec; background-color: rgba(91,161,236,0.90) }.is-scrolled .topbar-transparent #nav-topbar.desktop-sticky .nav ul { background-color: #5ba1ec; background-color: rgba(91,161,236,0.95) }#header #nav-mobile { background-color: #5ba1ec; }.is-scrolled #header #nav-mobile { background-color: #5ba1ec; background-color: rgba(91,161,236,0.90) }#nav-header.nav-container, #main-header-search .search-expand { background-color: #5ba1ec; }
+@media only screen and (min-width: 720px) {
+  #nav-header .nav ul { background-color: #5ba1ec; }
+}
+        #footer-bottom { background-color: #022338; }.site-title a img { max-height: 70px; }body { background-color: #eaeaea; }</style><link rel="stylesheet" id="enlighter-local-css" href="./explanation of kernels in SVR_files/EnlighterJS.min.css" type="text/css" media="all"> <script src="./explanation of kernels in SVR_files/jquery.js.download"></script> <script>var ai_front = {"wp_ai":"4.9.11+2.5.2","insertion_before":"BEFORE","insertion_after":"AFTER","insertion_prepend":"PREPEND CONTENT","insertion_append":"APPEND CONTENT","insertion_replace_content":"REPLACE CONTENT","insertion_replace_element":"REPLACE ELEMENT","cancel":"Cancel","use":"Use","add":"Add","parent":"Parent","cancel_element_selection":"Cancel element selection","select_parent_element":"Select parent element","css_selector":"CSS selector","use_current_selector":"Use current selector","element":"ELEMENT","path":"PATH","selector":"SELECTOR","visible":"VISIBLE","hidden":"HIDDEN"};</script> <script>function ai_insert(a,e,h){var f=-1!=e.indexOf(":eq")?jQuery(e):document.querySelectorAll(e);Array.prototype.forEach.call(f,function(b,f){selector_string=b.hasAttribute("id")?"#"+b.getAttribute("id"):b.hasAttribute("class")?"."+b.getAttribute("class").replace(RegExp(" ","g"),"."):"";var d=document.createElement("div");d.innerHTML=h;var c=d.getElementsByClassName("ai-selector-counter")[0];null!=c&&(c.innerText=f+1);c=d.getElementsByClassName("ai-debug-name ai-main")[0];if(null!=c){var g="";"before"==
+a?g=ai_front.insertion_before:"after"==a?g=ai_front.insertion_after:"prepend"==a?g=ai_front.insertion_prepend:"append"==a?g=ai_front.insertion_append:"replace-content"==a?g=ai_front.insertion_replace_content:"replace-element"==a&&(g=ai_front.insertion_replace_element);c.innerText=g+" "+e+" ("+b.tagName.toLowerCase()+selector_string+")"}c=document.createRange().createContextualFragment(d.innerHTML);"before"==a?b.parentNode.insertBefore(c,b):"after"==a?b.parentNode.insertBefore(c,b.nextSibling):"prepend"==
+a?b.insertBefore(c,b.firstChild):"append"==a?b.insertBefore(c,null):"replace-content"==a?b.innerHTML=d.innerHTML:"replace-element"==a&&(b.parentNode.insertBefore(c,b),b.parentNode.removeChild(b))})}
+function ai_insert_code(a){function e(a,b){return null==a?!1:a.classList?a.classList.contains(b):-1<(" "+a.className+" ").indexOf(" "+b+" ")}function h(a,b){null!=a&&(a.classList?a.classList.add(b):a.className+=" "+b)}function f(a,b){null!=a&&(a.classList?a.classList.remove(b):a.className=a.className.replace(new RegExp("(^|\\b)"+b.split(" ").join("|")+"(\\b|$)","gi")," "))}var b=e(a,"no-visibility-check")?!0:!!(a.offsetWidth||a.offsetHeight||a.getClientRects().length);a.getAttribute("data-block");
+if(b){b=a.getAttribute("data-code");var k=a.getAttribute("data-insertion"),d=a.getAttribute("data-selector");null!=b&&(null!=k&&null!=d?document.querySelectorAll(d).length&&(ai_insert(k,d,b64d(b)),f(a,"ai-viewports")):(b=document.createRange().createContextualFragment(b64d(b)),a.parentNode.insertBefore(b,a.nextSibling),f(a,"ai-viewports")));a=a.getElementsByClassName("ai-check-block");"undefined"!=typeof a[0]&&a[0].parentNode.removeChild(a[0])}else b=a.previousElementSibling,e(b,"ai-debug-bar")&&
+e(b,"ai-debug-script")&&(f(b,"ai-debug-script"),h(b,"ai-debug-viewport-invisible")),f(a,"ai-viewports")}function b64e(a){return btoa(encodeURIComponent(a).replace(/%([0-9A-F]{2})/g,function(a,h){return String.fromCharCode("0x"+h)}))}function b64d(a){return decodeURIComponent(atob(a).split("").map(function(a){return"%"+("00"+a.charCodeAt(0).toString(16)).slice(-2)}).join(""))};</script> <script src="./explanation of kernels in SVR_files/api.js.download"></script> <script>var usp_custom_field = "usp_author_bio"; var usp_custom_checkbox = "usp_proofread_checkbox"; var usp_case_sensitivity = "false"; var usp_challenge_response = "273"; var usp_min_images = 0; var usp_max_images = 0; var usp_parsley_error = "Incorrect response.";</script> <link rel="https://api.w.org/" href="https://data-flair.training/blogs/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://data-flair.training/blogs/xmlrpc.php?rsd"><link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-includes/wlwmanifest.xml"><link rel="shortlink" href="https://data-flair.training/blogs/?p=3700"><link rel="alternate" type="application/json+oembed" href="https://data-flair.training/blogs/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdata-flair.training%2Fblogs%2Fsvm-kernel-functions%2F"><link rel="alternate" type="text/xml+oembed" href="https://data-flair.training/blogs/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdata-flair.training%2Fblogs%2Fsvm-kernel-functions%2F&amp;format=xml"> <script>function external_links_in_new_windows_loop() {
+    if (!document.links) {
+      document.links = document.getElementsByTagName('a');
+    }
+    var change_link = false;
+    var force = '';
+    var ignore = '';
+
+    for (var t=0; t<document.links.length; t++) {
+      var all_links = document.links[t];
+      change_link = false;
+      
+      if(document.links[t].hasAttribute('onClick') == false) {
+        // forced if the address starts with http (or also https), but does not link to the current domain
+        if(all_links.href.search(/^http/) != -1 && all_links.href.search('data-flair.training') == -1 && all_links.href.search(/^#/) == -1) {
+          // console.log('Changed ' + all_links.href);
+          change_link = true;
+        }
+          
+        if(force != '' && all_links.href.search(force) != -1) {
+          // forced
+          // console.log('force ' + all_links.href);
+          change_link = true;
+        }
+        
+        if(ignore != '' && all_links.href.search(ignore) != -1) {
+          // console.log('ignore ' + all_links.href);
+          // ignored
+          change_link = false;
+        }
+
+        if(change_link == true) {
+          // console.log('Changed ' + all_links.href);
+          document.links[t].setAttribute('onClick', 'javascript:window.open(\''+all_links.href+'\'); return false;');
+          document.links[t].removeAttribute('target');
+        }
+      }
+    }
+  }
+  
+  // Load
+  function external_links_in_new_windows_load(func)
+  {  
+    var oldonload = window.onload;
+    if (typeof window.onload != 'function'){
+      window.onload = func;
+    } else {
+      window.onload = function(){
+        oldonload();
+        func();
+      }
+    }
+  }
+
+  external_links_in_new_windows_load(external_links_in_new_windows_loop);</script>  <script>/* Default comment here */ 
+
+/* Ayushi- To highlight current tab in left sidebar for blogs, check CSS*/
+jQuery(document).ready(function($){
+  $('.single-post .sidebar.s1 .dflsb a').each(function(){
+    if (($(this).attr('href')).test(window.location.pathname)){
+      $(this).addClass('current');
+    }
+  });
+});
+
+/* Rahul- To scroll sidebar to current tab */
+jQuery(document).ready(function($){
+    setTimeout(function(){
+    $('.sidebar.s1').animate({
+        scrollTop: $('.current').position().top - 200}, 'slow');}, 50);
+});
+
+/* Ayushi- To add site link to footer logo*/
+jQuery(document).ready(function($){
+  	$('#footer-logo').wrap('<a href=https://data-flair.training/></a>');
+});
+
+/* Ayushi- To change login link on submit post page for guest posting*/
+jQuery(document).ready(function($){
+  	$('body.page-id-48780 a[href$="login.php"]').attr("href","https://data-flair.training/blogs/guest-login");
+});
+
+/* Ayushi- To resolve placeholder issue with blog home search bar*/
+jQuery(document).ready(function($){
+  	$('#panel-49353-0-0-0 > form > div > input').focus(function(){
+  		$('#panel-49353-0-0-0 > form > div > input').attr("value","");
+    });
+});
+
+/*Ayushi- To add alt text to DF logo*/
+jQuery(document).ready(function($){
+  	$("#footer-logo").attr("alt","DataFlair Web Services");
+});
+
+/*Ayushi- For success stories ad*/
+jQuery(document).ready(function($){
+  	var photos=["https://data-flair.training/wp-content/uploads/2019/01/rahul-doddamani.jpeg","https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2019/08/mritunjay-singh.jpeg", "https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2019/08/deepika-01.jpg"];
+	var names=["Rahul Doddamani", "Mritunjay Singh", "Deepika Khadri"];
+  	var designations=["Java → Big Data Consultant, JDA", "PeopleSoft → Big Data Architect, Hexaware", "SQL → Sr. Big Data Developer, IBM"];
+  	var profile_links=["https://www.linkedin.com/in/rahul-doddamani-1463a724/", "https://www.linkedin.com/in/mritunjay-singh-pmp-itil-csm-0ba6b755/", "https://www.linkedin.com/in/deepika-khadri-67435844/"];
+  	var quotes=["This DataFlair training enabled in me a passion for learning, and helped start a career in Big Data", "Brick by brick, the DataFlair training helped me build a career in Big Data!", "After my training from DataFlair, I secured 70% hike and started an exciting career in Big Data"];
+  	$(".ss-ad4-ss:not(.four)").mouseenter(function(){
+      	$(".ss-ad4-row").stop(true, false).hide(speed="slow", easing="linear");
+      	$(".ss-ad4-full").stop(true,false).show(speed="slow", easing="linear");
+    });
+  	$(".ss-ad4-ss.one").mouseenter(function(){
+      	$(".ss-ad4-full img").attr("src",photos[0]);
+      	$(".ss-ad4-full-name").html("<strong>"+names[0]+"</strong>");
+      	$(".ss-ad4-full-desig").html(designations[0]);
+      	$(".ss-ad4-full-quote").html(quotes[0]);
+      	$(".ss-ad4-full a.fab").attr("href", profile_links[0]);
+    });
+  	$(".ss-ad4-ss.two").mouseenter(function(){
+      	$(".ss-ad4-full img").attr("src",photos[1]);
+      	$(".ss-ad4-full-name").html("<strong>"+names[1]+"</strong>");
+      	$(".ss-ad4-full-desig").html(designations[1]);
+      	$(".ss-ad4-full-quote").html(quotes[1]);
+      	$(".ss-ad4-full a.fab").attr("href", profile_links[1]);
+    });
+  	$(".ss-ad4-ss.three").mouseenter(function(){
+      	$(".ss-ad4-full img").attr("src",photos[2]);
+      	$(".ss-ad4-full-name").html("<strong>"+names[2]+"</strong>");
+      	$(".ss-ad4-full-desig").html(designations[2]);
+      	$(".ss-ad4-full-quote").html(quotes[2]);
+      	$(".ss-ad4-full a.fab").attr("href", profile_links[2]);
+    });
+  	$(".ss-ad4-full").mouseleave(function(){
+      	$(".ss-ad4-row").stop(true,false).show(speed="slow", easing="linear");
+      	$(".ss-ad4-full").stop(true,false).hide(speed="slow", easing="linear");
+    });
+});</script> 
+<style>/* Stylesheet structure:
+Header (Offer Topbar, Menu), Layout, Styling, 
+Body (Blog Homes, Tutorials Homes, Blog Posts, Guest Posting, Sidebars, Testimonials, Success Stories, Quizzes, Forms),
+Footer (Footer Strip, Links Footer, End Footer), Media Query, Sprites, Debugging*/
+
+
+
+/* Ayushi-
+
+Classes:
+aligncenterblog, alignmiddleblog: center-align and vertical-align things for blogs
+coupon2019: coupon text in offer topbar
+current: hightlight left sidebar link to current blog
+dfblognew: to add New PNG against blog name in left sidebar
+df-ccf: call contact forms within blogs
+df-cf2-text: text before right sidebar contact form
+df-float-l to float to the left
+df-hide, df-show: hide and show content for offer topbar
+df-link-color: blue links
+dflogo: put site logo in topbar menu
+dflsb, dflsbhead, dflsbul, dflsbli: left sidebar
+dflsbquiz: quiz sidebars
+dflsbwidget: replacement for class left_sidebar_link_widget for entire left sidebar
+df-rect and df-check: rectangles and checkboxes
+df-success-story: color for success story links
+df-talk and querybutton: talk to us and write to us buttons in footer
+dftesti1: circular images for success stories
+img-gray-border: thin, gray border around blog post images
+intmenubi: BI menu
+topcategoryrow and topcategorybutton: top category buttons on blog home
+searchsuggestion: search suggestions on blog home
+ss-course-box, ss-course-button: course button on success stories
+
+IDs:
+dfaboutfooter, dfcategoryfooter1, dfcategoryfooter2: add links to footer
+df_cf2: contact form in right sidebar*/
+
+/* Bhumika -
+
+Classes:
+set-margin : to change the margin and padding of tutorial home page
+starBefore : adding star before links
+listStyle : for list style type in tutorial home
+tutorial-heading : for the headings of tutorial home 
+blogshadow : to add shadow to images
+displayblock : to add display inline on blog home images
+*/
+
+
+
+/* ----------------------------------------- Header --------------------------------------- */
+
+/* Ayushi- To remove header padding*/
+#header .pad{
+	display: none;
+}
+
+/* -------------------- Offer Topbar --------------------- */
+
+/* Ayushi- To return white color to coupon in offer popup*/
+a.coupon2019, a.coupon2019:hover{ 
+	color: white !important; 
+}
+
+/* -------------------- Menu ---------------------------- */
+
+/* Ayushi- To put site logo in topbar menu*/
+.dflogo{
+  	background: url(https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2019/01/DataFlair_Logo_Final-01.png) no-repeat;
+  	margin: 3px 0 -3px 21px;
+  	float: left !important;
+  	width: 88px;
+}
+/* Ayushi- To keep topbar logo from highlighting on hover*/
+ul#menu-quiz-1 .dflogo a:hover{
+  	background-color: transparent;
+}
+/* Ayushi- To set left margin for site logo on single blog posts*/
+body.single-post li.dflogo{
+  	margin-left: 1px;
+}
+
+/* Ayushi- To override theme CSS to set blue color to topbar and submenu*/
+.pro-header-on #header #nav-topbar.nav-container, #nav-topbar .nav ul{
+  	background: #5BA1EC !important;
+}
+/* Ayushi- To set white text for submenu and menu links*/
+#nav-topbar .nav ul li a:hover, #nav-topbar div.nav-wrap.container ul li a:hover{
+  	color: white !important;
+}
+
+/* Ayushi- To right-align topbar menu for blogs*/
+#header .nav-container .nav{
+  	text-align: right;
+}
+/* Ayushi- To left-align topbar sub-menu for blogs*/
+ul.sub-menu{
+  	text-align: left;
+}
+
+/* Ayushi- To open BI interview questions menu to the left*/
+li.intmenubi ul.sub-menu{
+  	margin-left: -360px;
+}
+/* Ayushi- To add a leftward arrow to the BI interview questions menu*/
+li.intmenubi a::after{
+  	content: "\f0d9";
+}
+
+/* Ayushi- To add NEW GIF to IQ and Quiz in menu*/
+li.menu-item-27573, li.menu-item-45067{
+  	background: url(https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2019/04/New-08.png) right top no-repeat;
+}
+/*Ayushi- To add New PNG against blog name in left sidebar*/
+.dfblognew a::after{
+  	content: url(https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2019/04/New-08.png);
+}
+
+/* Ayushi- To reduce padding between list items in menu*/
+#menu-quiz-1 li a{
+  	padding: 14px 12px;
+}
+
+/* ------------------------------------------ Layout -------------------------------------- */
+
+/* Ayushi- To hide header from blog posts and pages*/
+.header-desktop-sticky.topbar-enabled #header{
+  	height: 0px !important;
+}
+/* Ayushi- To remove padding from page title on blog posts*/
+#page > div > div > div > section > div.page-title.pad.group{
+  	padding: initial;
+}
+/* Ayushi- To remove padding from blog posts and pages*/
+div#page.container{
+  	padding: 0;
+}
+
+/* ----------------------------------------- Styling -------------------------------------- */
+
+/* Ayushi- To set font sizes for headings h1 to h5*/
+body.single-post h1.fittexted_for_single_post_title, body.single-job_listing h1.fittexted_for_single_post_title{
+  	font-size: 38px !important; /* old: 41*/
+}
+body.single-post h2.fittexted_for_content_h2, body.single-job_listing h2.fittexted_for_content_h2{
+  	font-size: 32px !important; /* old: 35.2*/
+}
+body.single-post h3.fittexted_for_content_h3, body.single-job_listing h3.fittexted_for_content_h3{
+  	font-size: 28px !important; /* old: 30*/
+}
+body.single-post h4.fittexted_for_content_h4{
+	font-size: 24px !important; /* old: 25.675*/
+}
+body.single-post h5.fittexted_for_content_h5{
+	font-size: 20px !important;
+  	font-weight: normal !important;
+}
+
+/* Ayushi- To set dark grey color to all blog post headings, and everything else*/
+body, div.textwidget, .entry h1 span, .entry h2 span, .entry h3 span, .entry h4 span, .entry h5 span, .entry h6 span{
+  	color: #444;
+}
+
+
+/* Ayushi- To set selection color for blog posts and pages*/
+::selection{
+  	background: #6FB5FF;
+}
+/* Ayushi- To set link color for blog posts and pages*/
+a, a.df-link-color{
+  	color: #65ABF6;
+}
+/* Ayushi- To set link hover color for blog posts and pages*/
+a:hover{
+  	color: #3D83CE !important;
+}
+
+/* Ayushi- To prevent reset of bold text by font: inherit;*/
+b{
+  	font-weight: bold !important;
+}
+
+/* Ayushi- To use disc list-style-type instead of square for all blogs*/
+.body .entry ol ul li, .entry ul li{
+  	list-style-type: disc;
+}
+
+/* Ayushi- To float to the left*/
+.df-float-l{
+  	float: left;
+}
+
+/* ----------------------------------------- Body ----------------------------------------- */
+
+/* Ayushi- Class for rectangles*/
+.df-rect{
+  	display: inline-block;
+  	min-width: 175px;
+  	height: 1.8em;
+  	text-align: center;
+  	vertical-align: middle;
+  	border: 1.5px solid black;
+}
+/* Ayushi- Class for checkboxes*/
+.df-check{
+  	display: inline-block;
+  	width: 1.3em;
+  	height: 1.3em;
+  	text-align: center;
+  	vertical-align: middle;
+  	border: 1.5px solid black;
+}
+
+/* -------------------- Blog Home -------------------------- */
+
+/* Ayushi- To remove margin-bottom from search bar on blog home*/
+body.page-id-49353 div.widget_search{
+  	margin-bottom: 9px !important;
+}
+/* Ayushi- To set border, padding, and margin for search suggestions for blog home*/
+.searchsuggestion{
+  	padding: 1px 4px 1px 4px;
+  	margin-right: 15px;
+  	border: 1.25px solid #c0c0c0;
+  	border-radius: 10px;
+}
+/* Ayushi- Color for search suggestion links on blog home*/
+.searchsuggestion a{
+  	color:#c0c0c0;
+}
+
+/* Ayushi- To center-align top category buttons on blog home*/
+.topcategoryrow{
+  	text-align: center;
+}
+/* Ayushi- To style top category buttons on blog home*/
+.topcategorybutton{
+  	display: inline-block;
+  	padding: 10px;
+  	margin: 5px;
+  	width: 148px;
+  	text-align: center;
+  	line-height: 120%;
+  	background-color: #1666bc;
+  	color: white;
+  	border-radius: 5px;
+}
+/* Ayushi- To highlight top category buttons on hover on blog home*/
+.topcategorybutton:hover{
+  	background-color: #fea101;
+}
+
+/* Ayushi- To set top alignment for right sidebar on blog home*/
+.sidebar.s1[data-position="right"] div[id|="recent"] a::before{
+  	display: none !important;
+}
+body.page-id-49353 .sidebar.s1{
+  	margin-top: 1px !important;
+  	overflow: scroll;
+  	height: 88vh;
+}
+body.page-id-49353 .sidebar.s1.sticky{
+	top: -60px !important;
+  	height: 100vh;
+}
+
+/* -------------------- Tutorials Homes -------------------- */
+
+/* Ayushi- To set black heading for cover for category homes- Pandas, Big Data, Blockchain, Cassandra, Data Science, Hadoop, Java, Kafka, Power BI, R, SAS, SAS/STAT, Scala, Spark, SQL, Tableau, TensorFlow, JavaScript*/
+#default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_58145_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_36926_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_37100_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_37881_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_36723_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_36852_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_37960_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_37781_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_35491_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_36570_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_37181_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_35622_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_37393_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_37488_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_35221_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_36050_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_37206_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_35892_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_35533_czr_module > div.carousel-caption-wrapper > div > h1, #default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_53281_czr_module > div.carousel-caption-wrapper > div > h1{
+  	color: black;
+}
+/* Ayushi- To add padding to title on SAP HANA tutorials home header*/
+#default_item__contextualizer_ui_pro_slider_header_bg_skp__post_page_57668_czr_module > div.carousel-caption-wrapper > div > h1{
+  	padding-top: 11px;
+}
+
+/* Ayushi- To align all-tutorials button for tutorial homes*/
+div.carousel-caption a.btn{
+  	margin-top: 25px;
+}
+/*Ayushi- To set white hover color for all-tutorials button on tutorial homes*/
+div.carousel-caption a.btn:hover{
+  	color: white !important;
+}
+
+/* -------------------- Blog Posts ------------------------- */
+
+/* Ayushi- To hide page title from blog posts*/
+#page div.page-title.pad.group li.category{
+  	display: none;
+}
+
+/* Ayushi- To center-align things for blogs*/
+.aligncenterblog{
+  	text-align: center;
+}
+.alignmiddleblog{
+  	margin-top: 10%;
+}
+
+/* Ayushi- To align breadcrumbs on blog posts*/
+#breadcrumbs{
+  	margin: 15px 0 5px 8px;
+}
+
+/* Ayushi- To hide URL field from comment form on blogs*/
+#comments .comment-form-url{
+  	visibility: hidden;
+}
+
+/* Ayushi- To align image for Like us on Facebook button*/
+#df_fb img{
+  	margin-bottom: 40px;
+  	padding-right: 10px;
+  	float: left;
+}
+/* Ayushi- Font size*/
+#df_fb p{
+  	font-size: 22px;
+}
+
+/* Ayushi- To change color for enlighter code blocks on hover*/
+ol.enlighterEnlighterJS.hoverEnabled li:hover{
+  	background-color: #f9fcfe70;
+}
+
+/* Ayushi- To put NEW sticker on breadcrumbs to highlight them*/
+#breadcrumbs span span span a{
+  	background: url(https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2019/04/New-08.png) right top no-repeat;
+  	padding-top: 13px;
+}
+
+/* Ayushi- To add right margin to books on blogs on books*/
+article[class*="book"] .df-float-l img{
+  	margin-right: 40px;
+}
+
+/* Bhumika- To set alternative rows to white background on Top 10 DS tools blog*/
+body.postid-59515 tr{
+  	background-color: white !important;
+}
+
+/* Ayushi- To add thin, gray border around images in blog posts*/
+.img-gray-border{
+  	border: 1px solid #bbacac;
+}
+
+/* Ayushi- To unset height for tables on blog posts*/
+.entry table{
+  	height: unset !important;
+}
+
+/* Ayushi- For superscript and subscript together in blog posts*/
+.subsup{
+  	font-family: KaTeX_Size1;
+    font-style: italic;
+}
+.subsup span{
+  	position: relative;
+}
+.subsup span sub, .subsup span sup{
+  	position: absolute;
+  	left: 0;
+}
+.subsup span sub{
+    bottom: -1.8em;
+}
+.subsup span sup{
+  	top: -1.4em;
+}
+body.single-post .subsup sup, body.single-post .subsup sub{
+    font-size: 0.7em !important;
+}
+
+/* -------------------- Guest Posting ---------------------- */
+
+/* Ayushi- To style button Write for us page*/
+a.dfbutton:hover, body.page-id-48271 .ss-course-button{
+  	color: white !important;
+}
+body.page-id-48271 .dfbutton{
+  	padding: 7px 45px !important;
+    font-size: 18px;
+  	font-weight: bold;
+}
+
+/* Ayushi- Login box on guest login page*/
+.df-login-g{
+	box-shadow: 1px 0px 5px #0002;
+	border-radius: 4px;
+  	margin-left: 22.5vw;
+  	padding-bottom: 25px;
+  	width: 55%;
+  	background: #0002;
+  	color: white;
+  	text-align: center;
+}
+/* title*/
+.df-login-g .aligncenterblog{ 
+  	margin-top: 17%;
+  	padding: 15px 0 55px;
+  	font-size: 22px;
+}
+/* Ayushi- To align social login buttons on guest login page*/
+.df-login-g div.nsl-container-block .nsl-container-buttons{
+  	flex-flow: row;
+  	padding: 0 15%;
+}
+.df-login-g div.nsl-container .nsl-container-buttons a{
+  	margin: 5px !important;
+}
+/* Ayushi- For guest login, when logged in - hide text*/
+body.page-id-48723.logged-in .df-login-g div{
+  	display: none;
+}
+/* display text*/
+body.page-id-48723.logged-in .df-login-g span{
+  	display: block !important;
+}
+/* display button*/
+body.page-id-48723.logged-in .df-login-g a{
+  	display: inline !important;
+}
+body.page-id-48723 .dfbutton:hover{
+  	color: white !important;
+  	background: #E3871D;
+}
+/* Ayushi- To correct position of back-to-top button on guest login page*/
+body.page-id-48723 a#back-to-top{
+  	margin: -388.5px 0 0 48% !important;
+}
+/* Ayushi- Full-width guest login page*/
+body.page-id-48723 .pad.group{
+  	padding: 0;
+}
+/* background*/
+body.page-id-48723 .main-inner.group{
+  	background: #0a2d52;
+  	color: white;
+}
+/* Ayushi- To hide title from guest login and submit post pages*/
+body.page-id-48723 div.page-title.pad.group, body.page-id-48780 div.page-title.pad.group{
+  	display: none;
+}
+
+/* Ayushi- Button color for submit post button*/
+body.page-id-48780 .usp-submit{
+  	background: #E07A04;
+}
+body.page-id-48780 #usp-success-message{
+  	text-align: center;
+}
+
+/* -------------------- Sidebars --------------------------- */
+
+/* ----------- Left ----------- */
+
+/* Ayushi- Top margin for blog left sidebar*/
+body:not([class*="search"]):not(.error404) .sidebar.collapsed.s1:not(.sticky){
+	margin-top: -8vh; /* Earlier- -15vh*/
+}
+body:not([class*="search"]) .sidebar.collapsed.s1.sticky{
+	margin-top: 5vh;
+}
+
+/* Ayushi- To set top margin and font size for left sidebar on blog posts*/
+.dflsbwidget{
+  	margin-top: -13px;
+  	font-size: 13px;
+}
+
+/* Ayushi- To style left sidebar head on blog posts*/
+.dflsbhead{
+  	padding: 5px;
+  	background-color: #003380;
+  	color: #ffffff;
+  	text-align: center;
+  	font-weight: bold;
+}
+.dflsbhead a{
+  	border-bottom: none !important;
+}
+
+/* Ayushi- To set left padding for left sidebar*/
+.s1 .dflsb{
+  	padding-left: 5px;
+}
+/* Ayushi- To reduce padding-right from left sidebar*/
+.s1 .pagesinwidgets_page_section, .s1 .dflsb{
+  	padding-right: 5px;
+}
+
+/* Ayushi- To remove margin and padding from left sidebar*/
+.s1 .dflsb ul{
+  	margin: 0;
+  	padding: 0;
+}
+/* Ayushi- To style left sidebar li on blog posts*/
+.dflsbli{
+  	margin-top: 5px;
+  	padding: 0;
+  	font-size: 1.1em;
+}
+
+/* Ayushi- Scrollbar for blog left sidebar*/
+.s1[data-position="left"]{
+  	margin-bottom: 1px;
+  	height: 88vh;
+  	overflow-y: scroll;
+}
+/* Ayushi- To return the blog left sidebar to normal when scrolled*/
+.s1.sticky{
+  	margin-top: unset;
+  	height: 95vh;
+}
+/* Ayushi- To make entire container for sidebar links clickable and add bottom border*/
+.dflsbwidget a{
+  	display: block;
+  	border-bottom: 0.5px solid #d3d3d3;
+}
+/* Ayushi- To change color on hover for sidebar links*/
+.dflsbwidget .dflsb ul li a:hover{
+  	background-color: rgba(9,118,189,0.2);
+}
+/* Ayushi- To highlight current tab in left sidebar for blogs, check JS*/
+.s1 a.current{
+  	background-color: rgba(9,118,189,0.5);
+  	color: white;
+}
+
+/* Ayushi- To remove background color from left sidebar headings*/
+.dflsbwidget div{
+  	background-color: transparent !important;
+}
+/* Ayushi- To remove font awesome clock icon from left sidebar*/
+.dflsb>ul>li a:before{
+  	content: none;
+}
+
+/* Ayushi- To hide author box from sidebars*/
+.sidebar .abh_box{
+  	display: none;
+}
+
+/* ----------- Right ------------ */
+
+/* Ayushi- To return top area to right sidebar*/
+body:not([class*="category-success-story"]):not([class*="search"]):not(.error404) .sidebar.s2, .sidebar.s1.sticky[data-position="right"]{
+  	margin-top: -25px;
+}
+/* Ayushi- To add 50px on top of sticky right sidebar and sticky wider right sidebar*/
+body:not([class*="page-id-48271"]) .sidebar.s1.collapsed.sticky[data-position="right"]{
+  	margin-top: 50px !important;
+}
+body:not([class*="search"]) .sidebar.collapsed.s2.sticky
+{
+  	margin-top: 9vh; /* Earlier- 45px*/
+}
+body:not([class*="search"]):not(.error404) .sidebar.collapsed.s2:not(.sticky){
+  	margin-top: -6vh; /* Earlier- -15vh*/
+}
+/* Ayushi- To set top margin for right sidebar on the page Write for us*/
+body.page-id-48271 .sidebar.s1.collapsed{
+  	margin-top: 15px !important;
+}
+
+/* Ayushi- To remove top and bottom paddings from search bar in right sidebar s2*/
+.sidebar div.widget_search{
+  	padding: 0 20px;
+}
+
+/* Ayushi- To bring up right contact form text in right sidebar*/
+.sidebar.s2 #text-9{
+  	padding: 10px 0;
+}
+.sidebar.s2 #text-9 [role="form"]{
+  	padding: 0 20px;
+}
+
+/* Ayushi- To center-align success story GIF in wider right sidebar s1*/
+.sidebar.s1 #text-11 > div:first-child > p:first-child{
+  	text-align: center;
+}
+/* Ayushi- To bring up success story GIF in right sidebars*/
+.sidebar.s2 #text-11, .sidebar.s1[data-position="right"] #text-11{
+  	padding: 0;
+  	margin-top: -33px;
+}
+/* Ayushi- To remove padding from Telegram GIF from right sidebar*/
+.sidebar.s2 #text-13{
+  	padding: 20px 0 0;
+}
+/* Ayushi- To make right sidebar Kafka ad full-width*/
+#text-15{
+  	padding: 0;
+}
+
+/* Ayushi- To add top padding to search box in right sidebar
+.sidebar.s2 #search-5{
+  	padding-top: 0px;
+}*/
+
+/* Ayushi- For success stories 4-block ad*/
+#ss-ad4{
+  	text-align: center;
+  	border: 1px solid darkgrey;
+  	height: 37vw;
+  	background: #f7fcff;
+  	margin-bottom: 30px;
+}
+/* row*/
+.ss-ad4-row{
+  	display: flex;
+}
+/*single*/
+.ss-ad4-ss{
+  	width: 50%;
+  	padding: 10px;
+}
+.ss-ad4-ss.one{
+  	border-right: 1px solid darkgrey;
+  	border-bottom: 1px solid darkgrey;
+}
+.ss-ad4-ss.two{
+  	border-bottom: 1px solid darkgrey;
+}
+.ss-ad4-ss.three{
+  	border-right: 1px solid darkgrey;
+}
+/* image*/
+#ss-ad4 img{
+  	width: 25%;
+}
+/* full slides*/
+.ss-ad4-full{
+  	display: none;
+  	padding: 10px;
+  	background: #f7fcff;
+}
+#ss-ad4 .ss-ad4-full img{
+  	width: 55%;
+}
+.ss-ad4-full-img{
+  	float: left;
+  	padding-top: 4.5%;
+}
+/* quote*/
+.ss-ad4-quote{
+  	font-size: 1.1em;
+    margin-bottom: 35px;
+    padding-top: 15.5%;
+}
+/* enroll button*/
+.ss-ad4-enroll{
+  	margin-top: 12%;
+  	background: #e07a04;
+  	display: inline-block;
+  	width: 130px;
+  	border-radius: 4px;
+  	padding: 5px;
+  	color: white;
+}
+.ss-ad4-enroll:hover{
+  	background: #fea101;
+}
+.ss-ad4-ss.four img {
+	margin-top: 1.1%;
+}
+
+/* -------------------- Testimonials ----------------------- */
+
+/* Ayushi- For circular images on individual testimonials*/
+.dftesti1{
+  	width: 55%;
+  	border: 3px solid #ddd;
+  	border-radius: 50%;
+}
+
+/* -------------------- Success Stories -------------------- */
+
+/* Ayushi- For course button on success stories*/
+.ss-course-button, .dfbutton{
+  	display: inline-block;
+  	padding: 7px !important;
+  	border-radius: 6px;
+  	background: #E07A04;
+  	color: white !important;
+}
+/* Ayushi- For course button color on hover*/
+.ss-course-button:hover{
+  	background: #E3871D;
+}
+.df-button:hover{
+  	background: #E3871D;
+  	color: white !important;
+}
+/* Ayushi- For dashed border around course button on success stories*/
+span.ss-course-box{
+  	display: block;
+  	padding: 20px;
+  	border: 2px dashed #145caa;
+  	text-align: center;
+}
+
+/* Ayushi- To return blue color to links on success story pages*/
+strong.df-success-story{
+  	color: #65ABF6;
+  	font-weight: bold;
+}
+
+/* To make Read more links bold in success stories*/
+.df-ss a.df-link-color{
+  	font-weight: bold;
+}
+
+/* -------------------- Quizzes -------------------------- */
+
+/* Ayushi- To temporarily hide quizzes*/
+.dflsbquiz, /* Hadoop*/#panel-w5be6b9e79dfe7-1-1-0, /*#pl-w5c04d64f81357R,*/ #pl-w5bdc52cb067d7/*Python*/, #pl-w5bf50341ae52c, #pg-w5bf689809cb3f-1 > div, div.dfquiz.panel-row-style.panel-row-style-for-w5bde960b55773-1, /* #panel-36723-1-0-1 > div Blockchain, /*#panel-36852-1-0-1 > div, cassandra*/ /*#pl-w5bbc57e45b08c,Java */ #panel-36570-1-0-1, #pl-w5bbc7514bcec8, /*#pl-w5bdd47f61a076 SAS, *#pl-w5bbc4e0e0b2e1 Scala, #panel-36050-1-0-1 Spark, #pl-w5bdae0282cf93 Tableau*/ #pl-w5bbc541b50466{
+  	display: none;
+}
+
+/* Ayushi- To remove bold text from options in questions in quizzes*/
+.quiz_section label, .quiz_section .mlw_qmn_question{
+  	font-weight: unset !important;
+}
+
+/*Ayushi- For green and red text on quiz result pages*/
+span.qmn_user_incorrect_answer::before{
+  	content: "You answered wrong: ";
+  	color: red;
+}
+span.qmn_user_correct_answer::before{
+  	content: "You answered right: ";
+  	color: green;
+}
+
+/* WP Quiz*/
+/* Ayushi- To change color and background color for WP Quizzes*/
+.wq-quiz-trivia .wq_questionTextCtr, .wq-skin-traditional .wq_singleAnswerCtr{
+  	background-color: white;
+  	color: #323232;
+}
+/* Ayushi- To change font weight for quiz options*/
+.wq_answerTxtCtr{
+  	font-weight: 300 !important;
+}
+/* Ayushi- To reduce font size for questions*/
+body.single-post .wq_questionTextCtr h4.fittexted_for_content_h4{
+  	font-size: 20px !important;
+}
+/* Ayushi- To change color for chosen option*/
+.wq_singleAnswerCtr.chosen pre, .wq_correctAnswer pre{
+  	color: #444;
+}
+
+/* -------------------- Forms ---------------------------- */
+
+/* Ayushi- For right sidebar s2 contact form*/
+/* Ayushi- To style and align text before form*/
+.df-cf2-text{
+  	text-align: center;
+  	font-size: 17px;
+}
+/* Ayushi- To style and align input fields*/
+#df_cf2 input:not([type=submit]), #df_cf2 select{
+  	background: white;
+  	margin-left: 8px;
+  	border: 1px solid darkgrey;
+  	border-radius: 2px;
+	width: 85%;
+	height: 11px;
+}
+/* Ayushi- To style and align course select field*/
+#df_cf2 select[name="course"]{
+  	padding: 8px;
+	width: 95%;
+  	height: 33px;
+}
+/* Ayushi- To reduce margins between input fields in contact form in right sidebar s2 for blogs*/
+#df_cf2 .wpcf7-form-control-wrap{
+  	margin-bottom: -5px;
+}
+/* Ayushi- To style submit button*/
+#df_cf2 input[type=submit]{
+  	border: none;
+  	border-radius: 5px;
+  	background: #E07A04;
+  	color: white;
+  	cursor: pointer;
+}
+/* Ayushi- To style and align submit button*/
+#df_cf2 p:last-child{
+	margin: 0 0 0 17px;
+	width: 80%;
+  	text-align: center;
+}
+/* Ayushi- To align submit button in wider right sidebar s1*/
+.sidebar.s1 #df_cf2 p:last-child{
+  	margin-left: 40px;
+}
+/* Ayushi- To remove background from alerts*/
+#df_cf2 span[role="alert"]{
+  	background: transparent;
+}
+/* Ayushi- To style and align output*/
+div[id|="wpcf7-f47820"] .wpcf7-response-output{
+  	display: inline-block;
+  	border: none;
+}
+
+/* Ayushi- For call contact form within blogs*/
+/* Ayushi- To assign background to the form*/
+.df-ccf form > p{
+  	padding: 30px 15px 40px;
+  	background: url(https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2019/01/Call-DataFlair-Contact-Form.jpg);
+	background-size: cover;
+  	text-align: center;
+}
+/* Ayushi- To style and align input fields*/
+.df-ccf .wpcf7-form-control-wrap{
+  	margin-right: 15px;
+  	width: 227px;
+}
+/* Ayushi- To style and align submit button*/
+.df-ccf input[type=submit]{
+  	display: block;
+  	position: absolute;
+  	margin: 13px 0 0 480px;
+  	width: 180px;
+}
+/* Ayushi- To remove background from alerts*/
+.df-ccf span[role="alert"]{
+  	background: transparent;
+}
+/* Ayushi- To align validation error output*/
+.df-ccf .wpcf7-response-output.wpcf7-validation-errors{
+  	position: absolute;
+  	margin: 170px 0 0 10px;
+}
+/* Ayushi- To align success output*/
+.df-ccf .wpcf7-response-output.wpcf7-mail-sent-ok{
+  	position: absolute;
+  	margin-top: 120px !important;
+  	margin-left: 10px;
+}
+
+/* ----------------------------------------- Footer --------------------------------------- */
+
+/* -------------------- Footer Strip --------------------- */
+
+/* Ayushi- To add padding to footer strip*/
+#footer-full-width-widget{
+  	padding: 17px 5px;
+  	background: #eee3;
+}
+/* Ayushi- To remove bottom padding from footer strip*/
+#footer .widget{
+  	padding-bottom: unset;
+}
+
+/* Ayushi- To remove extra margin from bottom of footer-full-width*/
+#text-2{
+  	margin-bottom: -15px;
+}
+/* Ayushi- To add spaces between links on footer-full-width*/
+#text-2 p a:not(:last-child){
+  	margin-right: 2vw;
+}
+
+/* -------------------- Links Footer ---------------------- */
+
+/* Ayushi- To set background for footer with tutorials links*/
+footer#footer section#footer-widgets.container div.container-inner div.pad.group{
+  	background: #1b384b;
+  	font-size: 1.05em;
+}
+/* Ayushi- To align back-to-top icon for footer*/
+footer#footer section#footer-bottom.container div.container-inner a#back-to-top{
+  	position: absolute;
+  	margin: -418.5px 0 0 48%;
+}
+
+/* Ayushi- To align links in footer*/
+#dfaboutfooter, #dfcategoryfooter1, #dfcategoryfooter2{
+  	padding: 50px 0 0 30%;
+  	color: #dedede;
+}
+/* Ayushi- To set grey color to footer links*/
+div#dfaboutfooter a, div#dfcategoryfooter1 a, div#dfcategoryfooter2 a{
+  	color: #bbb;
+}
+/* Ayushi- To set white hover color and underline to footer links*/
+div#dfaboutfooter a:hover, div#dfcategoryfooter1 a:hover, div#dfcategoryfooter2 a:hover{
+  	color: white !important;
+  	text-decoration: underline;
+}
+
+/* Ayushi- To remove padding from footer*/
+section#footer-widgets{
+  	padding: 0;
+}
+
+/* Ayushi- To realign repatcha badge*/
+.grecaptcha-badge{
+  	position: relative!important;
+  	bottom: 150px!important;
+  	float: right;
+  	z-index: 9;
+  	margin-bottom: -60px;
+}
+
+/* -------------------- End Footer ------------------------ */
+
+/* Ayushi- To remove display:block from footer logo to set image anchor size*/
+#footer-bottom #footer-logo{
+  	display: unset;
+}
+/* Ayushi- To add site tagline to footer*/
+div#copyright::after{
+  	content: "Learn today, Lead tomorrow";
+  	font-size: 18px;
+  	font-style: italic;
+}
+
+/* Ayushi- To align lower footer text*/
+footer#footer div#copyright{
+  	position: absolute;
+  	margin: -10% 0 0 19%;
+}
+/* Ayushi- To remove bottom padding from lower footer*/
+footer#footer section.container#footer-bottom div.pad.group{
+  	padding-bottom: 0px;
+}
+
+/* Ayushi- To align social icons in footer*/
+#footer-bottom ul.social-links{
+  	padding-top: 0px;
+  	margin: 1.5% 0 0 -15px;
+}
+/* Ayushi- To set margin between social icons in footer*/
+ul.social-links li{
+  	margin-left: 16px;
+}
+/* Ayushi- To set hover colors to social links in footer-Facebook, Twitter, Linkedin, and Youtube*/
+i.fab.fa-facebook:hover{
+  	color: #3b5998;
+}
+i.fab.fa-twitter:hover{
+  	color: #38A1F3;
+}
+i.fab.fa-linkedin:hover{
+  	color: #0077B5;
+}
+i.fab.fa-youtube:hover{
+  	color: #FF0000;
+}
+
+/* ----------------------------------------- Media Query ---------------------------------- */
+
+/* Ayushi- Media query for mobile screens - upto width 720, portrait+landscape*/
+@media only screen and (max-width: 720px){
+  	/* Ayushi- For topbar*/
+  	/* Ayushi- To style offer topbars*/
+  	div#icegram_message_46985, div#icegram_message_47063{
+      	width: 106%;
+  	}
+  	/* Ayushi- To hide*/
+	.df-hide{
+      	display: none;
+  	}
+  	/* Ayushi- To show*/
+  	.df-show{
+      	display: unset !important;
+  	}
+  	/* Ayushi- To align coupon button*/
+  	.coupon2019{
+      	display: inline-block;
+  	}
+  
+  	/* Ayushi- To align call contact form on blogs*/
+  	.df-ccf input[type=submit]{
+  		display: unset;
+      	position: unset;
+  		margin-left: unset;
+	}
+  	/* To align input fields*/
+  	.df-ccf .wpcf7-form-control-wrap{
+      	margin-left: 16%;
+  	}
+  	/* To style input fields*/
+  	.df-ccf form > p{
+      	width: 95%;
+    }
+  	/* To align success output*/
+  	.df-ccf .wpcf7-response-output.wpcf7-mail-sent-ok{
+  		margin-top: 225px !important;
+	}
+  	/* To align validation error output*/
+  	.df-ccf .wpcf7-response-output.wpcf7-validation-errors{
+  		margin-top: 345px;
+	}
+  	/* Bhumika - for tutorial home page*/
+
+  .set-margin.panel-row-style .textwidget{
+    width: 100% !important;
+   }
+  
+  	/* Ayushi- For footer*/
+  	/* Ayushi- To align back-to-top button correctly on footer*/
+  	footer#footer section#footer-bottom.container div.container-inner a#back-to-top{
+      	position: unset !important;
+      	margin-top: unset !important;
+      	margin-left: 44% !important;
+  	}
+  	/* Ayushi- To align logo in footer*/
+  	#footer-bottom #footer-logo{
+      	margin-bottom: 30px;
+  	}
+  
+  	/* Ayushi- For footer campaign*/
+  	/* Ayushi- To style and align talk to us button*/
+  	.df-talk{
+      	display: unset !important;
+      	padding: 2px 35px !important;
+      	border-radius: 4px;
+      	background: #E07A04;
+      	color: white;
+  	}
+  	/* Ayushi- To style and align write to us query button*/
+  	.querybutton{
+      	padding-top: 0px;
+      	border-radius: 3px;
+      	width: 140px;
+  	}
+  	/* Ayushi- To set font sizes for headings h1 to h5*/
+  	body.single-post h1.fittexted_for_single_post_title, body.single-job_listing h1.fittexted_for_single_post_title{
+  		font-size: 25.6px !important;
+	}
+  	body.single-post h2.fittexted_for_content_h2, body.single-job_listing h2.fittexted_for_content_h2{
+      	font-size: 23.1px !important;
+  	}
+  	body.single-post h3.fittexted_for_content_h3, body.single-job_listing h3.fittexted_for_content_h3{
+      	font-size: 20.6px !important;
+  	}
+  	body.single-post h4.fittexted_for_content_h4{
+      	font-size: 18.1px !important;
+  	}
+  	body.single-post h5.fittexted_for_content_h5{
+      	font-size: 16.3px !important;
+      	font-weight: normal !important;
+  	}
+}
+/* Ayushi- Media query for mobile screens - upto width 896, landscape*/
+@media only screen and (max-width: 896px) and (orientation: landscape){
+  	/* Ayushi- To align back-to-top button correctly on footer*/
+  	footer#footer section#footer-bottom.container div.container-inner a#back-to-top{
+      	position: unset !important;
+      	margin-top: unset !important;
+  	}
+  	/* Ayushi- to align copyright text*/
+  	div#copyright{
+      	position: relative !important;
+      	padding-top: 25px !important;
+      	margin-left: unset !important;
+  	}
+  	/* Ayushi- To set font sizes for headings h1 to h5*/
+  	body.single-post h1.fittexted_for_single_post_title, body.single-job_listing h1.fittexted_for_single_post_title{
+  		font-size: 25.6px !important;
+	}
+  	body.single-post h2.fittexted_for_content_h2, body.single-job_listing h2.fittexted_for_content_h2{
+      	font-size: 23.1px !important;
+  	}
+  	body.single-post h3.fittexted_for_content_h3, body.single-job_listing h3.fittexted_for_content_h3{
+      	font-size: 20.6px !important;
+  	}
+  	body.single-post h4.fittexted_for_content_h4{
+      	font-size: 18.1px !important;
+  	}
+  	body.single-post h5.fittexted_for_content_h5{
+      	font-size: 16.3px !important;
+      	font-weight: normal !important;
+  	}
+}
+/* Ayushi- Media query for mobile screens - upto width 640, landscape*/
+@media only screen and (max-width: 640px) and (orientation: landscape){
+  	/* Ayushi- To align call contact form on blogs*/
+  	.df-ccf .wpcf7-response-output.wpcf7-mail-sent-ok{
+  		margin-top: 250px !important;
+	}
+  	/* Ayushi- To style input fields*/
+  	.df-ccf .wpcf7-form-control-wrap{
+      	margin-left: 24.5%;
+  	}
+}
+/*Ayushi- Media Query for Desktops and Laptops */
+@media only screen and (min-width: 1025px){
+  	/* Ayushi- To add side padding to blog posts*/
+	.single-post .post-inner{
+  		padding-left: 20px;
+  		padding-right: 20px;
+	}
+}
+
+/* ----------------------------------------- Sprites ------------------------------------ */
+
+/* Ayushi- To style sprites*/
+#df-sprite-flink, #df-sprite-spark, #df-sprite-hadoop, #df-sprite-hdsp, #df-sprite-qv, #df-sprite-pbi, #df-sprite-tab, #df-sprite-fli, #df-sprite-sp, #df-sprite-had, #df-sprite-sql, #df-sprite-sas, #df-sprite-r, #df-sprite-py, #df-sprite-ml, #df-sprite-ds{
+  	background-image: url(https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2019/01/Icons-Sprite-02.png);
+  	width: 38px;
+}
+#df-sprite-flink{
+  	background-position: -234px;
+}
+#df-sprite-spark{
+  	background-position: -371px;
+}
+#df-sprite-hadoop{
+  	background-position: -690px;
+}
+#df-sprite-hdsp{
+  	background-position: -507px;
+}
+#df-sprite-qv{
+  	background-position: -140px;
+}
+#df-sprite-pbi{
+  	background-position: -327px;
+}
+#df-sprite-tab{
+  	background-position: -7px;
+}
+#df-sprite-fli{
+  	background-position: -554px;
+}
+#df-sprite-sp{
+  	background-position: -96px;
+}
+#df-sprite-had{
+  	background-position: -458px;
+}
+#df-sprite-sql{
+  	background-position: -51px;
+}
+#df-sprite-sas{
+  	background-position: -188px;
+}
+#df-sprite-r{
+  	background-position: -644px;
+}
+#df-sprite-py{
+  	background-position: -282px;
+}
+#df-sprite-ml{
+  	background-position: -417px;
+}
+#df-sprite-ds{
+  	background-position: -599px;
+}
+
+/* ----------------------------------------- Debugging ---------------------------------- */
+
+/* Ayushi- To prevent sidebar s2 from overlapping footer*/
+footer#footer{
+  	z-index: 9 !important;
+}
+
+/* Ayushi- To avoid 3cm error of Mozilla*/
+.main{
+  	overflow: unset !important;
+}
+
+/* Ayushi- To remove scrollbar on hover on single-line Enlighter code boxes, and allow scroll*/
+.EnlighterJSWrapper.enlighterEnlighterJSWrapper:hover{
+  	overflow: visible;
+}
+
+/* Ayushi- To prevent menu bar from shrinking by 1px on hover*/
+nav#nav-topbar{
+  	height: 50px !important;
+}
+
+/* Ayushi- To remove horizontal scrollbar from right sidebar*/
+.sidebar.s1.collapsed[data-position="right"]{
+  	overflow-x: hidden;
+}
+
+/* Ayushi- To prevent horizontal scrollbar because of overflow due to recaptcha tab*/
+body{
+  	overflow-x: hidden;
+}
+
+/* Ayushi- To remove dropdown arrows on topbar menu*/
+.topbar-toggle-down{
+  	display: none !important;
+}
+
+/* Ayushi- To prevent entire webpage from scrolling horizontally*/
+html{
+  	overflow-x: hidden;
+}
+
+/* Ayushi- To correct bottom margin flicker on hover on enlighter code right before an image*/
+.EnlighterJSWrapper.enlighterEnlighterJSWrapper{ margin-bottom: 8px;}
+.EnlighterJSWrapper.enlighterEnlighterJSWrapper:hover{ margin-bottom: 28px !important;}
+
+/* Ayushi- To correct font-family and -size for blog posts*/
+body.single-post span *{
+  	font-family: Georgia !important;
+  	font-size: 1em !important
+}
+
+/* Ayushi- To make menu items fully clickable to prevent rolling back*/
+li.menu-item{
+  	height: 50px;
+}
+
+/*----------------------------Tutorials Home New------------------------------------*/
+
+
+/* Rahul - Tutorials home - formatting links in list  */
+ul.tutHomeList li {
+  display:flex;
+  text-align: left;
+   padding: 4px 0;
+   border-bottom: 1px dotted #e3be46;
+}
+/* Bhumika - Tutorial home link hover */
+ul.tutHomeList li a:hover
+{
+  background-color: #c4ddf8!important;
+}
+/* Bhumika - Tutorial formatting setting margin and padding*/
+.set-margin .so-panel
+{
+  margin-bottom:0 !important;
+}
+
+/* Bhumika - margin below the heading of tutorial home in beginenner, intermediate and expert*/
+.set-margin .textwidget h5{
+  margin-bottom:7px !important;
+}
+
+/* Bhumika - to set margin below the getting started sub heading in tutorial home*/
+.set-margin
+{
+  margin-bottom:0px !important;
+}
+
+/* Bhumika - margin before getting started in python tutorial home*/
+body.page-id-60905 .pad.group
+{
+  padding-top:10px !important;
+}
+/* Bhumika - to set margin below the sub heading in tutorial home*/
+.set-margin .panel-grid{
+  margin-bottom: 13px !important;
+}
+/* Bhumika - setting width of the all the div having links*/
+.set-width.panel-row-style .textwidget {
+    width: 80% !important;
+}
+
+/* Bhumika - Arrow for the links*/
+  ul.arrowBefore li::before {
+     content: " ⇨ ";
+    color:#4b4c4d !important;
+  /*  font-size: 25px;*/
+    vertical-align: middle;
+}
+  
+/* Bhumika - For list style in home page */
+ul.listStyle li
+{
+  list-style-type:none;
+}
+/* Bhumika - for the color of links */
+ul.tutHomeList a
+{
+  color:#32618a;
+}
+/* h5 heading of tutorial home page*/
+.tutorial-heading h5{
+    font-size: 16px !important;
+    font-weight: lighter;
+}
+/* Bhumika- h2 heading of tutorial home page */
+h2.tutorial-heading{
+    font-size: 26px !important;
+    font-weight: lighter;
+     margin-bottom: 7px;
+}
+/* Bhumika setting width on mobile view */
+.set-margin > div {
+width: 100% !important;
+}
+/* Bhumika- to add link to an entire li */
+ul.tutHomeList a{
+  display:-webkit-inline-box;
+  width:90%;
+  padding-left: 3px;
+}
+
+/* Bhumika add star before links in Data Science tutorial Home */
+ul.starBefore li::before {
+     content: " ✦ ";
+    color:#585b5c!important;
+   /* font-size: 25px;*/
+    vertical-align: middle;
+}
+ 
+/* Bhumika - Data Science Tutorial header color */
+
+.is-scrolled .search-expand, .is-scrolled.header-skin-light #header #nav-topbar.nav-container, .is-scrolled.header-skin-light #nav-topbar.desktop-sticky .nav ul, .header-skin-light #header #nav-topbar.nav-container, .header-skin-light #nav-topbar.desktop-sticky .nav ul, .search-expand
+{
+background: #5ba1ec !important;
+}
+
+/*------------------------------------Padding Top-----------------------------------------*/
+/* Bhumika - margin before getting started in datascience tutorial home*/
+body.page-id-62341 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in pandas tutorial home*/
+body.page-id-64117 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in django tutorial home*/
+body.page-id-64157 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in sap hana tutorial home*/
+body.page-id-64192 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in javascript tutorial home*/
+body.page-id-64213 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in angular tutorial home*/
+body.page-id-64251 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in c/c++ tutorial home*/
+body.page-id-63160 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in cloud tutorial home*/
+body.page-id-64267 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in data mining tutorial home*/
+body.page-id-64299 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in big data tutorial home*/
+body.page-id-64315 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in mongodb tutorial home*/
+body.page-id-64330 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in sas/stat tutorial home*/
+body.page-id-64365 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in sas tutorial home*/
+body.page-id-64395 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in hadoop tutorial home*/
+body.page-id-64545 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in sql tutorial home*/
+body.page-id-64576 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in powerbi tutorial home*/
+body.page-id-64589 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in aws tutorial home*/
+body.page-id-64623 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in salesforce tutorial home*/
+body.page-id-64634 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in spring tutorial home*/
+body.page-id-64687 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in Qlik sense tutorial home*/
+body.page-id-64711 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in cassandra tutorial home*/
+body.page-id-64721 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in flink tutorial home*/
+body.page-id-64742 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in ai tutorial home*/
+body.page-id-64750 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in blockchain tutorial home*/
+body.page-id-64774 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in kafka tutorial home*/
+body.page-id-64798 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in qlik view tutorial home*/
+body.page-id-64824 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in spark tutorial home*/
+body.page-id-64857 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in tableau tutorial home*/
+body.page-id-64935 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in iot tutorial home*/
+body.page-id-64969 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in r tutorial home*/
+body.page-id-65002 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in tensorflow tutorial home*/
+body.page-id-65043 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in java tutorial home*/
+body.page-id-65063 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in scala tutorial home*/
+body.page-id-65085 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - margin before getting started in machine learning tutorial home*/
+body.page-id-64943 .pad.group
+{
+  padding-top:10px !important;
+}
+
+/* Bhumika - add css for text on a image */
+
+.imagetext
+{
+  position: relative; 
+}
+.imagetext
+{
+  position: relative; 
+   top: 200px; 
+   left: 0; 
+   width: 80%; 
+  transform: translate(-20%, -50%);
+}
+
+/*Bhumika - add box shadow on blog home images*/
+ .blogshadow
+{
+  /*0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 2px 3px 0 rgba(0, 0, 0, 0.15)
+}
+/* Bhumika - to add dsplay block inline in blog home page */
+.displayblock
+{
+  display: inline-block;
+  margin-bottom:10px;
+  margin-left: 10px;
+}
+
+/* Bhumika - hover color on button*/
+
+.buttonhover div div a:hover 
+{
+    background-color: orange;
+}
+
+/* Bhumika - text of big data page*/
+body.page-id-64315 .widget
+{
+  font-size:initial;
+}
+/* Bhumika - to select the text on the header image in R tutorial Series 
+body.page-id-65002 .carousel-caption h1 {
+    background-color: #3e79eb;
+    color: #fff;
+    padding: 15px;
+    display: inline !important;
+}
+*/</style> <script id="pixel-script-poptin" src="./explanation of kernels in SVR_files/pixel.js.download" async="true"></script> <script>var _nsl=[];(function(a,d){var c=function(){if(a.jQuery===d)setTimeout(c,33);else{for(var b=0;b<_nsl.length;b++)_nsl[b].call(a,a.jQuery);_nsl={push:function(b){b.call(a,a.jQuery)}}}};c()})(window);</script><!--[if lt IE 9]> <script src=https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/themes/hueman-pro/assets/front/js/ie/html5shiv-printshiv.min.js></script> <script src=https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/themes/hueman-pro/assets/front/js/ie/selectivizr.js></script> <![endif]--><link rel="amphtml" href="https://data-flair.training/blogs/svm-kernel-functions/amp/"><link rel="icon" href="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2016/11/cropped-DataFlair_Logo_Final_220x100_Transp-32x32.png" sizes="32x32"><link rel="icon" href="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2016/11/cropped-DataFlair_Logo_Final_220x100_Transp-192x192.png" sizes="192x192"><link rel="apple-touch-icon-precomposed" href="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2016/11/cropped-DataFlair_Logo_Final_220x100_Transp-180x180.png"><meta name="msapplication-TileImage" content="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2016/11/cropped-DataFlair_Logo_Final_220x100_Transp-270x270.png"><style>div.nsl-container[data-align="left"] {
+    text-align: left;
+}
+
+div.nsl-container[data-align="center"] {
+    text-align: center;
+}
+
+div.nsl-container[data-align="right"] {
+    text-align: right;
+}
+
+
+div.nsl-container .nsl-container-buttons a {
+    text-decoration: none !important;
+    box-shadow: none !important;
+    border: 0;
+    box-shadow: none;
+}
+
+div.nsl-container .nsl-container-buttons {
+    display: flex;
+    padding: 5px 0;
+}
+
+div.nsl-container-block .nsl-container-buttons {
+    flex-flow: column;
+    align-items: center;
+}
+
+div.nsl-container-block .nsl-container-buttons a {
+    flex: 1 1 auto;
+    display: block;
+    margin: 5px 0;
+    max-width: 280px;
+    width: 100%;
+}
+
+div.nsl-container-inline {
+    margin: -5px;
+    text-align: left;
+}
+
+div.nsl-container-inline .nsl-container-buttons {
+    justify-content: center;
+}
+
+div.nsl-container-inline .nsl-container-buttons a {
+    margin: 5px;
+    display: inline-block;
+}
+
+div.nsl-container .nsl-button {
+    cursor: pointer;
+    vertical-align: top;
+    border-radius: 4px;
+}
+
+div.nsl-container .nsl-button-default {
+    color: #fff;
+    display: flex;
+}
+
+div.nsl-container .nsl-button-icon {
+    display: inline-block;
+}
+
+div.nsl-container .nsl-button-svg-container {
+    flex: 0 0 auto;
+    padding: 8px;
+    display: flex;
+}
+
+div.nsl-container span {
+    display: inline-block;
+}
+
+div.nsl-container svg {
+    height: 24px;
+    width: 24px;
+    vertical-align: top;
+}
+
+div.nsl-container .nsl-button-default span.nsl-button-label-container {
+    margin: 0 24px 0 12px;
+    padding: 10px 0;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: .25px;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: clip;
+    white-space: nowrap;
+    flex: 1 1 auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+div.nsl-container .nsl-button-google[data-skin="dark"] .nsl-button-svg-container {
+    margin: 1px;
+    padding: 7px;
+    border-radius: 3px;
+    background: #fff;
+}
+
+div.nsl-container .nsl-button-google[data-skin="light"] {
+    border-radius: 1px;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .25);
+    color: RGBA(0, 0, 0, 0.54);
+}
+
+/*Button align start*/
+div.nsl-container-block[data-align="left"] .nsl-container-buttons {
+    align-items: flex-start;
+}
+
+div.nsl-container-block[data-align="center"] .nsl-container-buttons {
+    align-items: center;
+}
+
+div.nsl-container-block[data-align="right"] .nsl-container-buttons {
+    align-items: flex-end;
+}
+
+div.nsl-container-inline[data-align="left"] .nsl-container-buttons {
+    justify-content: flex-start;
+}
+
+div.nsl-container-inline[data-align="center"] .nsl-container-buttons {
+    justify-content: center;
+}
+
+div.nsl-container-inline[data-align="right"] .nsl-container-buttons {
+    justify-content: flex-end;
+}
+/* Button align end*/</style><style id="wfc-style-body" data-origin="server">/* Setting : Default website font */ 
+body {
+}</style><style id="grids-css">.post-list .grid-item {float: left; }
+                .cols-1 .grid-item { width: 100%; }
+                .cols-2 .grid-item { width: 50%; }
+                .cols-3 .grid-item { width: 33.3%; }
+                .cols-4 .grid-item { width: 25%; }
+                @media only screen and (max-width: 719px) {
+                      #grid-wrapper .grid-item{
+                        width: 100%;
+                      }
+                }</style><style>.ai-viewport-3                { display: none !important;}
+.ai-viewport-2                { display: none !important;}
+.ai-viewport-1                { display: inherit !important;}
+.ai-viewport-0                { display: none !important;}
+@media (min-width: 768px) and (max-width: 979px) {
+.ai-viewport-1                { display: none !important;}
+.ai-viewport-2                { display: inherit !important;}
+}
+@media (max-width: 767px) {
+.ai-viewport-1                { display: none !important;}
+.ai-viewport-3                { display: inherit !important;}
+}</style> <script async="" src="./explanation of kernels in SVR_files/js"></script> <script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-59844492-2');</script> <meta name="p:domain_verify" content="e08b98e1059afe95078ceeec78a98050"> <script async="" src="./explanation of kernels in SVR_files/f.txt"></script> <script>(adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9834688387117374",
+    enable_page_level_ads: true
+  });</script> <script type="text/javascript" src="./explanation of kernels in SVR_files/jquery.min.js.download" async="true"></script></head><body class="post-template-default single single-post postid-3700 single-format-standard col-3cm full-width topbar-enabled mobile-sidebar-hide-s1 header-desktop-sticky header-mobile-sticky chrome hueman-pro hu-smoothscroll is-scrolled is-scrolling" data-gr-c-s-loaded="true"><div id="i4c-draggable-container" style="position: fixed; z-index: 1499; width: 0px; height: 0px;"><div data-reactroot="" class="resolved" style="all: initial;"></div></div><div id="wrapper"><header id="header" class="specific-mobile-menu-on one-mobile-menu mobile_menu header-ads-desktop  topbar-transparent no-header-img fixed-header-on" style="height: 0px; padding-top: 50px;"><nav class="nav-container group mobile-menu mobile-sticky no-menu-assigned" id="nav-mobile" data-menu-id="header-1"><div class="mobile-title-logo-in-header"><p class="site-title"><a class="custom-logo-link" href="https://data-flair.training/blogs/" rel="home" title="DataFlair | Home page">DataFlair</a></p></div><div class="ham__navbar-toggler-two collapsed" title="Menu" aria-expanded="false"><div class="ham__navbar-span-wrapper">
+<span class="line line-1"></span>
+<span class="line line-2"></span>
+<span class="line line-3"></span></div></div><div class="nav-text"></div><div class="nav-wrap container"><ul class="nav container-inner group mobile-search"><li><form method="get" class="searchform themeform" action="https://data-flair.training/blogs/"><div>
+<input type="text" class="search" name="s" onblur="if(this.value==&#39;&#39;)this.value=&#39;To search type and hit enter&#39;;" onfocus="if(this.value==&#39;To search type and hit enter&#39;)this.value;" value="To search type and hit enter"></div></form></li></ul><ul id="menu-quiz" class="nav container-inner group"><li id="menu-item-43693" class="dflogo menu-item menu-item-type-custom menu-item-object-custom menu-item-43693"><a href="https://data-flair.training/" data-ps2id-api="true">&nbsp;&nbsp;</a></li><li id="menu-item-44066" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-44066"><a href="https://data-flair.training/blogs/" data-ps2id-api="true">Blog Home</a></li><li id="menu-item-27572" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27572"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">Courses</a><ul class="sub-menu" style="display: none;"><li id="menu-item-27610" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27610"><a href="https://data-flair.training/hadoop-spark-developer-course/" data-ps2id-api="true">Big Data Hadoop &amp; Spark Scala</a></li><li id="menu-item-66601" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-66601"><a href="https://data-flair.training/python-course/" data-ps2id-api="true">Python Course</a></li><li id="menu-item-27611" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27611"><a href="https://data-flair.training/big-data-hadoop/" data-ps2id-api="true">Big Data &amp; Hadoop</a></li><li id="menu-item-69115" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-69115"><a href="https://data-flair.training/apache-kafka/" data-ps2id-api="true">Apache Kafka</a></li><li id="menu-item-27612" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27612"><a href="https://data-flair.training/apache-spark-scala/" data-ps2id-api="true">Apache Spark &amp; Scala</a></li><li id="menu-item-27615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27615"><a href="https://data-flair.training/apache-flink/" data-ps2id-api="true">Apache Flink</a></li></ul></li><li id="menu-item-27594" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27594"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">Data Science</a><ul class="sub-menu" style="display: none;"><li id="menu-item-67266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-67266"><a href="https://data-flair.training/blogs/data-science-tutorials-home/" data-ps2id-api="true">Data Science Tutorials</a></li><li id="menu-item-56249" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-56249"><a href="https://data-flair.training/blogs/python-tutorials-home/" data-ps2id-api="true">Python Tutorials</a><ul class="sub-menu" style="display: none;"><li id="menu-item-62285" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-62285"><a href="https://data-flair.training/blogs/python-tutorials-home/" data-ps2id-api="true">Python Tutorials</a></li><li id="menu-item-40111" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40111"><a href="https://data-flair.training/blogs/tensorflow-tutorials-home/" data-ps2id-api="true">TensorFlow Tutorials</a></li><li id="menu-item-56250" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-56250"><a href="https://data-flair.training/blogs/pandas-tutorials-home/" data-ps2id-api="true">Pandas Tutorials</a></li><li id="menu-item-56245" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-56245"><a href="https://data-flair.training/blogs/django-tutorials-home/" data-ps2id-api="true">Django Tutorials</a></li></ul></li><li id="menu-item-40112" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40112"><a href="https://data-flair.training/blogs/iot-tutorials-home/" data-ps2id-api="true">IoT Tutorials</a></li><li id="menu-item-27620" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27620"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">BI Tutorials</a><ul class="sub-menu" style="display: none;"><li id="menu-item-40121" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40121"><a href="https://data-flair.training/blogs/tableau-tutorials-home/" data-ps2id-api="true">Tableau Tutorials</a></li><li id="menu-item-40123" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40123"><a href="https://data-flair.training/blogs/power-bi-tutorials-home/" data-ps2id-api="true">Power BI Tutorials</a></li><li id="menu-item-40122" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40122"><a href="https://data-flair.training/blogs/qlikview-tutorials-home/" data-ps2id-api="true">QlikView Tutorials</a></li><li id="menu-item-44076" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44076"><a href="https://data-flair.training/blogs/qlik-sense-tutorials-home/" data-ps2id-api="true">Qlik Sense Tutorials</a></li><li id="menu-item-56246" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-56246"><a href="https://data-flair.training/blogs/sap-hana-tutorials-home/" data-ps2id-api="true">SAP HANA Tutorials</a></li></ul></li><li id="menu-item-67583" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-67583"><a href="https://data-flair.training/blogs/r-tutorials-home/" data-ps2id-api="true">R Tutorials</a></li><li id="menu-item-40114" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40114"><a href="https://data-flair.training/blogs/sas-tutorials-home/" data-ps2id-api="true">SAS Tutorials</a></li><li id="menu-item-40116" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40116"><a href="https://data-flair.training/blogs/sas-stat-tutorials-home/" data-ps2id-api="true">SAS – STAT Tutorials</a></li><li id="menu-item-68437" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-68437"><a href="https://data-flair.training/blogs/machine-learning-tutorials-home/" data-ps2id-api="true">Machine Learning Tutorials</a></li><li id="menu-item-40118" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40118"><a href="https://data-flair.training/blogs/ai-tutorials-home/" data-ps2id-api="true">AI Tutorials</a></li><li id="menu-item-40119" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40119"><a href="https://data-flair.training/blogs/data-mining-tutorials-home/" data-ps2id-api="true">Data Mining Tutorials</a></li><li id="menu-item-40120" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40120"><a href="https://data-flair.training/blogs/sql-tutorials-home/" data-ps2id-api="true">SQL Tutorials</a></li></ul></li><li id="menu-item-27617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27617"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">Big Data</a><ul class="sub-menu" style="display: none;"><li id="menu-item-67263" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-67263"><a href="https://data-flair.training/blogs/big-data-tutorials-home/" data-ps2id-api="true">Big Data Tutorials</a></li><li id="menu-item-27595" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27595"><a href="https://data-flair.training/blogs/hadoop-tutorials-home/" data-ps2id-api="true">Hadoop Ecosystem Tutorials</a></li><li id="menu-item-40141" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40141"><a href="https://data-flair.training/blogs/spark-tutorials-home/" data-ps2id-api="true">Apache Spark Tutorials</a></li><li id="menu-item-40142" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40142"><a href="https://data-flair.training/blogs/spark-tutorials-home/" data-ps2id-api="true">PySpark Tutorials</a></li><li id="menu-item-40143" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40143"><a href="https://data-flair.training/blogs/flink-tutorials-home/" data-ps2id-api="true">Apache Flink Tutorials</a></li><li id="menu-item-40144" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40144"><a href="https://data-flair.training/blogs/kafka-tutorials-home/" data-ps2id-api="true">Apache Kafka Tutorials</a></li><li id="menu-item-27609" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27609"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">NoSQL Databases</a><ul class="sub-menu" style="display: none;"><li id="menu-item-40099" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40099"><a href="https://data-flair.training/blogs/cassandra-tutorials-home/" data-ps2id-api="true">Cassandra Tutorials</a></li><li id="menu-item-40101" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40101"><a href="https://data-flair.training/blogs/mongodb-tutorials-home/" data-ps2id-api="true">MongoDB Tutorials</a></li></ul></li></ul></li><li id="menu-item-27582" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27582"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">Categories</a><ul class="sub-menu" style="display: none;"><li id="menu-item-58606" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58606"><a href="https://data-flair.training/blogs/c-tutorials-home/" data-ps2id-api="true">C Tutorials</a></li><li id="menu-item-40102" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40102"><a href="https://data-flair.training/blogs/blockchain-tutorials-home/" data-ps2id-api="true">Blockchain Tutorials</a></li><li id="menu-item-45536" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45536"><a href="https://data-flair.training/blogs/cloud-computing-tutorials-home/" data-ps2id-api="true">Cloud Computing Tutorials</a></li><li id="menu-item-40103" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40103"><a href="https://data-flair.training/blogs/aws-tutorials-home/" data-ps2id-api="true">AWS Tutorials</a></li><li id="menu-item-40104" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40104"><a href="https://data-flair.training/blogs/salesforce-tutorials-home/" data-ps2id-api="true">Salesforce Tutorials</a></li><li id="menu-item-27578" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27578"><a href="https://data-flair.training/blogs/category/linux/" data-ps2id-api="true">Linux Tutorials</a></li><li id="menu-item-40107" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40107"><a href="https://data-flair.training/blogs/scala-tutorials-home/" data-ps2id-api="true">Scala Tutorials</a></li><li id="menu-item-40108" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40108"><a href="https://data-flair.training/blogs/java-tutorials-home/" data-ps2id-api="true">Java Tutorials</a></li><li id="menu-item-66879" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-66879"><a href="https://data-flair.training/blogs/javascript-tutorials-home/" data-ps2id-api="true">JavaScript Tutorials</a></li><li id="menu-item-40109" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40109"><a href="https://data-flair.training/blogs/spring-tutorials-home/" data-ps2id-api="true">Spring Tutorials</a></li><li id="menu-item-51339" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-51339"><a href="https://data-flair.training/blogs/seo-tutorials-home/" data-ps2id-api="true">SEO Tutorials</a></li></ul></li><li id="menu-item-27573" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27573"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">Interview Questions</a><ul class="sub-menu" style="display: none;"><li id="menu-item-44825" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44825"><a href="https://data-flair.training/blogs/data-science-tutorials-home/#interview-questions" data-ps2id-api="true">Data Science Interview Questions</a></li><li id="menu-item-44932" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44932"><a href="https://data-flair.training/blogs/python-tutorials-home/#interview-questions" data-ps2id-api="true">Python Interview Questions</a></li><li id="menu-item-42706" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-42706"><a href="https://data-flair.training/blogs/hadoop-tutorials-home/#interview-questions" data-ps2id-api="true">Hadoop Interview Questions</a></li><li id="menu-item-44914" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44914"><a href="https://data-flair.training/blogs/spark-tutorials-home/#interview-questions" data-ps2id-api="true">Spark Interview Questions</a></li><li id="menu-item-44857" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44857"><a href="https://data-flair.training/blogs/r-tutorials-home/#interview-questions" data-ps2id-api="true">R Interview Questions</a></li><li id="menu-item-44880" class="intmenubi menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-44880"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">BI Interview Questions</a><ul class="sub-menu" style="display: none;"><li id="menu-item-44860" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44860"><a href="https://data-flair.training/blogs/power-bi-tutorials-home/#interview-questions" data-ps2id-api="true">Power BI Interview Questions</a></li><li id="menu-item-44863" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44863"><a href="https://data-flair.training/blogs/tableau-tutorials-home/#interview-questions" data-ps2id-api="true">Tableau Interview Questions</a></li><li id="menu-item-44960" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44960"><a href="https://data-flair.training/blogs/qlikview-tutorials-home/#interview-questions" data-ps2id-api="true">QlikView Interview Questions</a></li></ul></li><li id="menu-item-44786" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44786"><a href="https://data-flair.training/blogs/java-tutorials-home/#interview-questions" data-ps2id-api="true">Java Interview Questions</a></li><li id="menu-item-44866" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44866"><a href="https://data-flair.training/blogs/sql-tutorials-home/#interview-questions" data-ps2id-api="true">SQL Interview Questions</a></li><li id="menu-item-44869" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44869"><a href="https://data-flair.training/blogs/sas-tutorials-home/#interview-questions" data-ps2id-api="true">SAS Interview Questions</a></li></ul></li><li id="menu-item-45067" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-45067"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">Quizzes</a><ul class="sub-menu" style="display: none;"><li id="menu-item-45323" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45323"><a href="https://data-flair.training/blogs/hadoop-tutorials-home/#quizzes" data-ps2id-api="true">Hadoop Quizzes</a></li><li id="menu-item-45073" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45073"><a href="https://data-flair.training/blogs/spark-tutorials-home/#quizzes" data-ps2id-api="true">Spark Quizzes</a></li><li id="menu-item-45074" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45074"><a href="https://data-flair.training/blogs/scala-tutorials-home/#quizzes" data-ps2id-api="true">Scala Quizzes</a></li><li id="menu-item-45075" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45075"><a href="https://data-flair.training/blogs/java-tutorials-home/#quizzes" data-ps2id-api="true">Java Quizzes</a></li><li id="menu-item-45077" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45077"><a href="https://data-flair.training/blogs/r-tutorials-home/#quizzes" data-ps2id-api="true">R Quizzes</a></li><li id="menu-item-45078" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45078"><a href="https://data-flair.training/blogs/aws-tutorials-home/#quizzes" data-ps2id-api="true">AWS Quizzes</a></li></ul></li><li id="menu-item-27598" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27598"><a href="https://data-flair.training/blogs/jobs/" data-ps2id-api="true">Job Portal</a></li><li id="menu-item-48307" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48307"><a href="https://data-flair.training/blogs/write-for-us/" data-ps2id-api="true">Write For Us</a></li></ul></div></nav><nav class="nav-container group desktop-menu desktop-sticky  sticky-visible" id="nav-topbar" data-menu-id="header-2" style="max-width: 1519px; transform: translate(0px, 0px);"><div class="nav-text"></div><div class="topbar-toggle-down">
+<i class="fas fa-angle-double-down" aria-hidden="true" data-toggle="down" title="Expand menu"></i>
+<i class="fas fa-angle-double-up" aria-hidden="true" data-toggle="up" title="Collapse menu"></i></div><div class="nav-wrap container"><ul id="menu-quiz-1" class="nav container-inner group"><li class="dflogo menu-item menu-item-type-custom menu-item-object-custom menu-item-43693"><a href="https://data-flair.training/" data-ps2id-api="true">&nbsp;&nbsp;</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-44066"><a href="https://data-flair.training/blogs/" data-ps2id-api="true">Blog Home</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27572"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">Courses</a><ul class="sub-menu" style="display: none;"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27610"><a href="https://data-flair.training/hadoop-spark-developer-course/" data-ps2id-api="true">Big Data Hadoop &amp; Spark Scala</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-66601"><a href="https://data-flair.training/python-course/" data-ps2id-api="true">Python Course</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27611"><a href="https://data-flair.training/big-data-hadoop/" data-ps2id-api="true">Big Data &amp; Hadoop</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-69115"><a href="https://data-flair.training/apache-kafka/" data-ps2id-api="true">Apache Kafka</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27612"><a href="https://data-flair.training/apache-spark-scala/" data-ps2id-api="true">Apache Spark &amp; Scala</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27615"><a href="https://data-flair.training/apache-flink/" data-ps2id-api="true">Apache Flink</a></li></ul></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27594"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">Data Science</a><ul class="sub-menu" style="display: none;"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-67266"><a href="https://data-flair.training/blogs/data-science-tutorials-home/" data-ps2id-api="true">Data Science Tutorials</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-56249"><a href="https://data-flair.training/blogs/python-tutorials-home/" data-ps2id-api="true">Python Tutorials</a><ul class="sub-menu" style="display: none;"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-62285"><a href="https://data-flair.training/blogs/python-tutorials-home/" data-ps2id-api="true">Python Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40111"><a href="https://data-flair.training/blogs/tensorflow-tutorials-home/" data-ps2id-api="true">TensorFlow Tutorials</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-56250"><a href="https://data-flair.training/blogs/pandas-tutorials-home/" data-ps2id-api="true">Pandas Tutorials</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-56245"><a href="https://data-flair.training/blogs/django-tutorials-home/" data-ps2id-api="true">Django Tutorials</a></li></ul></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40112"><a href="https://data-flair.training/blogs/iot-tutorials-home/" data-ps2id-api="true">IoT Tutorials</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27620"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">BI Tutorials</a><ul class="sub-menu" style="display: none;"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40121"><a href="https://data-flair.training/blogs/tableau-tutorials-home/" data-ps2id-api="true">Tableau Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40123"><a href="https://data-flair.training/blogs/power-bi-tutorials-home/" data-ps2id-api="true">Power BI Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40122"><a href="https://data-flair.training/blogs/qlikview-tutorials-home/" data-ps2id-api="true">QlikView Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44076"><a href="https://data-flair.training/blogs/qlik-sense-tutorials-home/" data-ps2id-api="true">Qlik Sense Tutorials</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-56246"><a href="https://data-flair.training/blogs/sap-hana-tutorials-home/" data-ps2id-api="true">SAP HANA Tutorials</a></li></ul></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-67583"><a href="https://data-flair.training/blogs/r-tutorials-home/" data-ps2id-api="true">R Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40114"><a href="https://data-flair.training/blogs/sas-tutorials-home/" data-ps2id-api="true">SAS Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40116"><a href="https://data-flair.training/blogs/sas-stat-tutorials-home/" data-ps2id-api="true">SAS – STAT Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-68437"><a href="https://data-flair.training/blogs/machine-learning-tutorials-home/" data-ps2id-api="true">Machine Learning Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40118"><a href="https://data-flair.training/blogs/ai-tutorials-home/" data-ps2id-api="true">AI Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40119"><a href="https://data-flair.training/blogs/data-mining-tutorials-home/" data-ps2id-api="true">Data Mining Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40120"><a href="https://data-flair.training/blogs/sql-tutorials-home/" data-ps2id-api="true">SQL Tutorials</a></li></ul></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27617"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">Big Data</a><ul class="sub-menu" style="display: none;"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-67263"><a href="https://data-flair.training/blogs/big-data-tutorials-home/" data-ps2id-api="true">Big Data Tutorials</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27595"><a href="https://data-flair.training/blogs/hadoop-tutorials-home/" data-ps2id-api="true">Hadoop Ecosystem Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40141"><a href="https://data-flair.training/blogs/spark-tutorials-home/" data-ps2id-api="true">Apache Spark Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40142"><a href="https://data-flair.training/blogs/spark-tutorials-home/" data-ps2id-api="true">PySpark Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40143"><a href="https://data-flair.training/blogs/flink-tutorials-home/" data-ps2id-api="true">Apache Flink Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40144"><a href="https://data-flair.training/blogs/kafka-tutorials-home/" data-ps2id-api="true">Apache Kafka Tutorials</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27609"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">NoSQL Databases</a><ul class="sub-menu" style="display: none;"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40099"><a href="https://data-flair.training/blogs/cassandra-tutorials-home/" data-ps2id-api="true">Cassandra Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40101"><a href="https://data-flair.training/blogs/mongodb-tutorials-home/" data-ps2id-api="true">MongoDB Tutorials</a></li></ul></li></ul></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27582"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">Categories</a><ul class="sub-menu" style="display: none;"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58606"><a href="https://data-flair.training/blogs/c-tutorials-home/" data-ps2id-api="true">C Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40102"><a href="https://data-flair.training/blogs/blockchain-tutorials-home/" data-ps2id-api="true">Blockchain Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45536"><a href="https://data-flair.training/blogs/cloud-computing-tutorials-home/" data-ps2id-api="true">Cloud Computing Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40103"><a href="https://data-flair.training/blogs/aws-tutorials-home/" data-ps2id-api="true">AWS Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40104"><a href="https://data-flair.training/blogs/salesforce-tutorials-home/" data-ps2id-api="true">Salesforce Tutorials</a></li><li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27578"><a href="https://data-flair.training/blogs/category/linux/" data-ps2id-api="true">Linux Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40107"><a href="https://data-flair.training/blogs/scala-tutorials-home/" data-ps2id-api="true">Scala Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40108"><a href="https://data-flair.training/blogs/java-tutorials-home/" data-ps2id-api="true">Java Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-66879"><a href="https://data-flair.training/blogs/javascript-tutorials-home/" data-ps2id-api="true">JavaScript Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40109"><a href="https://data-flair.training/blogs/spring-tutorials-home/" data-ps2id-api="true">Spring Tutorials</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-51339"><a href="https://data-flair.training/blogs/seo-tutorials-home/" data-ps2id-api="true">SEO Tutorials</a></li></ul></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-27573"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">Interview Questions</a><ul class="sub-menu" style="display: none;"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44825"><a href="https://data-flair.training/blogs/data-science-tutorials-home/#interview-questions" data-ps2id-api="true">Data Science Interview Questions</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44932"><a href="https://data-flair.training/blogs/python-tutorials-home/#interview-questions" data-ps2id-api="true">Python Interview Questions</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-42706"><a href="https://data-flair.training/blogs/hadoop-tutorials-home/#interview-questions" data-ps2id-api="true">Hadoop Interview Questions</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44914"><a href="https://data-flair.training/blogs/spark-tutorials-home/#interview-questions" data-ps2id-api="true">Spark Interview Questions</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44857"><a href="https://data-flair.training/blogs/r-tutorials-home/#interview-questions" data-ps2id-api="true">R Interview Questions</a></li><li class="intmenubi menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-44880"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">BI Interview Questions</a><ul class="sub-menu" style="display: none;"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44860"><a href="https://data-flair.training/blogs/power-bi-tutorials-home/#interview-questions" data-ps2id-api="true">Power BI Interview Questions</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44863"><a href="https://data-flair.training/blogs/tableau-tutorials-home/#interview-questions" data-ps2id-api="true">Tableau Interview Questions</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44960"><a href="https://data-flair.training/blogs/qlikview-tutorials-home/#interview-questions" data-ps2id-api="true">QlikView Interview Questions</a></li></ul></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44786"><a href="https://data-flair.training/blogs/java-tutorials-home/#interview-questions" data-ps2id-api="true">Java Interview Questions</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44866"><a href="https://data-flair.training/blogs/sql-tutorials-home/#interview-questions" data-ps2id-api="true">SQL Interview Questions</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44869"><a href="https://data-flair.training/blogs/sas-tutorials-home/#interview-questions" data-ps2id-api="true">SAS Interview Questions</a></li></ul></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-45067"><a href="https://data-flair.training/blogs/svm-kernel-functions/#" data-ps2id-api="true">Quizzes</a><ul class="sub-menu" style="display: none;"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45323"><a href="https://data-flair.training/blogs/hadoop-tutorials-home/#quizzes" data-ps2id-api="true">Hadoop Quizzes</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45073"><a href="https://data-flair.training/blogs/spark-tutorials-home/#quizzes" data-ps2id-api="true">Spark Quizzes</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45074"><a href="https://data-flair.training/blogs/scala-tutorials-home/#quizzes" data-ps2id-api="true">Scala Quizzes</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45075"><a href="https://data-flair.training/blogs/java-tutorials-home/#quizzes" data-ps2id-api="true">Java Quizzes</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45077"><a href="https://data-flair.training/blogs/r-tutorials-home/#quizzes" data-ps2id-api="true">R Quizzes</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45078"><a href="https://data-flair.training/blogs/aws-tutorials-home/#quizzes" data-ps2id-api="true">AWS Quizzes</a></li></ul></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27598"><a href="https://data-flair.training/blogs/jobs/" data-ps2id-api="true">Job Portal</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48307"><a href="https://data-flair.training/blogs/write-for-us/" data-ps2id-api="true">Write For Us</a></li></ul></div></nav><div class="container group"><div class="container-inner"><div class="group pad central-header-zone"><div class="logo-tagline-group"><p class="site-title"><a class="custom-logo-link" href="https://data-flair.training/blogs/" rel="home" title="DataFlair | Home page">DataFlair</a></p><p class="site-description">Learn Today. Lead Tomorrow.</p></div></div></div></div></header><div class="container" id="page"><div class="container-inner"><div class="main" style="overflow: hidden;"><div class="main-inner group"><p id="breadcrumbs"><span><span><a href="https://data-flair.training/blogs/">Blog Home</a> » <span><a href="https://data-flair.training/blogs/category/machine-learning/">Machine Learning Tutorials</a> » <span class="breadcrumb_last" aria-current="page">Kernel Functions-Introduction to SVM Kernel &amp; Examples</span></span></span></span></p><section class="content"><div class="page-title pad group"><ul class="meta-single group"><li class="category"><a href="https://data-flair.training/blogs/category/machine-learning/" rel="category tag">Machine Learning Tutorials</a></li><li class="comments"><a href="https://data-flair.training/blogs/svm-kernel-functions/#comments" class="_mPS2id-h"><i class="far fa-comments"></i>9</a></li></ul></div><div class="pad group"><article class="post-3700 post type-post status-publish format-standard has-post-thumbnail hentry category-machine-learning tag-kernel-function tag-kernel-functions-examples tag-kernel-methods tag-machine-learning tag-svm tag-svm-kernel tag-svm-kernel-functions tag-svm-kernel-tricks"><div class="post-inner group"><h1 class="post-title entry-title fittexted_for_single_post_title" style="font-size: 41.92px;">Kernel Functions-Introduction to SVM Kernel &amp; Examples</h1><p class="post-byline">by <span class="vcard author">
+<span class="fn"><a href="https://data-flair.training/blogs/author/dfteam1/" title="Posts by DataFlair Team" rel="author">DataFlair Team</a></span>
+</span> ·
+Published <time class="published" datetime="August 12, 2017">August 12, 2017</time>
+· Updated <time class="updated" datetime="November 16, 2018">November 16, 2018</time></p><div class="clear"></div><div class="entry themeform fittexted_for_entry" style="font-size: 18px;"><div class="entry-inner"><h2 class="fittexted_for_content_h2" style="font-size: 38.25px;">1. Objective</h2><p>In our previous <a href="http://data-flair.training/blogs/machine-learning-tutorial/"><strong>Machine Learning</strong></a> blog we have discussed about <a href="http://data-flair.training/blogs/svm-support-vector-machine-tutorial/"><strong>SVM (Support Vector Machine)</strong></a> in Machine Learning. Now we are going to provide you a detailed description of SVM Kernel and Different Kernel Functions and its examples such as&nbsp;linear, nonlinear, polynomial, Gaussian kernel, Radial basis function (RBF), sigmoid etc.</p><div id="attachment_42511" style="width: 1210px" class="wp-caption aligncenter"><a href="./explanation of kernels in SVR_files/svm-kernel-functions-2.jpg" class="" onclick="javascript:window.open(&#39;https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/svm-kernel-functions-2.jpg&#39;); return false;"><img class="size-full wp-image-42511 tc-smart-load-skip tc-smart-loaded" src="./explanation of kernels in SVR_files/svm-kernel-functions-2.jpg" alt="Kernel Functions-Introduction to SVM Kernel &amp; Examples" width="1200" height="628" sizes="(max-width: 1200px) 100vw, 1200px" srcset="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/svm-kernel-functions-2.jpg 1200w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/svm-kernel-functions-2-150x79.jpg 150w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/svm-kernel-functions-2-300x157.jpg 300w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/svm-kernel-functions-2-768x402.jpg 768w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/svm-kernel-functions-2-1024x536.jpg 1024w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/svm-kernel-functions-2-520x272.jpg 520w" style="display: inline;"></a><p class="wp-caption-text">Kernel Functions-Introduction to SVM Kernel &amp; Examples</p></div><h2 class="fittexted_for_content_h2" style="font-size: 38.25px;">2. SVM Kernel Functions</h2><p>SVM algorithms use a set of mathematical functions that are defined as the kernel. The function of kernel is to take data as input and transform it into the required form. Different SVM algorithms use different types of kernel functions. These functions can be different types. For example<strong><em> linear, nonlinear, polynomial, radial basis function (RBF), and sigmoid.</em></strong><br>
+Introduce Kernel functions for sequence data, graphs, text, images, as well as vectors. The most used type of kernel function is <strong>RBF.</strong> Because it has localized and finite response along the entire x-axis.<br>
+The kernel functions return the inner product between two points in a suitable feature space. Thus by defining a notion of similarity, with little computational cost even in very high-dimensional spaces.</p><h2 class="fittexted_for_content_h2" style="font-size: 38.25px;">3. Kernel Rules</h2><p>Define kernel or a window function as follows:</p><div id="attachment_3704" style="width: 310px" class="wp-caption aligncenter"><a href="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/kernal-rule.png" onclick="javascript:window.open(&#39;https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/kernal-rule.png&#39;); return false;" class=""><img class="wp-image-3704 size-medium tc-smart-load-skip tc-smart-loaded" src="./explanation of kernels in SVR_files/kernal-rule-300x92.png" alt="Kernel or a window function" width="300" height="92" sizes="(max-width: 300px) 100vw, 300px" srcset="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/kernal-rule-300x92.png 300w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/kernal-rule-150x46.png 150w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/kernal-rule.png 516w" style="display: inline;"></a><p class="wp-caption-text">Kernel or a window function</p></div><p>This value of this function is 1 inside the closed ball of radius 1 centered at the origin, and 0 otherwise . As shown in the figure below:</p><div id="attachment_3705" style="width: 798px" class="wp-caption aligncenter"><a href="./explanation of kernels in SVR_files/kernal-rule-graph-1.png" onclick="javascript:window.open(&#39;https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/kernal-rule-graph-1.png&#39;); return false;" class=""><img class="wp-image-3705 size-full tc-smart-load-skip tc-smart-loaded" src="./explanation of kernels in SVR_files/kernal-rule-graph-1.png" alt="Kernel or a window function" width="788" height="423" sizes="(max-width: 788px) 100vw, 788px" srcset="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/kernal-rule-graph-1.png 788w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/kernal-rule-graph-1-150x81.png 150w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/kernal-rule-graph-1-300x161.png 300w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/kernal-rule-graph-1-768x412.png 768w" style="display: inline;"></a><p class="wp-caption-text">Kernel or a window function</p></div><p>For a fixed xi, the function is K(z-xi)/h) = 1 inside the closed ball of radius h centered at xi, and 0 otherwise as shown in the figure below:</p><div id="attachment_3706" style="width: 454px" class="wp-caption aligncenter"><a href="./explanation of kernels in SVR_files/kernal-rule-graph-2.png" onclick="javascript:window.open(&#39;https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/kernal-rule-graph-2.png&#39;); return false;" class=""><img class="wp-image-3706 size-full tc-smart-load-skip tc-smart-loaded" src="./explanation of kernels in SVR_files/kernal-rule-graph-2.png" alt="Kernel or a window function" width="444" height="190" sizes="(max-width: 444px) 100vw, 444px" srcset="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/kernal-rule-graph-2.png 444w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/kernal-rule-graph-2-150x64.png 150w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/kernal-rule-graph-2-300x128.png 300w" style="display: inline;"></a><p class="wp-caption-text">Kernel or a window function</p></div><p>So, by choosing the argument of K(·), you have moved the window to be centered at the point xi and to be of radius h.</p><h2 class="fittexted_for_content_h2" style="font-size: 38.25px;">4. Examples of SVM Kernels</h2><p>Let us see some common kernels used with SVMs and their uses:</p><h3 class="fittexted_for_content_h3" style="font-size: 31.5px;">4.1. Polynomial kernel</h3><p>It is popular in image processing.<br>
+Equation is:</p><div id="attachment_3707" style="width: 211px" class="wp-caption aligncenter"><a href="./explanation of kernels in SVR_files/polynomial-kernel.png" onclick="javascript:window.open(&#39;https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/polynomial-kernel.png&#39;); return false;" class=""><img class="wp-image-3707 size-full tc-smart-load-skip tc-smart-loaded" src="./explanation of kernels in SVR_files/polynomial-kernel.png" alt="Polynomial kernel equation" width="201" height="24" sizes="(max-width: 201px) 100vw, 201px" srcset="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/polynomial-kernel.png 201w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/polynomial-kernel-150x18.png 150w" style="display: inline;"></a><p class="wp-caption-text">Polynomial kernel equation</p></div><p>where d is the degree of the polynomial.</p><h3 class="fittexted_for_content_h3" style="font-size: 31.5px;">4.2. Gaussian kernel</h3><p>It is a general-purpose kernel; used when there is no prior knowledge about the data. Equation is:</p><div id="attachment_3708" style="width: 224px" class="wp-caption aligncenter"><a href="./explanation of kernels in SVR_files/gaussian-kernel.png" onclick="javascript:window.open(&#39;https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/gaussian-kernel.png&#39;); return false;" class=""><img class="wp-image-3708 size-full tc-smart-load-skip tc-smart-loaded" src="./explanation of kernels in SVR_files/gaussian-kernel.png" alt="Gaussian kernel equation" width="214" height="46" sizes="(max-width: 214px) 100vw, 214px" srcset="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/gaussian-kernel.png 214w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/gaussian-kernel-150x32.png 150w" style="display: inline;"></a><p class="wp-caption-text">Gaussian kernel equation</p></div><h3 class="fittexted_for_content_h3" style="font-size: 31.5px;">4.3. Gaussian radial basis function (RBF)</h3><p>It is a general-purpose kernel; used when there is no prior knowledge about the data.<br>
+Equation is:</p><div class="mceTemp"></div><div id="attachment_3709" style="width: 262px" class="wp-caption aligncenter"><a href="./explanation of kernels in SVR_files/gaussian-radial-basis-function-RBF.png" onclick="javascript:window.open(&#39;https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/gaussian-radial-basis-function-RBF.png&#39;); return false;" class=""><img class="wp-image-3709 size-full tc-smart-load-skip tc-smart-loaded" src="./explanation of kernels in SVR_files/gaussian-radial-basis-function-RBF.png" alt="Gaussian radial basis function (RBF)" width="252" height="24" sizes="(max-width: 252px) 100vw, 252px" srcset="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/gaussian-radial-basis-function-RBF.png 252w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/gaussian-radial-basis-function-RBF-150x14.png 150w" style="display: inline;"></a><p class="wp-caption-text">Gaussian radial basis function (RBF)</p></div><p>, for:</p><div id="attachment_3710" style="width: 56px" class="wp-caption aligncenter"><a href="./explanation of kernels in SVR_files/gaussian-radial-basis-function-RBF-1.png" onclick="javascript:window.open(&#39;https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/gaussian-radial-basis-function-RBF-1.png&#39;); return false;" class=""><img class="wp-image-3710 size-full tc-smart-load-skip tc-smart-loaded" src="./explanation of kernels in SVR_files/gaussian-radial-basis-function-RBF-1.png" alt="Gaussian radial basis function (RBF)" width="46" height="18" style="display: inline;"></a><p class="wp-caption-text">Gaussian radial basis function (RBF)</p></div><p>Sometimes parametrized using:</p><div id="attachment_3711" style="width: 96px" class="wp-caption aligncenter"><a href="./explanation of kernels in SVR_files/gaussian-radial-basis-function-RBF-2.png" onclick="javascript:window.open(&#39;https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/gaussian-radial-basis-function-RBF-2.png&#39;); return false;" class=""><img class="wp-image-3711 size-full tc-smart-load-skip tc-smart-loaded" src="./explanation of kernels in SVR_files/gaussian-radial-basis-function-RBF-2.png" alt="Gaussian radial basis function (RBF)" width="86" height="23" style="display: inline;"></a><p class="wp-caption-text">Gaussian radial basis function (RBF)</p></div><h3 class="fittexted_for_content_h3" style="font-size: 31.5px;">4.4. Laplace RBF kernel</h3><p>It is general-purpose kernel; used when there is no prior knowledge about the data.<br>
+Equation is:</p><div id="attachment_3712" style="width: 216px" class="wp-caption aligncenter"><a href="./explanation of kernels in SVR_files/laplace-RBF-kernel.png" onclick="javascript:window.open(&#39;https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/laplace-RBF-kernel.png&#39;); return false;" class=""><img class="wp-image-3712 size-full tc-smart-load-skip tc-smart-loaded" src="./explanation of kernels in SVR_files/laplace-RBF-kernel.png" alt="Laplace RBF kernel equation" width="206" height="45" sizes="(max-width: 206px) 100vw, 206px" srcset="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/laplace-RBF-kernel.png 206w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/laplace-RBF-kernel-150x33.png 150w" style="display: inline;"></a><p class="wp-caption-text">Laplace RBF kernel equation</p></div><h3 class="fittexted_for_content_h3" style="font-size: 31.5px;">4.5. Hyperbolic tangent kernel</h3><p>We can use it in neural networks.<br>
+Equation is:</p><div id="attachment_3713" style="width: 250px" class="wp-caption aligncenter"><a href="./explanation of kernels in SVR_files/hyperbolic-tangent-kernel.png" onclick="javascript:window.open(&#39;https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/hyperbolic-tangent-kernel.png&#39;); return false;" class=""><img class="wp-image-3713 size-full tc-smart-load-skip tc-smart-loaded" src="./explanation of kernels in SVR_files/hyperbolic-tangent-kernel.png" alt="Hyperbolic tangent kernel equation" width="240" height="22" sizes="(max-width: 240px) 100vw, 240px" srcset="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/hyperbolic-tangent-kernel.png 240w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/hyperbolic-tangent-kernel-150x14.png 150w" style="display: inline;"></a><p class="wp-caption-text">Hyperbolic tangent kernel equation</p></div><p>, for some (not every) k&gt;0 and c&lt;0.</p><h3 class="fittexted_for_content_h3" style="font-size: 31.5px;">4.6. Sigmoid kernel</h3><p>We can use it as the proxy for neural networks. Equation is</p><div id="attachment_3716" style="width: 204px" class="wp-caption aligncenter"><a href="./explanation of kernels in SVR_files/sigmoid-kernel.png" onclick="javascript:window.open(&#39;https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/sigmoid-kernel.png&#39;); return false;" class=""><img class="wp-image-3716 size-full tc-smart-load-skip tc-smart-loaded" src="./explanation of kernels in SVR_files/sigmoid-kernel.png" alt=" Sigmoid kernel equation" width="194" height="20" sizes="(max-width: 194px) 100vw, 194px" srcset="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/sigmoid-kernel.png 194w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/sigmoid-kernel-150x15.png 150w" style="display: inline;"></a><p class="wp-caption-text">Sigmoid kernel equation</p></div><h3 class="fittexted_for_content_h3" style="font-size: 31.5px;">4.7. Bessel function of the first kind Kernel</h3><p>We can use it to remove the cross term in mathematical functions. Equation is :</p><div id="attachment_3717" style="width: 205px" class="wp-caption aligncenter"><a href="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/bessel-function.png" onclick="javascript:window.open(&#39;https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/bessel-function.png&#39;); return false;" class=""><img class="wp-image-3717 size-full tc-smart-load-skip tc-smart-loaded" src="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/bessel-function.png" alt="Equation of Bessel function of the first kind kernel" width="195" height="44" sizes="(max-width: 195px) 100vw, 195px" srcset="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/bessel-function.png 195w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/bessel-function-150x34.png 150w" style="display: inline;"></a><p class="wp-caption-text">Equation of Bessel function of the first kind kernel</p></div><p>where j is the Bessel function of first kind.</p><h3 class="fittexted_for_content_h3" style="font-size: 31.5px;">4.8. ANOVA radial basis kernel</h3><p>We can use it in regression problems. Equation is:</p><div id="attachment_3718" style="width: 266px" class="wp-caption aligncenter"><a href="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/ANOVA-radial-basis-kernel.png" onclick="javascript:window.open(&#39;https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/ANOVA-radial-basis-kernel.png&#39;); return false;" class=""><img class="wp-image-3718 size-full tc-smart-load-skip tc-smart-loaded" src="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/ANOVA-radial-basis-kernel.png" alt="ANOVA radial basis kernel equation" width="256" height="52" sizes="(max-width: 256px) 100vw, 256px" srcset="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/ANOVA-radial-basis-kernel.png 256w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/ANOVA-radial-basis-kernel-150x30.png 150w" style="display: inline;"></a><p class="wp-caption-text">ANOVA radial basis kernel equation</p></div><h3 class="fittexted_for_content_h3" style="font-size: 31.5px;">4.9. Linear splines kernel in one-dimension</h3><p>It is useful when dealing with large sparse data vectors. It is often used in text categorization. The splines kernel also performs well in regression problems. Equation is:</p><div id="attachment_3719" style="width: 526px" class="wp-caption aligncenter"><a href="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/linear-splines-kernel-in-one-dimension.png" onclick="javascript:window.open(&#39;https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/linear-splines-kernel-in-one-dimension.png&#39;); return false;" class=""><img class="wp-image-3719 size-full tc-smart-load-skip tc-smart-loaded" src="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/linear-splines-kernel-in-one-dimension.png" alt="Linear splines kernel equation in one-dimension" width="516" height="37" sizes="(max-width: 516px) 100vw, 516px" srcset="https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/linear-splines-kernel-in-one-dimension.png 516w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/linear-splines-kernel-in-one-dimension-150x11.png 150w, https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/uploads/sites/2/2017/08/linear-splines-kernel-in-one-dimension-300x22.png 300w" style="display: inline;"></a><p class="wp-caption-text">Linear splines kernel equation in one-dimension</p></div><p>If you have any query about SVM Kernel Functions, So feel free to share with us. We will be glad to solve your queries.<br>
+<strong>See Also-</strong></p><ul><li><a href="http://data-flair.training/blogs/applications-of-svm/">Applications of Support vector Machine (SVM)</a></li><li><a href="http://data-flair.training/blogs/artificial-neural-network-applications/">Applications of Artificial Neural Network (ANN)</a></li></ul><p><strong>Reference – <a href="https://en.wikipedia.org/wiki/Machine_learning" onclick="javascript:window.open(&#39;https://en.wikipedia.org/wiki/Machine_learning&#39;); return false;">Machine Learning</a></strong></p><nav class="pagination group"></nav></div><div class="clear"></div></div></div></article><div class="clear"></div><p class="post-tags"><span>Tags:</span> <a href="https://data-flair.training/blogs/tag/kernel-function/" rel="tag">Kernel Function</a><a href="https://data-flair.training/blogs/tag/kernel-functions-examples/" rel="tag">Kernel Functions Examples</a><a href="https://data-flair.training/blogs/tag/kernel-methods/" rel="tag">Kernel Methods</a><a href="https://data-flair.training/blogs/tag/machine-learning/" rel="tag">machine learning</a><a href="https://data-flair.training/blogs/tag/svm/" rel="tag">SVM</a><a href="https://data-flair.training/blogs/tag/svm-kernel/" rel="tag">SVM Kernel</a><a href="https://data-flair.training/blogs/tag/svm-kernel-functions/" rel="tag">SVM Kernel Functions</a><a href="https://data-flair.training/blogs/tag/svm-kernel-tricks/" rel="tag">SVM KErnel Tricks</a></p> <script>jQuery( function($) {
+              czrapp.proRelPostsRendered = $.Deferred();
+              var waypoint = new Waypoint({
+                  element: document.getElementById('pro-related-posts-wrapper'),
+                  handler: function(direction) {
+                        if ( 'pending' == czrapp.proRelPostsRendered.state() ) {
+                              var $wrap = $('#pro-related-posts-wrapper');
+                              $wrap.addClass('loading');
+                              czrapp.doAjax( {
+                                      action: "ha_inject_pro_related",
+                                      // => Always get the option from the $_POSTED data in ajax
+                                      related_post_id : 3700,
+                                      pro_related_posts_opt : {"id":"pro_related_posts_czr_module","title":"","enable":true,"col_number":3,"display_heading":true,"heading_text":"You may also like...","freescroll":true,"ajax_enabled":true,"post_number":"3","order_by":"rand","related_by":"categories"},
+                                      free_related_posts_opt : "categories",
+                                      layout_class : "col-3cm"
+                                  } ).done( function( r ) {
+                                        if ( r && r.data && r.data.html ) {
+                                            if ( 'pending' == czrapp.proRelPostsRendered.state() ) {
+                                                $.when( $('#pro-related-posts-wrapper').append( r.data.html ) ).done( function() {
+                                                      czrapp.proRelPostsRendered.resolve();
+                                                      $wrap.find('.czr-css-loader').css('opacity', 0);
+                                                      _.delay( function() {
+                                                            $wrap.removeClass('loading').addClass('loaded');
+                                                      }, 800 );
+                                                });
+                                            }
+                                        }
+                                  });
+                        }
+                  },
+                  offset: '110%'
+              });
+        });//jQuery()</script> <div id="pro-related-posts-wrapper"><div class="czr-css-loader czr-mr-loader dark"><div></div><div></div><div></div></div></div><section id="comments" class="themeform _mPS2id-t"><h3 class="heading">9 Responses</h3><ul class="comment-tabs group"><li class="active"><a href="https://data-flair.training/blogs/svm-kernel-functions/#commentlist-container" class="_mPS2id-h"><i class="far fa-comments"></i>Comments<span>9</span></a></li><li><a href="https://data-flair.training/blogs/svm-kernel-functions/#pinglist-container"><i class="fas fa-share"></i>Pingbacks<span>0</span></a></li></ul><div id="commentlist-container" class="comment-tab _mPS2id-t"><ol class="commentlist"><li class="comment even thread-even depth-1 fittexted_for_comments _mPS2id-t" id="comment-864" style="font-size: 14.88px;"><div id="div-comment-864" class="comment-body"><div class="comment-author vcard">
+<cite class="fn">K. Chandra Hari</cite> <span class="says">says:</span></div><div class="comment-meta commentmetadata"><a href="https://data-flair.training/blogs/svm-kernel-functions/#comment-864" class="_mPS2id-h">
+May 3, 2018 at 2:06 am</a></div><p>How the optimum input data set is decided?<br>
+When the input data is not characterized for information content say as in Principal Component Analysis, how the hyperplanes spoken of in SVM can be of utility?<br>
+Can the Kernal functions add new information into the system?<br>
+For any input space, how do you decide that the number of variables construed are efficient and not redundant data leading to fudging of the solution?</p><div class="reply"><a rel="nofollow" class="comment-reply-link _mPS2id-h" href="https://data-flair.training/blogs/svm-kernel-functions/#comment-864" onclick="return addComment.moveForm( &quot;div-comment-864&quot;, &quot;864&quot;, &quot;respond&quot;, &quot;3700&quot; )" aria-label="Reply to K. Chandra Hari">Reply</a></div></div></li><li class="comment odd alt thread-odd thread-alt depth-1 parent fittexted_for_comments _mPS2id-t" id="comment-31309" style="font-size: 14.88px;"><div id="div-comment-31309" class="comment-body"><div class="comment-author vcard">
+<cite class="fn">Niaz ghumro</cite> <span class="says">says:</span></div><div class="comment-meta commentmetadata"><a href="https://data-flair.training/blogs/svm-kernel-functions/#comment-31309" class="_mPS2id-h">
+February 10, 2019 at 8:50 pm</a></div><p>Very nice information about kernel it is very informative blog.</p><div class="reply"><a rel="nofollow" class="comment-reply-link _mPS2id-h" href="https://data-flair.training/blogs/svm-kernel-functions/#comment-31309" onclick="return addComment.moveForm( &quot;div-comment-31309&quot;, &quot;31309&quot;, &quot;respond&quot;, &quot;3700&quot; )" aria-label="Reply to Niaz ghumro">Reply</a></div></div><ul class="children"><li class="comment byuser comment-author-dfteam1 bypostauthor even depth-2 fittexted_for_comments _mPS2id-t" id="comment-31860" style="font-size: 14.88px;"><div id="div-comment-31860" class="comment-body"><div class="comment-author vcard">
+<cite class="fn">DataFlair Team</cite> <span class="says">says:</span></div><div class="comment-meta commentmetadata"><a href="https://data-flair.training/blogs/svm-kernel-functions/#comment-31860" class="_mPS2id-h">
+February 12, 2019 at 10:57 am</a></div><p>Hi Niaz,<br>
+Thanks for connecting DataFlair via SVM Kernel Functions Tutorial. Hope, you are enjoying other Machine Learning tutorials. Please refer our sidebar to maintain your flow of learning.<br>
+Regards,<br>
+Dataflair</p><div class="reply"><a rel="nofollow" class="comment-reply-link _mPS2id-h" href="https://data-flair.training/blogs/svm-kernel-functions/#comment-31860" onclick="return addComment.moveForm( &quot;div-comment-31860&quot;, &quot;31860&quot;, &quot;respond&quot;, &quot;3700&quot; )" aria-label="Reply to DataFlair Team">Reply</a></div></div></li></ul></li><li class="comment odd alt thread-even depth-1 parent fittexted_for_comments _mPS2id-t" id="comment-51877" style="font-size: 14.88px;"><div id="div-comment-51877" class="comment-body"><div class="comment-author vcard">
+<cite class="fn">dereje</cite> <span class="says">says:</span></div><div class="comment-meta commentmetadata"><a href="https://data-flair.training/blogs/svm-kernel-functions/#comment-51877" class="_mPS2id-h">
+April 21, 2019 at 12:25 pm</a></div><p>in the gaussian kernel function, what x and y represents?</p><div class="reply"><a rel="nofollow" class="comment-reply-link _mPS2id-h" href="https://data-flair.training/blogs/svm-kernel-functions/#comment-51877" onclick="return addComment.moveForm( &quot;div-comment-51877&quot;, &quot;51877&quot;, &quot;respond&quot;, &quot;3700&quot; )" aria-label="Reply to dereje">Reply</a></div></div><ul class="children"><li class="comment byuser comment-author-dfteam1 bypostauthor even depth-2 fittexted_for_comments _mPS2id-t" id="comment-51897" style="font-size: 14.88px;"><div id="div-comment-51897" class="comment-body"><div class="comment-author vcard">
+<cite class="fn">DataFlair Team</cite> <span class="says">says:</span></div><div class="comment-meta commentmetadata"><a href="https://data-flair.training/blogs/svm-kernel-functions/#comment-51897" class="_mPS2id-h">
+April 25, 2019 at 12:48 pm</a></div><p>Hi Dereje,<br>
+In Gaussian Kernel Function, x and y are the two feature vectors in the input space whose Euclidean Distance is calculated. Hope, it helps!</p><div class="reply"><a rel="nofollow" class="comment-reply-link _mPS2id-h" href="https://data-flair.training/blogs/svm-kernel-functions/#comment-51897" onclick="return addComment.moveForm( &quot;div-comment-51897&quot;, &quot;51897&quot;, &quot;respond&quot;, &quot;3700&quot; )" aria-label="Reply to DataFlair Team">Reply</a></div></div></li></ul></li><li class="comment odd alt thread-odd thread-alt depth-1 fittexted_for_comments _mPS2id-t" id="comment-51926" style="font-size: 14.88px;"><div id="div-comment-51926" class="comment-body"><div class="comment-author vcard">
+<cite class="fn">Rasmi Ranjan Das</cite> <span class="says">says:</span></div><div class="comment-meta commentmetadata"><a href="https://data-flair.training/blogs/svm-kernel-functions/#comment-51926" class="_mPS2id-h">
+May 4, 2019 at 7:55 pm</a></div><p>Can anyone help me in writing Python Code for SVM with Multiple Kernels</p><div class="reply"><a rel="nofollow" class="comment-reply-link _mPS2id-h" href="https://data-flair.training/blogs/svm-kernel-functions/#comment-51926" onclick="return addComment.moveForm( &quot;div-comment-51926&quot;, &quot;51926&quot;, &quot;respond&quot;, &quot;3700&quot; )" aria-label="Reply to Rasmi Ranjan Das">Reply</a></div></div></li><li class="comment even thread-even depth-1 fittexted_for_comments _mPS2id-t" id="comment-52293" style="font-size: 14.88px;"><div id="div-comment-52293" class="comment-body"><div class="comment-author vcard">
+<cite class="fn">Teklay</cite> <span class="says">says:</span></div><div class="comment-meta commentmetadata"><a href="https://data-flair.training/blogs/svm-kernel-functions/#comment-52293" class="_mPS2id-h">
+July 15, 2019 at 5:59 pm</a></div><p>I do not understand how SVM works could you give me some best clue with example. the example should be a real data set for example how can i classify new articles using SVM.</p><div class="reply"><a rel="nofollow" class="comment-reply-link _mPS2id-h" href="https://data-flair.training/blogs/svm-kernel-functions/#comment-52293" onclick="return addComment.moveForm( &quot;div-comment-52293&quot;, &quot;52293&quot;, &quot;respond&quot;, &quot;3700&quot; )" aria-label="Reply to Teklay">Reply</a></div></div></li><li class="comment odd alt thread-odd thread-alt depth-1 fittexted_for_comments _mPS2id-t" id="comment-52546" style="font-size: 14.88px;"><div id="div-comment-52546" class="comment-body"><div class="comment-author vcard">
+<cite class="fn">pann</cite> <span class="says">says:</span></div><div class="comment-meta commentmetadata"><a href="https://data-flair.training/blogs/svm-kernel-functions/#comment-52546" class="_mPS2id-h">
+August 23, 2019 at 11:40 am</a></div><p>To develop new kernel,what are needed?</p><div class="reply"><a rel="nofollow" class="comment-reply-link _mPS2id-h" href="https://data-flair.training/blogs/svm-kernel-functions/#comment-52546" onclick="return addComment.moveForm( &quot;div-comment-52546&quot;, &quot;52546&quot;, &quot;respond&quot;, &quot;3700&quot; )" aria-label="Reply to pann">Reply</a></div></div></li><li class="comment even thread-even depth-1 fittexted_for_comments _mPS2id-t" id="comment-52636" style="font-size: 14.88px;"><div id="div-comment-52636" class="comment-body"><div class="comment-author vcard">
+<cite class="fn">Srinath</cite> <span class="says">says:</span></div><div class="comment-meta commentmetadata"><a href="https://data-flair.training/blogs/svm-kernel-functions/#comment-52636" class="_mPS2id-h">
+August 31, 2019 at 7:40 pm</a></div><p>Which of the following statements about Kernel Functions are TRUE? Assume, in each case,that the vector x has 2 dimensions??</p><p>1.The implicit vector transformation for the kernel K(x,x′)=(1+)4 has 9 dimensions</p><p>2.The implicit vector transformation for the kernel K(x,x′)=tanh() has ∞ dimensions<br>
+3.both (a) and (b)<br>
+4. neither (a) nor (b)</p><div class="reply"><a rel="nofollow" class="comment-reply-link _mPS2id-h" href="https://data-flair.training/blogs/svm-kernel-functions/#comment-52636" onclick="return addComment.moveForm( &quot;div-comment-52636&quot;, &quot;52636&quot;, &quot;respond&quot;, &quot;3700&quot; )" aria-label="Reply to Srinath">Reply</a></div></div></li></ol></div><div id="respond" class="comment-respond _mPS2id-t"><h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://data-flair.training/blogs/svm-kernel-functions/#respond" style="display:none;" class="_mPS2id-h">Cancel reply</a></small></h3><form action="https://data-flair.training/blogs/wp-comments-post.php" method="post" id="commentform" class="comment-form"><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"></p><p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></p><p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200"></p><div class="gglcptch gglcptch_v3"><div>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" onclick="javascript:window.open(&#39;https://policies.google.com/privacy&#39;); return false;">Privacy Policy</a> and <a href="https://policies.google.com/terms" onclick="javascript:window.open(&#39;https://policies.google.com/terms&#39;); return false;">Terms of Service</a> apply.</div><input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="03AOLTBLSWdYMbnaKvkmpA-Ilm_g6LATq5ccvLmaZjoBJna62u5MFjmRIETh6P3RsV1s3Sj8tebg63sJ1ZQStGtCQ-Roh1RAfBV-fE_1CvYwGyqiFhU0PTFvEiChw2ygUGIeGzSGJ9z89GxRlHt1LrChNVwIE_Q7hhZpJ3YvnyIMRtYIt_SQWZ6NQxoiWMxfS_4yD-z1EnDrpyA2k0GweZ2C0qLVFksib5B-wheU8X9QYNqG8DjLgYAR-HjIFZglZymIWKOvZHC3FALB0eHbIUtVtP8UhJ5qNWVf1y8HfwRx-fA8q4taFkwF4c4jRkrKkF0Su2aYrxzdsrxj-2shcI580f9_umqh7mtCPYmejn-iAMLsYJmkWOa0VR-b0xrcmNh6uH_mG_Vy2_w3fH0c8zcoCiAi8Rhz0pHA"> <script src="./explanation of kernels in SVR_files/api.js(1).download"></script> <script>grecaptcha.ready(function() {
+                                  grecaptcha.execute('6LdD0JwUAAAAAABRdMQUEDhUkj_9jYOOLjwoOiqV', {action: 'BWS_reCaptcha'}).then(function(token) {
+                                     document.getElementById('g-recaptcha-response').value=token;
+                                  });
+                              });</script></div><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="3700" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0"></p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="4ae729180d"></p><p style="display: none;"></p><input type="hidden" id="ak_js" name="ak_js" value="1568226596777"></form></div></section></div></section><div class="sidebar s1 collapsed sticky" data-position="left" data-layout="col-3cm" data-sb-id="s1" style="transform: translateZ(0px); position: fixed; top: 0px; left: 340px;"><a class="sidebar-toggle" title="Expand Sidebar" style="transform: translate(0px, 50px);"><i class="fas icon-sidebar-toggle"></i></a><div class="sidebar-content" style="transform: translate(0px, 50px);"><div id="pagesinwidgets_page_section-89" class="widget pagesinwidgets_page_section"><div class="homepage_section"><div class="dflsbwidget"><p></p><div class="dflsbhead"><a href="https://data-flair.training/blogs/machine-learning-tutorials-home/">Machine Learning Tutorials</a></div><div class="dflsb"><ul class="dflsbul"><li class="dflsbli"><a href="https://data-flair.training/blogs/machine-learning-tutorial/">ML – Introduction</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/machine-learning-software/">ML – Softwares</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/machine-learning-applications/">ML – Applications</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/types-of-machine-learning-algorithms/">ML – Types of Algorithms</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/machine-learning-tools/">ML – Tools</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/future-of-machine-learning/">ML – Future</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/why-machine-learning-is-popular/">ML – Why Popular</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/machine-learning-algorithms/">ML – Algorithms</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/machine-learning-use-cases/">ML – Use Cases</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/advantages-and-disadvantages-of-machine-learning/">ML – Advantages &amp; Limitations</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/transfer-learning/">ML – Transfer Learning</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/java-machine-learning/">ML – Java Libraries</a></li><li class="dflsbli dfblognew"><a href="https://data-flair.training/blogs/data-science-projects-code/">ML – Projects</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/clustering-in-machine-learning/">ML – Clustering</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/gaussian-mixture-model/">ML – Gaussian Mixture Model</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/convolutional-neural-networks-tutorial/">ML – Convolutional Neural Network</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/recurrent-neural-networks/">ML – Recurrent Neural Network</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/artificial-neural-networks-for-machine-learning/">ML – Artificial Neural Network</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/artificial-neural-network-applications/">ML – ANN Applications</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/learning-rules-in-neural-network/">ML – ANN Learning Rules</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/artificial-neural-network-model/">ML – ANN Model</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/neural-network-algorithms/">ML – ANN Algorithms</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/deep-learning-tutorial/">ML – Deep Learning</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/deep-learning-terminologies/">ML – DL Terminologies</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/deep-learning-audio-analysis/">ML – DL For Audio Analysis</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/svm-support-vector-machine-tutorial/">ML – Support Vector Machine(SVM)</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/applications-of-svm/">ML – SVM Applications</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/svm-kernel-functions/" class="current">ML – SVM Kernel Functions</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/dimensionality-reduction-tutorial/">ML – Dimensionality Reduction</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/gradient-boosting-algorithm/">ML – Gradient Boosting Algorithm</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/xgboost-tutorial/">ML – XGBoost Introduction</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/xgboost-algorithm/">ML – XGBoosting Algorithm</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/adaboost-algorithm/">ML – AdaBoost Algorithm</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/deep-learning-vs-machine-learning/">Deep Learning vs ML</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/artificial-intelligence-vs-machine-learning-vs-dl-vs-ds/">Deep Learning vs ML vs AI vs DS</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/python-machine-learning-tutorial/">Python ML – Tutorial</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/python-machine-learning-environment-setup/">Python ML – Environment Setup</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/python-ml-data-preprocessing/">Python ML – Data Preprocessing</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/train-test-set-in-python-ml/">Python ML – Train &amp; Test Set</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/python-machine-learning-techniques/">Python ML – Techniques</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/applications-of-machine-learning/">Python ML – Applications</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/python-machine-learning-algorithms/">Python ML – Algorithms</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/deep-learning-with-python-tutorial/">Python Deep Learning Tutorial</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/applications-of-deep-learning-with-python/">Python DL – Applications</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/python-deep-learning-environment-setup/">Python DL – Environment Setup</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/deep-learning-with-python-libraries/">Python DL – Python Libraries</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/deep-neural-networks-python/">Python DL – Neural Network</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/computational-graphs-deep-learning-python/">Python DL – Computational Graphs</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/machine-learning-infographic/">ML Infographic for Beginners</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-machine-learning-project-credit-card-fraud-detection/">Machine Learning Project – Credit Card Fraud Detection</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-r-sentiment-analysis-project/">Machine Learning Project – Sentiment Analysis</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-r-movie-recommendation/">Machine Learning Project – Movie Recommendation System</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/r-data-science-project-customer-segmentation/">Machine Learning Project – Customer Segmentation</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/r-data-science-project-uber-data-analysis/">Machine Learning Project – Uber Data Analysis</a></li></ul></div><p></p></div></div></div><div id="pagesinwidgets_page_section-90" class="widget pagesinwidgets_page_section"><div class="homepage_section"><div class="dflsbwidget"><p></p><div class="dflsbhead"><a href="https://data-flair.training/blogs/data-science-tutorials-home/">Data Science Tutorials</a></div><div class="dflsb"><ul class="dflsbul"><li class="dflsbli"><a href="https://data-flair.training/blogs/what-is-data-science/">Data Science – Introduction</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/pros-and-cons-of-data-science/">Data Science – Pros and Cons</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/purpose-of-data-science/">Data Science – Purpose</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/why-learn-data-science/">Data Science – Why Learn?</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/is-data-science-difficult/">Data Science – Is it Difficult to Learn?</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/top-data-science-skills/">Data Science – Top Skills</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-prerequisites/">Data Science – Prerequisites</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-skills/">Data Science – General Skills</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/skills-needed-to-become-a-data-scientist/">Data Science – Tech &amp; Non-Tech Skill</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-algorithms/">Data Science – Top Algorithms</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-programming-languages/">Data Science – Top Programming Languages</a></li><li class="dflsbli dfblognew"><a href="https://data-flair.training/blogs/data-science-projects-code/">Data Science – Projects</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/sql-in-data-science/">Data Science – Role of SQL</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/master-sql-for-data-science/">Data Science – Master SQL</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-tools/">Data Science – Best Tools</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/math-and-statistics-for-data-science/">Data Science – Maths and Statistics</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-for-business/">Data Science For Business</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-tools-for-small-businesses/">Data Science – Tools for Small Business</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-for-beginners/">Data Science – Real-Life Analogies</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-applications/">Data Science – Applications</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-in-banking/">Data Science – Applications in Banking</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-in-education/">Data Science – Applications in Education</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-in-finance/">Data Science – Applications in Finance</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-in-healthcare/">Data Science – Applications in Healthcare</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-at-movies/">Data Science – Applications in Movies</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-use-cases/">Data Science – Use Cases</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/predictive-modeling-for-data-science/">Data Science – Predictive Modeling</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/k-means-clustering-tutorial/">Data Science – K-means Clustering</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/bayes-theorem-data-science/">Data Science – Bayes’ Theorem</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/future-of-data-science/">Data Science – Future</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-job-trends/">Data Science – Top Trends</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/top-data-science-jobs/">Data Science – Top Jobs</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-scientist-salary/">Data Science – Salary &amp; Job trends</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/get-your-first-job-in-data-science/">Data Science – Get Your First Job</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/scope-of-data-science/">Data Science – Scope in India</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-scientists-demand-predictions/">Data Science – Demand Predictions for 2020</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-certifications/">Data Science – Certifications</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/steps-to-become-a-data-scientist/">Steps to Become a Data Scientist</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/best-data-science-books/">Data Science – Books</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/using-r-for-data-science/">R for Data Science</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/machine-learning-for-data-science/">Machine Learning for Data Science</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/hadoop-for-data-science/">Hadoop for Data Science</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/sas-for-data-science/">SAS for Data Science</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/r-vs-python-for-data-science/">R vs Python for Data Science</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/r-python-or-sas-for-data-science/">R vs Python vs SAS for Data Science</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/nlp-natural-language-processing/">Data Science – NLP</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/transfer-learning/">Transfer Learning for Deep Learning with CNN</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/big-data-vs-data-science/">Data Science Vs Big Data</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-vs-artificial-intelligence/">Data Science Vs Artificial Intelligence</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/machine-learning-vs-data-science/">Data Science Vs Machine Learning</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/business-intelligence-vs-data-science/">Data Science Vs Business Intelligence</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-scientist-vs-data-analyst/">Data Scientist Vs Data Analyst</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-scientist-vs-business-analyst/">Data Scientist Vs Business Analyst</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-scientist-vs-data-engineer-vs-data-analyst/">Data Scientist Vs Data Engineer vs Data Analyst</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-mining-and-data-science/">Data Science and Data Mining</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/why-data-science-is-in-demand/">Why Data Science is in Demand?</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/career-in-data-science/">How to Make Career in Data Science</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-vs-data-analytics-infographic/">Infographic – Data Science Vs Data Analytics</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/how-to-become-data-scientist-infographic/">Infographic – How to Become Data Scientist</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-case-studies/">Data Science Case Studies</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-at-netflix/">Case Study – Data Science at Netflix</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-at-flipkart/">Case Study – Data Science at Flipkart</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-at-twitter/">Case Study – Data Science at Twitter</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-r-sentiment-analysis-project/">Data Science Project – Sentiment Analysis</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/r-data-science-project-uber-data-analysis/">Data Science Project – Uber Data Analysis</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-machine-learning-project-credit-card-fraud-detection/">Data Science Project – Credit Card Fraud Detection</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-r-movie-recommendation/">Data Science Project – Movie Recommendation System</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/r-data-science-project-customer-segmentation/">Data Science Project – Customer Segmentation</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-interview-preparation/">Data Science – Interview Preparation</a></li></ul></div><p></p></div></div></div><div id="pagesinwidgets_page_section-91" class="widget pagesinwidgets_page_section"><div class="homepage_section"><div class="dflsbwidget"><p></p><div class="dflsbhead"><a href="https://data-flair.training/blogs/data-science-tutorials-home/#interview-questions">Data Science Interview Ques</a></div><div class="dflsb"><ul class="dflsbul"><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-interview-questions/">Data Science Interview Que.Part 1</a></li><li class="dflsbli"><a href="https://data-flair.training/blogs/data-science-interview-questions-and-answers/">Data Science Interview Que.Part 2</a></li></ul></div><p></p></div></div></div></div></div><div class="sidebar s2 collapsed sticky" data-position="right" data-layout="col-3cm" data-sb-id="s2" style="transform: translateZ(0px); position: fixed; top: 0px; left: 1259px;"><a class="sidebar-toggle" title="Expand Sidebar" style="transform: translate(0px, 50px);"><i class="fas icon-sidebar-toggle"></i></a><div class="sidebar-content" style="transform: translate(0px, 50px);"><div id="search-5" class="widget widget_search"><form method="get" class="searchform themeform" action="https://data-flair.training/blogs/"><div>
+<input type="text" class="search" name="s" onblur="if(this.value==&#39;&#39;)this.value=&#39;To search type and hit enter&#39;;" onfocus="if(this.value==&#39;To search type and hit enter&#39;)this.value;" value="To search type and hit enter"></div></form></div><div id="text-13" class="widget widget_text"><div class="textwidget"><p><a href="https://t.me/joinchat/AAAAAFBoOgAlJG301njKkA" onclick="javascript:window.open(&#39;https://t.me/joinchat/AAAAAFBoOgAlJG301njKkA&#39;); return false;"><img class="aligncenter size-full wp-image-63492" src="./explanation of kernels in SVR_files/DF-Telegram-Gif-05.gif" alt="DataFlair Telegram Gif" width="260" height="325"></a></p></div></div></div></div></div></div></div></div><footer id="footer"><section class="container" id="footer-full-width-widget"><div class="container-inner"><div id="text-2" class="widget widget_text"><div class="textwidget"><p><a href="https://data-flair.training/">Home</a> <a href="https://data-flair.training/about-us/">About us</a> <a href="https://data-flair.training/contact-us/">Contact us</a> <a href="https://data-flair.training/terms-and-conditions/">Terms and Conditions</a> <a href="https://data-flair.training/cancellation-and-refund/">Cancellation and Refund</a> <a href="https://data-flair.training/privacy-policy/">Privacy Policy</a> <a href="https://data-flair.training/disclaimer/">Disclaimer</a> <a href="https://data-flair.training/blogs/">Blogs</a> <a href="https://data-flair.training/blogs/write-for-us/">Write For Us</a> <a href="https://data-flair.training/careers/">Careers</a> <a href="https://data-flair.training/testimonials/">Testimonials</a></p></div></div></div></section><section class="container" id="footer-widgets"><div class="container-inner"><div class="pad group"><div class="footer-widget-1 grid one-third "><div id="text-7" class="widget widget_text"><div class="textwidget"><div id="dfaboutfooter"><p><span style="font-size: 1.1em;font-weight: bold">Popular Courses</span></p><p><a href="https://data-flair.training/hadoop-spark-developer-course/"><img id="df-sprite-hdsp" class="alignnone size-full wp-image-45804" style="vertical-align: middle;padding-right: 7px;padding-bottom: 4px" src="./explanation of kernels in SVR_files/transparent-01.png" alt="Hadoop Tutorials logo">Hadoop + Spark Course</a><br>
+<a href="https://data-flair.training/big-data-hadoop/"><img id="df-sprite-hadoop" class="alignnone size-full wp-image-45804" style="vertical-align: middle;padding-right: 7px;padding-bottom: 4px" src="./explanation of kernels in SVR_files/transparent-01.png" alt="Hadoop Tutorials logo">Big Data Hadoop Course</a><br>
+<a href="https://data-flair.training/apache-spark-scala/"><img id="df-sprite-spark" class="alignnone size-full wp-image-45809" style="vertical-align: middle;padding-right: 7px;padding-bottom: 4px" src="./explanation of kernels in SVR_files/transparent-01.png" alt="Spark Tutorials logo">Spark Scala Course</a><br>
+<a href="https://data-flair.training/apache-flink/"><img id="df-sprite-flink" class="alignnone size-full wp-image-45810" style="vertical-align: middle;padding-right: 7px;padding-bottom: 4px" src="./explanation of kernels in SVR_files/transparent-01.png" alt="Flink Tutorials logo">Apache Flink Course</a><br>
+<a href="https://data-flair.training/python-course/"><img id="df-sprite-py" class="alignnone size-full wp-image-45810" style="vertical-align: middle;padding-right: 7px;padding-bottom: 4px" src="./explanation of kernels in SVR_files/transparent-01.png" alt="Python Course logo">Python Course</a></p></div></div></div></div><div class="footer-widget-2 grid one-third "><div id="text-4" class="widget widget_text"><div class="textwidget"><div id="dfcategoryfooter1"><p><span style="font-size: 1.1em;font-weight: bold">Popular Tutorials</span></p><p><a href="https://data-flair.training/blogs/hadoop-tutorials-home/"><img id="df-sprite-had" class="alignnone size-full wp-image-45804" style="vertical-align: middle;padding-right: 7px;padding-bottom: 4px" src="./explanation of kernels in SVR_files/transparent-01.png" alt="Hadoop Tutorials logo">Hadoop Tutorials</a><br>
+<a href="https://data-flair.training/blogs/spark-tutorials-home/"><img id="df-sprite-sp" class="alignnone size-full wp-image-45809" style="vertical-align: middle;padding-right: 7px;padding-bottom: 4px" src="./explanation of kernels in SVR_files/transparent-01.png" alt="Spark Tutorials logo">Spark Tutorials</a><br>
+<a href="https://data-flair.training/blogs/flink-tutorials-home/"><img id="df-sprite-fli" class="alignnone size-full wp-image-45810" style="vertical-align: middle;padding-right: 7px;padding-bottom: 4px" src="./explanation of kernels in SVR_files/transparent-01.png" alt="Flink Tutorials logo">Flink Tutorials</a><br>
+<a href="https://data-flair.training/blogs/tableau-tutorials-home/"><img id="df-sprite-tab" class="alignnone size-full wp-image-45811" style="vertical-align: middle;padding-right: 7px;padding-bottom: 4px" src="./explanation of kernels in SVR_files/transparent-01.png" alt="Tableau Tutorials logo">Tableau Tutorials</a><br>
+<a href="https://data-flair.training/blogs/power-bi-tutorials-home/"><img id="df-sprite-pbi" class="alignnone size-full wp-image-45812" style="vertical-align: middle;padding-right: 7px;padding-bottom: 4px" src="./explanation of kernels in SVR_files/transparent-01.png" alt="Power BI Tutorials logo">Power BI Tutorials</a><br>
+<a href="https://data-flair.training/blogs/qlikview-tutorials-home/"><img id="df-sprite-qv" class="alignnone size-full wp-image-45813" style="vertical-align: middle;padding-right: 7px;padding-bottom: 4px" src="./explanation of kernels in SVR_files/transparent-01.png" alt="QlikView Tutorials logo">QlikView Tutorials</a></p></div></div></div></div><div class="footer-widget-3 grid one-third last"><div id="text-5" class="widget widget_text"><div class="textwidget"><div id="dfcategoryfooter2"><p><span style="font-size: 1.1em;font-weight: bold">Popular Tutorials</span></p><p><a href="https://data-flair.training/blogs/data-science-tutorials-home/"><img id="df-sprite-ds" class="alignnone size-full wp-image-45814" style="vertical-align: middle;padding-right: 7px;padding-bottom: 4px" src="./explanation of kernels in SVR_files/transparent-01.png" alt="Data Science Tutorials logo">Data Science Tutorials</a><br>
+<a href="https://data-flair.training/blogs/machine-learning-tutorials-home/"><img id="df-sprite-ml" class="alignnone size-full wp-image-45815" style="vertical-align: middle;padding-right: 7px;padding-bottom: 4px" src="./explanation of kernels in SVR_files/transparent-01.png" alt="Machine Learning Tutorials logo">Machine Learning Tutorials</a><br>
+<a href="https://data-flair.training/blogs/python-tutorials-home/"><img id="df-sprite-py" class="alignnone size-full wp-image-45816" style="vertical-align: middle;padding-right: 7px;padding-bottom: 4px" src="./explanation of kernels in SVR_files/transparent-01.png" alt="Python Tutorials logo">Python Tutorials</a><br>
+<a href="https://data-flair.training/blogs/r-tutorials-home/"><img id="df-sprite-r" class="alignnone size-full wp-image-45817" style="vertical-align: middle;padding-right: 7px;padding-bottom: 4px" src="./explanation of kernels in SVR_files/transparent-01.png" alt="R Tutorials logo">R Tutorials</a><br>
+<a href="https://data-flair.training/blogs/sas-tutorials-home/"><img id="df-sprite-sas" class="alignnone size-full wp-image-45818" style="vertical-align: middle;padding-right: 7px;padding-bottom: 4px" src="./explanation of kernels in SVR_files/transparent-01.png" alt="SAS Tutorials logo">SAS Tutorials</a><br>
+<a href="https://data-flair.training/blogs/sql-tutorials-home/"><img id="df-sprite-sql" class="alignnone size-full wp-image-45820" style="vertical-align: middle;padding-right: 7px;padding-bottom: 4px" src="./explanation of kernels in SVR_files/transparent-01.png" alt="SQL Tutorials logo">SQL Tutorials</a></p></div></div></div></div></div></div></section><section class="container" id="footer-bottom"><div class="container-inner"><a id="back-to-top" href="https://data-flair.training/blogs/svm-kernel-functions/#"><i class="fas fa-angle-up"></i></a><div class="pad group"><div class="grid one-half">
+<a href="https://data-flair.training/"><img id="footer-logo" src="./explanation of kernels in SVR_files/DataFlair_Logo_Final-01.png" alt="DataFlair Web Services"></a><div id="copyright"><p>DataFlair © 2019. All Rights Reserved.</p></div></div><div class="grid one-half last"><ul class="social-links"><li><a rel="nofollow" class="social-tooltip" title="Like us on Facebook" aria-label="Like us on Facebook" href="https://www.facebook.com/DataFlairWS/" onclick="javascript:window.open(&#39;https://www.facebook.com/DataFlairWS/&#39;); return false;"><i class="fab fa-facebook"></i></a></li><li><a rel="nofollow" class="social-tooltip" title="Read us on Twitter" aria-label="Read us on Twitter" href="https://twitter.com/DataFlairWS" onclick="javascript:window.open(&#39;https://twitter.com/DataFlairWS&#39;); return false;"><i class="fab fa-twitter"></i></a></li><li><a rel="nofollow" class="social-tooltip" title="Follow us on LinkedIn" aria-label="Follow us on LinkedIn" href="https://www.linkedin.com/company/dataflair-web-services-pvt-ltd/" onclick="javascript:window.open(&#39;https://www.linkedin.com/company/dataflair-web-services-pvt-ltd/&#39;); return false;"><i class="fab fa-linkedin"></i></a></li><li><a rel="nofollow" class="social-tooltip" title="Watch us on Youtube" aria-label="Watch us on Youtube" href="https://www.youtube.com/user/DataFlairWS" onclick="javascript:window.open(&#39;https://www.youtube.com/user/DataFlairWS&#39;); return false;"><i class="fab fa-youtube"></i></a></li><li><a rel="nofollow" class="social-tooltip" title="Write to us" aria-label="Write to us" href="mailto:info@data-flair.training" target="_blank"><i class="fas fa-envelope"></i></a></li></ul></div></div></div></section></footer></div> <script>setTimeout (function() {Array.prototype.forEach.call (document.querySelectorAll (".ai-viewports"), function (element, index) {ai_insert_code (element);});}, 10);</script> <style>.ig_hide .wpcf7-response-output,
+.ig_form_container .screen-reader-response{
+	display: none !important;
+}
+.ig_show .ig_form_container.layout_bottom .wpcf7-response-output,
+.ig_show .ig_form_container.layout_right .wpcf7-response-output,
+.ig_show .ig_form_container.layout_left .wpcf7-response-output{
+	background-color: #FFF;
+	color: #444;
+	position: absolute;
+}
+.ig_sidebar .ig_form_bottom.ig_show .ig_form_container.layout_bottom .wpcf7-response-output{
+	bottom: 0;
+}
+.ig_overlay.ig_form_bottom.ig_show .ig_form_container.layout_bottom .wpcf7-response-output,
+.ig_action_bar.ig_bottom.ig_show .ig_form_container.layout_right .wpcf7-response-output,
+.ig_action_bar.ig_bottom.ig_show .ig_form_container.layout_left .wpcf7-response-output{
+	bottom: 100%;
+}</style> <script>jQuery(function() {
+  	jQuery( window ).on( "init.icegram", function(e, ig) {
+	  	// Find and init all CF7 forms within Icegram messages/divs and init them
+  		if(typeof ig !== 'undefined' && typeof ig.messages !== 'undefined' ){
+		  	jQuery.each(ig.messages, function(i, msg){
+		  		jQuery(msg.el).find('form input[name=_wpcf7]').each(function(){
+			  		var form = jQuery(this).closest('form');
+			  		if(form && !form.hasClass('ig_form_init_done')){
+			  			if(form.closest('.ig_form_container').length > 0){
+				  			if(form.parent().find('.screen-reader-response').length == 0){
+				  				form.before('<div class=screen-reader-response></div>')
+				  			}
+				  			if(form.find('wpcf7-response-output').length == 0){
+				  				form.append('<div class="wpcf7-response-output wpcf7-display-none"></div>')
+				  			}
+					  		form.closest('.ig_form_container').attr('id', form.find('input[name=_wpcf7_unit_tag]').val()); //_wpcf7_unit_tag
+			  			}
+			  			if(typeof _wpcf7 !== 'undefined'){
+							form.wpcf7InitForm();
+			  			}else{
+				  	        form.submit( function( event ) {
+								if ( typeof window.FormData !== 'function' ) {
+									return;
+								}
+								wpcf7.submit( form );
+								event.preventDefault();
+							} );
+			  			}
+			  			form.addClass('ig_form_init_done');
+			  		}
+		  		});
+
+		  	});
+	  	}
+
+  	}); // init.icegram
+	
+	// Dismiss response text/div when shown within icegram form container
+	jQuery('body').on('click', '.ig_form_container .wpcf7-response-output', function(e) {
+			jQuery(e.target).slideUp();
+	});
+	// Handle CTA function(s) after successful submission of form
+  	jQuery( window ).on('wpcf7:mailsent', function(e) {
+  		if( typeof icegram !== 'undefined' ){
+		  	var msg_id = ((jQuery(e.target).closest('[id^=icegram_message_]') || {}).attr('id') || '').split('_').pop() || 0 ;
+		  	var ig_msg = icegram.get_message_by_id(msg_id) || undefined;
+		  	if(ig_msg && ig_msg.data.cta === 'form_via_ajax' && ig_msg.data.cta_option_form_via_ajax == 'hide_on_success'){
+			  	setTimeout(function(){
+					ig_msg.hide();
+				}, 2000);
+			}
+  		}
+	});
+});</script> <script>var WfcFrontParams = {"effectsAndIconsSelectorCandidates":[],"wfcOptions":null};</script> <script>var wpcf7 = {"apiSettings":{"root":"https:\/\/data-flair.training\/blogs\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"cached":"1"};</script> <script>var mPS2id_params = {"instances":{"mPS2id_instance_0":{"selector":"a[href*=#]:not([href=#])","autoSelectorMenuLinks":"true","scrollSpeed":800,"autoScrollSpeed":"true","scrollEasing":"easeInOutQuint","scrollingEasing":"easeOutQuint","pageEndSmoothScroll":"true","stopScrollOnUserAction":"false","autoCorrectScroll":"false","layout":"vertical","offset":"100","highlightSelector":"","clickedClass":"mPS2id-clicked","targetClass":"mPS2id-target","highlightClass":"mPS2id-highlight","forceSingleHighlight":"false","keepHighlightUntilNext":"false","highlightByNextTarget":"false","appendHash":"false","scrollToHash":"true","scrollToHashForAll":"true","scrollToHashDelay":0,"scrollToHashUseElementData":"true","scrollToHashRemoveUrlHash":"false","disablePluginBelow":0,"adminDisplayWidgetsId":"true","adminTinyMCEbuttons":"true","unbindUnrelatedClickEvents":"false","normalizeAnchorPointTargets":"false"}},"total_instances":"1","shortcode_class":"_ps2id"};</script> <script src="./explanation of kernels in SVR_files/underscore.min.js.download"></script> <script>var HUParams = {"_disabled":[],"SmoothScroll":{"Enabled":true,"Options":{"touchpadSupport":false}},"centerAllImg":"1","timerOnScrollAllBrowsers":"1","extLinksStyle":"","extLinksTargetExt":"","extLinksSkipSelectors":{"classes":["btn","button"],"ids":[]},"imgSmartLoadEnabled":"1","imgSmartLoadOpts":{"parentSelectors":[".container .content",".container .sidebar","#footer","#header-widgets"],"opts":{"excludeImg":[".tc-holder-img"],"fadeIn_options":100}},"goldenRatio":"1.618","gridGoldenRatioLimit":"350","sbStickyUserSettings":{"desktop":true,"mobile":true},"isWPMobile":"","menuStickyUserSettings":{"desktop":"stick_always","mobile":"stick_up"},"isDevMode":"","ajaxUrl":"https:\/\/data-flair.training\/blogs\/?huajax=1","frontNonce":{"id":"HuFrontNonce","handle":"3c9ecb915d"},"userStarted":{"with":"before|1.1.3","on":{"date":"2018-09-08 10:06:27.000000","timezone_type":3,"timezone":"UTC"}},"isWelcomeNoteOn":"","welcomeContent":"","fitTextMap":{"single_post_title":{"selectors":".single h1.entry-title","minEm":1.375,"maxEm":2.62},"page_title":{"selectors":".page-title h1","minEm":1,"maxEm":1.3},"home_page_title":{"selectors":".home .page-title","minEm":1,"maxEm":1.2,"compression":2.5},"post_titles":{"selectors":".blog .post-title, .archive .post-title","minEm":1.375,"maxEm":1.475},"featured_post_titles":{"selectors":".featured .post-title","minEm":1.375,"maxEm":2.125},"comments":{"selectors":".commentlist li","minEm":0.8125,"maxEm":0.93,"compression":2.5},"entry":{"selectors":".entry","minEm":0.9375,"maxEm":1.125,"compression":2.5},"content_h1":{"selectors":".entry h1, .woocommerce div.product h1.product_title","minEm":1.7578125,"maxEm":2.671875},"content_h2":{"selectors":".entry h2","minEm":1.5234375,"maxEm":2.390625},"content_h3":{"selectors":".entry h3","minEm":1.40625,"maxEm":1.96875},"content_h4":{"selectors":".entry h4","minEm":1.2890625,"maxEm":1.6875},"content_h5":{"selectors":".entry h5","minEm":1.0546875,"maxEm":1.40625},"content_h6":{"selectors":".entry h6","minEm":0.9375,"maxEm":1.265625,"compression":2.5}},"userFontSize":"16","fitTextCompression":"1.5"};</script> <script src="./explanation of kernels in SVR_files/autoptimize_single_8decb0ce7eb8097d463a77d859a02725.js.download"></script> <script src="./explanation of kernels in SVR_files/EnlighterJS.min.js.download"></script> <script>var icegram_pre_data = {"ajax_url":"https:\/\/data-flair.training\/blogs\/wp-admin\/admin-ajax.php","post_obj":{"is_home":false,"page_id":3700,"action":"display_messages","shortcodes":[],"cache_compatibility":"yes","device":"laptop"}};</script> <script data-cfasync="false" async="async" defer="defer" src="./explanation of kernels in SVR_files/api.js(1).download"></script> <script>var gglcptch = {"options":{"version":"v3","sitekey":"6LdD0JwUAAAAAABRdMQUEDhUkj_9jYOOLjwoOiqV","theme":"red","error":"<strong>Warning<\/strong>:&nbsp;More than one reCAPTCHA has been found in the current form. Please remove all unnecessary reCAPTCHA fields to make it work properly."},"vars":{"visibility":false}};</script> <script>(function (undefined) {var targetWindow ="prefer-popup";
+window.NSLPopupCenter = function (url, title, w, h) {
+    var userAgent = navigator.userAgent,
+        mobile = function () {
+            return /\b(iPhone|iP[ao]d)/.test(userAgent) ||
+                /\b(iP[ao]d)/.test(userAgent) ||
+                /Android/i.test(userAgent) ||
+                /Mobile/i.test(userAgent);
+        },
+        screenX = window.screenX !== undefined ? window.screenX : window.screenLeft,
+        screenY = window.screenY !== undefined ? window.screenY : window.screenTop,
+        outerWidth = window.outerWidth !== undefined ? window.outerWidth : document.documentElement.clientWidth,
+        outerHeight = window.outerHeight !== undefined ? window.outerHeight : document.documentElement.clientHeight - 22,
+        targetWidth = mobile() ? null : w,
+        targetHeight = mobile() ? null : h,
+        V = screenX < 0 ? window.screen.width + screenX : screenX,
+        left = parseInt(V + (outerWidth - targetWidth) / 2, 10),
+        right = parseInt(screenY + (outerHeight - targetHeight) / 2.5, 10),
+        features = [];
+    if (targetWidth !== null) {
+        features.push('width=' + targetWidth);
+    }
+    if (targetHeight !== null) {
+        features.push('height=' + targetHeight);
+    }
+    features.push('left=' + left);
+    features.push('top=' + right);
+    features.push('scrollbars=1');
+
+    var newWindow = window.open(url, title, features.join(','));
+
+    if (window.focus) {
+        newWindow.focus();
+    }
+
+    return newWindow;
+};
+
+var isWebView = null;
+
+function checkWebView() {
+    if (isWebView === null) {
+        function _detectOS(ua) {
+            switch (true) {
+                case /Android/.test(ua):
+                    return "Android";
+                case /iPhone|iPad|iPod/.test(ua):
+                    return "iOS";
+                case /Windows/.test(ua):
+                    return "Windows";
+                case /Mac OS X/.test(ua):
+                    return "Mac";
+                case /CrOS/.test(ua):
+                    return "Chrome OS";
+                case /Firefox/.test(ua):
+                    return "Firefox OS";
+            }
+            return "";
+        }
+
+        function _detectBrowser(ua) {
+            var android = /Android/.test(ua);
+
+            switch (true) {
+                case /CriOS/.test(ua):
+                    return "Chrome for iOS";
+                case /Edge/.test(ua):
+                    return "Edge";
+                case android && /Silk\//.test(ua):
+                    return "Silk";
+                case /Chrome/.test(ua):
+                    return "Chrome";
+                case /Firefox/.test(ua):
+                    return "Firefox";
+                case android:
+                    return "AOSP";
+                case /MSIE|Trident/.test(ua):
+                    return "IE";
+                case /Safari\//.test(ua):
+                    return "Safari";
+                case /AppleWebKit/.test(ua):
+                    return "WebKit";
+            }
+            return "";
+        }
+
+        function _detectBrowserVersion(ua, browser) {
+            switch (browser) {
+                case "Chrome for iOS":
+                    return _getVersion(ua, "CriOS/");
+                case "Edge":
+                    return _getVersion(ua, "Edge/");
+                case "Chrome":
+                    return _getVersion(ua, "Chrome/");
+                case "Firefox":
+                    return _getVersion(ua, "Firefox/");
+                case "Silk":
+                    return _getVersion(ua, "Silk/");
+                case "AOSP":
+                    return _getVersion(ua, "Version/");
+                case "IE":
+                    return /IEMobile/.test(ua) ? _getVersion(ua, "IEMobile/") :
+                        /MSIE/.test(ua) ? _getVersion(ua, "MSIE ")
+                            :
+                            _getVersion(ua, "rv:");
+                case "Safari":
+                    return _getVersion(ua, "Version/");
+                case "WebKit":
+                    return _getVersion(ua, "WebKit/");
+            }
+            return "0.0.0";
+        }
+
+        function _getVersion(ua, token) {
+            try {
+                return _normalizeSemverString(ua.split(token)[1].trim().split(/[^\w\.]/)[0]);
+            } catch (o_O) {
+            }
+            return "0.0.0";
+        }
+
+        function _normalizeSemverString(version) {
+            var ary = version.split(/[\._]/);
+            return (parseInt(ary[0], 10) || 0) + "." +
+                (parseInt(ary[1], 10) || 0) + "." +
+                (parseInt(ary[2], 10) || 0);
+        }
+
+        function _isWebView(ua, os, browser, version, options) {
+            switch (os + browser) {
+                case "iOSSafari":
+                    return false;
+                case "iOSWebKit":
+                    return _isWebView_iOS(options);
+                case "AndroidAOSP":
+                    return false;
+                case "AndroidChrome":
+                    return parseFloat(version) >= 42 ? /; wv/.test(ua) : /\d{2}\.0\.0/.test(version) ? true : _isWebView_Android(options);
+            }
+            return false;
+        }
+
+        function _isWebView_iOS(options) {
+            var document = (window["document"] || {});
+
+            if ("WEB_VIEW" in options) {
+                return options["WEB_VIEW"];
+            }
+            return !("fullscreenEnabled" in document || "webkitFullscreenEnabled" in document || false);
+        }
+
+        function _isWebView_Android(options) {
+            if ("WEB_VIEW" in options) {
+                return options["WEB_VIEW"];
+            }
+            return !("requestFileSystem" in window || "webkitRequestFileSystem" in window || false);
+        }
+
+        var options = {};
+        var nav = window.navigator || {};
+        var ua = nav.userAgent || "";
+        var os = _detectOS(ua);
+        var browser = _detectBrowser(ua);
+        var browserVersion = _detectBrowserVersion(ua, browser);
+
+        isWebView = _isWebView(ua, os, browser, browserVersion, options);
+    }
+
+    return isWebView;
+}
+
+_nsl.push(function ($) {
+    var targetWindow = targetWindow || 'prefer-popup';
+
+    $('a[data-plugin="nsl"][data-action="connect"],a[data-plugin="nsl"][data-action="link"]').on('click', function (e) {
+        var $target = $(this),
+            href = $target.attr('href'),
+            success = false;
+        if (href.indexOf('?') !== -1) {
+            href += '&';
+        } else {
+            href += '?';
+        }
+        var redirectTo = $target.data('redirect');
+        if (redirectTo === 'current') {
+            href += 'redirect=' + encodeURIComponent(window.location.href) + '&';
+        } else if (redirectTo && redirectTo !== '') {
+            href += 'redirect=' + encodeURIComponent(redirectTo) + '&';
+        }
+
+        if (targetWindow !== 'prefer-same-window' && checkWebView()) {
+            targetWindow = 'prefer-same-window';
+        }
+
+        if (targetWindow === 'prefer-popup') {
+            if (NSLPopupCenter(href + 'display=popup', 'nsl-social-connect', $target.data('popupwidth'), $target.data('popupheight'))) {
+                success = true;
+                e.preventDefault();
+            }
+        } else if (targetWindow === 'prefer-new-tab') {
+            var newTab = window.open(href + 'display=popup', '_blank');
+            if (newTab) {
+                if (window.focus) {
+                    newTab.focus();
+                }
+                success = true;
+                e.preventDefault();
+            }
+        }
+
+        if (!success) {
+            window.location = href;
+            e.preventDefault();
+        }
+    });
+
+    var googleLoginButton = $('a[data-plugin="nsl"][data-provider="google"]');
+    if (googleLoginButton.length && checkWebView()) {
+        googleLoginButton.remove();
+    }
+});})();</script><!--[if lt IE 9]> <script src=https://d2h0cx97tjks2p.cloudfront.net/blogs/wp-content/themes/hueman-pro/assets/front/js/ie/respond.js></script> <![endif]--> <script>EnlighterJS_Config = {"selector":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"language":"generic","theme":"enlighter","indent":2,"hover":"hoverEnabled","showLinenumbers":true,"rawButton":true,"infoButton":true,"windowButton":true,"rawcodeDoubleclick":false,"grouping":true,"cryptex":{"enabled":false,"email":"mail@example.tld"}};!function(){var a=function(a){var b="Enlighter Error: ";console.error?console.error(b+a):console.log&&console.log(b+a)};return window.addEvent?"undefined"==typeof EnlighterJS?void a("Javascript Resources not loaded yet!"):"undefined"==typeof EnlighterJS_Config?void a("Configuration not loaded yet!"):void window.addEvent("domready",function(){EnlighterJS.Util.Init(EnlighterJS_Config.selector.block,EnlighterJS_Config.selector.inline,EnlighterJS_Config)}):void a("MooTools Framework not loaded yet!")}();;</script><script defer="" src="./explanation of kernels in SVR_files/autoptimize_ef32acd47be9d62f95accf0e5f4c1137.js.download"></script>
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Object Caching 0/0 objects using disk
+Page Caching using disk: enhanced 
+Content Delivery Network via d2h0cx97tjks2p.cloudfront.net
+Minified using disk (Request URI is rejected)
+Database Caching 68/115 queries in 0.026 seconds using disk (Request-wide modification query)
+
+Served from: data-flair.training @ 2019-09-11 22:15:13 by W3 Total Cache
+--><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px;"><div class="grecaptcha-logo"><iframe src="./explanation of kernels in SVR_files/anchor.html" width="256" height="60" role="presentation" name="a-r0llexfetoji" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div><div><div class="grecaptcha-badge" data-style="none" style="width: 256px; height: 60px; position: fixed; visibility: hidden;"><div class="grecaptcha-logo"><iframe src="./explanation of kernels in SVR_files/anchor(1).html" width="256" height="60" role="presentation" name="a-l4b0zbn98kxn" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100001" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div><div id="i4c-dialogs-container"></div></body></html>
