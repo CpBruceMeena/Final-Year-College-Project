@@ -28,8 +28,11 @@ y_test = y_test[:100, :]
 from sklearn.linear_model import LinearRegression
 
 model = LinearRegression()
-model.fit(X_train,y_train)
+model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
+
+print(model.coef_)
+print(model.intercept_)
 
 y_test_pred = pd.DataFrame(y_pred, columns= ['predictions'])
 y_test_pred = y_test_pred[['predictions']].values
@@ -58,4 +61,3 @@ plt.plot(y_pred_plot, color = 'red', label = 'Y_prediction', marker = 'o')
 plt.legend(loc = 'upper left')
 plt.title("Using Least Square Fitting")
 plt.show()
-
