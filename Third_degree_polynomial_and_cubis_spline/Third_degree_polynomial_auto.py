@@ -1,7 +1,7 @@
+"""
+the r2 score on the test set is 0.518
+the r2 score on the train set is 0.487
 
-"""*
-# the r2 score on the test set is 0.653
-# the r2 score on the train set is 0.487
 # The graph has been saved by the name of using_single_feature_auto_medianIncome
 """
 
@@ -35,12 +35,11 @@ from keras.optimizers import Adam
 from keras.layers import Dense
 
 model = Sequential()
-model.add(Dense(3, input_dim = 1, activation = 'relu'))
+model.add(Dense(4, input_dim = 1, activation = 'relu'))
 model.add(Dense(1))
 
-
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y_true, shuffle = True, test_size=0.3)
+X_train, X_test, y_train, y_test = train_test_split(X, y_true,  test_size= 0.3, shuffle = True)
 
 model.compile(Adam(lr = 0.001), loss = 'mean_squared_error')
 model.fit(X_train, y_train, verbose = 2, epochs = 40)

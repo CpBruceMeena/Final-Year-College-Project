@@ -35,7 +35,7 @@ X = ss.fit_transform(X)
 y_true = ss.fit_transform(y_true)
 
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y_true,  test_size= 0.3, shuffle = True)
+X_train, X_test, y_train, y_test = train_test_split(X, y_true, shuffle = True, test_size=0.3)
 
 temp_X = np.array(X_train[:, 0])
 temp_y_true = np.array(y_train[:, 0])
@@ -44,9 +44,9 @@ polynomial_2 = np.poly1d(np.polyfit(temp_X, temp_y_true, 2))
 print(polynomial_2)
 
 """
-C0 = -0.4835  coefficient of X^2
-C1 = 1.6  coefficient of x
-C2 = 0.06957     constant
+C0 = -0.4158  coefficient of X^2
+C1 = 1.512  coefficient of x
+C2 = 0.07525     constant
 """
 
 from keras.models import Sequential
@@ -59,7 +59,7 @@ model.add(Dense(1))
 
 l = []
 
-weight = np.array([[-0.4835, 1.6, 0.06957]])
+weight = np.array([[-0.4158, 1.512, 0.07525]])
 bias = np.array([1.0, 1.0, 1.0])
 
 l.append(weight)
@@ -70,13 +70,25 @@ model.layers[0].set_weights(l)
 model.compile(Adam(lr = 0.001), loss = 'mean_squared_error')
 model.fit(X_train, y_train, verbose = 2, epochs = 40)
 
-X_test = X_test[:50, :]
-y_test = y_test[:50, :]
-
 print(model.get_weights())
 
-score = model.evaluate(X_test, y_test, verbose = 2)
+temp_X_test = X_test[:50, :]
+temp_y_test = y_test[:50, :]
+
+score = model.evaluate(temp_X_test, temp_y_test, verbose = 2)
 print(score)
+
+temp_y_test_pred = model.predict(temp_X_test)
+
+original_temp_y_test_pred = ss.inverse_transform(temp_y_test_pred)
+original_temp_y_test = ss.inverse_transform(temp_y_test)
+
+plt.plot(original_temp_y_test_pred, color = 'red', marker = 'o', label = 'y prediction')
+plt.plot(original_temp_y_test, color = 'green', marker = 'x', label = 'y original')
+plt.title("using neural network")
+plt.legend(loc = 'upper left')
+plt.show()
+
 
 y_test_pred = model.predict(X_test)
 y_train_pred = model.predict(X_train)
@@ -91,9 +103,3 @@ from sklearn.metrics import r2_score
 
 print('the r2 score on the test set is {:.3f}'.format(r2_score(y_test, y_test_pred)))
 print('the r2 score on the train set is {:.3f}'.format(r2_score(y_train, y_train_pred)))
-
-plt.plot(y_test_pred, color = 'red', marker = 'o', label = 'y prediction')
-plt.plot(y_test, color = 'green', marker = 'x', label = 'y original')
-plt.title("using neural network")
-plt.legend(loc = 'upper left')
-plt.show()
