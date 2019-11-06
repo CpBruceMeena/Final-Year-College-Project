@@ -27,8 +27,14 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 #ss = StandardScaler()
 ss = MinMaxScaler()
 
+print(X)
+print(y_true)
+
 X = ss.fit_transform(X)
 y_true = ss.fit_transform(y_true)
+
+print(ss.inverse_transform(X))
+print(ss.inverse_transform(y_true))
 
 from keras.models import Sequential
 from keras.optimizers import Adam

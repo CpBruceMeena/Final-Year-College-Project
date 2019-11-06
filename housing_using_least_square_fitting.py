@@ -16,8 +16,14 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 #ss = StandardScaler()
 ss = MinMaxScaler()
 
+print(X)
+print(y_true)
+
 X = ss.fit_transform(X)
 y_true = ss.fit_transform(y_true)
+
+print(ss.inverse_transform(X))
+print(ss.inverse_transform(y_true))
 
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y_true,  test_size= 0.3, shuffle = True)
