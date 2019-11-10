@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbe6b625-a9d2-404c-881e-c834612f3670" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/FLNN/using_FLNN.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,13 +13,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/House_prediction_using_SVR.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+            <state relative-caret-position="614">
+              <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/FLNN/using_FLNN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="349">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
+              <folding>
+                <element signature="e#1#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -27,11 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/housing_using_least_square_fitting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1037">
-              <caret line="63" selection-start-line="63" selection-end-line="63" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
+            <state>
+              <caret column="19" lean-forward="true" selection-start-column="19" selection-end-line="1" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -39,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Single_feature_with_regression_and_weight_setting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1717">
-              <caret line="103" selection-start-line="103" selection-end-line="103" />
+            <state relative-caret-position="357">
+              <caret line="27" lean-forward="true" selection-start-line="16" selection-end-line="27" />
             </state>
           </provider>
         </entry>
@@ -48,7 +58,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Third_degree_polynomial_and_cubis_spline/cubic_spline_manual.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
+            <state relative-caret-position="714">
               <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
             </state>
           </provider>
@@ -144,6 +154,7 @@
         <option value="$PROJECT_DIR$/House_Price_prediction.py" />
         <option value="$PROJECT_DIR$/Third_degree_polynomial_and_cubis_spline/For_testing.py" />
         <option value="$PROJECT_DIR$/Third_degree_polynomial_and_cubis_spline/cubic_spline_manual.py" />
+        <option value="$PROJECT_DIR$/FLNN/using_FLNN.py" />
       </list>
     </option>
   </component>
@@ -164,11 +175,6 @@
             <path>
               <item name="Final_Year_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Final_Year_Project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Final_Year_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Final_Year_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="Third_degree_polynomial_and_cubis_spline" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -194,7 +200,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.cubic_spline_manual">
+  <component name="RunManager" selected="Python.using_FLNN">
     <configuration name="For_testing" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Final_Year_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -258,7 +264,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="housing_using_least_square_fitting" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="using_FLNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Final_Year_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -266,11 +272,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/FLNN" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/housing_using_least_square_fitting.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/FLNN/using_FLNN.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -302,11 +308,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.using_FLNN" />
         <item itemvalue="Python.cubic_spline_manual" />
         <item itemvalue="Python.For_testing" />
         <item itemvalue="Python.House_Price_prediction" />
         <item itemvalue="Python.using_single_feature" />
-        <item itemvalue="Python.housing_using_least_square_fitting" />
       </list>
     </recent_temporary>
   </component>
@@ -335,19 +341,26 @@
       <option name="project" value="LOCAL" />
       <updated>1572261769625</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Using cubic spline polynomial coefficients for weight initialization&#10;making some modifications">
+      <created>1573074093536</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1573074093536</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18560106" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18560106" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3253012" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.14993307" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39892906" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -365,7 +378,8 @@
     <MESSAGE value="We are using single feature i.e., medianIncome, &#10;first we are using normal neural network and then we are using polynomial regression and using those weights for neural network" />
     <MESSAGE value="Using third degree polynomial and then using coefficients for weight settingsand then comparing it with automatic weight settings." />
     <MESSAGE value="Using cubic spline polynomial coefficients for weight initialization" />
-    <option name="LAST_COMMIT_MESSAGE" value="Using cubic spline polynomial coefficients for weight initialization" />
+    <MESSAGE value="Using cubic spline polynomial coefficients for weight initialization&#10;making some modifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="Using cubic spline polynomial coefficients for weight initialization&#10;making some modifications" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -450,20 +464,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/housing_using_least_square_fitting.py">
+    <entry file="file://$PROJECT_DIR$/House_prediction_using_SVR.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="614">
+          <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Single_feature_with_regression_and_weight_setting.py">
+    <entry file="file://$PROJECT_DIR$/Third_degree_polynomial_and_cubis_spline/cubic_spline_manual.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
+        <state relative-caret-position="714">
+          <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -517,19 +531,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Third_degree_polynomial_and_cubis_spline/cubic_spline_manual.py">
+    <entry file="file://$PROJECT_DIR$/Single_feature_with_regression_and_weight_setting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+        <state relative-caret-position="357">
+          <caret line="27" lean-forward="true" selection-start-line="16" selection-end-line="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/House_prediction_using_SVR.py">
+    <entry file="file://$PROJECT_DIR$/housing_using_least_square_fitting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+        <state>
+          <caret column="19" lean-forward="true" selection-start-column="19" selection-end-line="1" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FLNN/using_FLNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#1#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
