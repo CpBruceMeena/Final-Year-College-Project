@@ -2,6 +2,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+# The observed result for this case is
+#     [0.2828481   0.49457554 - 0.12319716 - 0.14174501  0.08287378][0.26429525]
+#     The    r2    score    on the    training    data is 0.800050681561628
+
 df = pd.read_csv("F://PycharmProjects//Zero_to_deep_learning//cal_housing.csv")
 # df.info()
 # print(df.head(10))
@@ -28,10 +32,13 @@ ys.fit(y_train)
 y_train_transformed = ys.transform(y_train)
 
 def Tx(a):
-    Tx_values = [0, 0, 0]
+    Tx_values = [0, 0, 0, 0, 0]
     Tx_values[0] = 1
     Tx_values[1] = a
     Tx_values[2] = (1/2)*(3*(a**2)-1)
+    Tx_values[3] = (1/2)*(5*(a**3)-3*a)
+    Tx_values[4] = (1/8)*(35*(a**4)-30*(a**2)+3)
+
     return Tx_values
 
 # Weights = [0.5, 0.5, 0.5]
@@ -44,21 +51,21 @@ def output(Weights, Tx_values):
 
 def model(X_train, y_train, epochs, learning_rate):
     n = len(X_train)
-    m = [0, 0, 0]
-    v = [0, 0, 0]
+    m = [0, 0, 0, 0, 0]
+    v = [0, 0, 0, 0, 0]
     bias_m = 0
     bias_v = 0
     epsilon = 0.00000001
     # bias = 1.0
     beta_1 = 0.9
     beta_2 = 0.999
-    Weights = (np.random.randn(1,3))*np.sqrt(2/3)
+    Weights = (np.random.randn(1,5))*np.sqrt(2/5)
     print(Weights)
     Weights = Weights[0]
     # Weights = [-0.02345428, 0.44043124, -0.01990337]
-    bias = 1
+    bias = 0.5
     for no_of_epochs in range(epochs):
-        gradient = [0, 0, 0]
+        gradient = [0, 0, 0, 0, 0]
         bias_gradient = 0
         for i in range(len(X_train)):
             Tx_values = Tx(X_train[i])
@@ -93,7 +100,7 @@ def model(X_train, y_train, epochs, learning_rate):
 
     return Weights, bias
 
-epochs = 3000
+epochs = 2000
 
 learning_rate = 0.001
 
@@ -129,6 +136,9 @@ y_train = ys.inverse_transform(y_train_transformed)
 
 plt.plot(y_train[:50, 0], color = 'green', label = 'y original', marker = 'x')
 plt.plot(y_predicted[:50, 0], color = 'red', label = 'Y_prediction', marker = 'o')
+plt.title("using 4th degree legendre polynomial")
+plt.legend(loc = 'upper left')
+plt.show()
 
 plt.show()
 
