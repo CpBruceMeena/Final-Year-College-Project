@@ -10,7 +10,7 @@ df = pd.read_csv("F://PycharmProjects//Zero_to_deep_learning//cal_housing.csv")
 # df.info()
 # print(df.head(10))
 
-df = df.loc[:50, :]
+df = df.loc[:500, :]
 
 # X = df[['medianincome']].values
 X_train = df[['medianincome']].values
@@ -52,7 +52,7 @@ def model(X_train, y_train, epochs, learning_rate):
     m = [0, 0, 0, 0]
     v = [0, 0, 0, 0]
     bias_m = 0
-    bias_v = 0
+    bias_v = 00.
     epsilon = 0.00000001
     # bias = 1.0
     beta_1 = 0.9
@@ -98,7 +98,7 @@ def model(X_train, y_train, epochs, learning_rate):
 
     return Weights, bias
 
-epochs = 3000
+epochs = 2000
 
 learning_rate = 0.001
 
