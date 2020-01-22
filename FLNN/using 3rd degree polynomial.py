@@ -2,9 +2,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-# The result for this case is
+# The result for this case using 50 datapoints is
 #     [-0.08229602  0.52726302 - 0.09916695 - 0.16669065][0.63815072]
 # The    r2    score    on    the    training    data is 0.7707040090291927
+
+# The result for this case using 500 datapoints is
+# [ 0.25132578  0.13831302 -0.40664837 -0.37903709] [0.19723916]
+# The r2 score on the training data is  0.5213129429474388
 
 df = pd.read_csv("F://PycharmProjects//Zero_to_deep_learning//cal_housing.csv")
 # df.info()

@@ -2,14 +2,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-# The observed result for this case using 50 data points is
-#     [0.2828481   0.49457554 - 0.12319716 - 0.14174501  0.08287378][0.26429525]
-#     The    r2    score    on the    training    data is 0.800050681561628
+# The result for this case using 50 datapoints is
+#     [-0.08229602  0.52726302 - 0.09916695 - 0.16669065][0.63815072]
+# The    r2    score    on    the    training    data is 0.7707040090291927
 
-
-# The observed result for this case using 500 data points is
-# [ 0.01540484  0.39619917 -0.08909155 -0.08660172  0.07391028] [0.50801734]
-# The r2 score on the training data is  0.5706632649865745
+# The result for this case using 500 datapoints is
+# [ 0.25132578  0.13831302 -0.40664837 -0.37903709] [0.19723916]
+# The r2 score on the training data is  0.5213129429474388
 
 df = pd.read_csv("F://PycharmProjects//Zero_to_deep_learning//cal_housing.csv")
 # df.info()
@@ -37,13 +36,11 @@ ys.fit(y_train)
 y_train_transformed = ys.transform(y_train)
 
 def Tx(a):
-    Tx_values = [0, 0, 0, 0, 0]
+    Tx_values = [0, 0, 0]
     Tx_values[0] = 1
     Tx_values[1] = a
-    Tx_values[2] = (1/2)*(3*(a**2)-1)
-    Tx_values[3] = (1/2)*(5*(a**3)-3*a)
-    Tx_values[4] = (1/8)*(35*(a**4)-30*(a**2)+3)
-
+    Tx_values[2] = 2*(a**2) - 1
+    # Tx_values[3] = (1/2)*(5*(a**3)-3*a)
     return Tx_values
 
 # Weights = [0.5, 0.5, 0.5]
@@ -56,21 +53,21 @@ def output(Weights, Tx_values):
 
 def model(X_train, y_train, epochs, learning_rate):
     n = len(X_train)
-    m = [0, 0, 0, 0, 0]
-    v = [0, 0, 0, 0, 0]
+    m = [0, 0, 0]
+    v = [0, 0, 0]
     bias_m = 0
-    bias_v = 0
+    bias_v = 00.
     epsilon = 0.00000001
     # bias = 1.0
     beta_1 = 0.9
     beta_2 = 0.999
-    Weights = (np.random.randn(1,5))*np.sqrt(2/5)
+    Weights = (np.random.randn(1,3))*np.sqrt(2/3)
     print(Weights)
     Weights = Weights[0]
     # Weights = [-0.02345428, 0.44043124, -0.01990337]
-    bias = 0.5
+    bias = 1
     for no_of_epochs in range(epochs):
-        gradient = [0, 0, 0, 0, 0]
+        gradient = [0, 0, 0]
         bias_gradient = 0
         for i in range(len(X_train)):
             Tx_values = Tx(X_train[i])
@@ -141,7 +138,7 @@ y_train = ys.inverse_transform(y_train_transformed)
 
 plt.plot(y_train[:50, 0], color = 'green', label = 'y original', marker = 'x')
 plt.plot(y_predicted[:50, 0], color = 'red', label = 'Y_prediction', marker = 'o')
-plt.title("using 4th degree legendre polynomial")
+plt.title("using 2rd degree chebyshev polynomial")
 plt.legend(loc = 'upper left')
 plt.show()
 
