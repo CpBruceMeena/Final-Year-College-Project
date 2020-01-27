@@ -39,12 +39,11 @@ y_train_transformed = ys.transform(y_train)
 def Tx(a):
     Tx_values = [0, 0, 0]
     Tx_values[0] = 1
-    Tx_values[1] = -a+1
-    Tx_values[2] = (1/2)*(a**2 - 4*a + 2)
-    # Tx_values[3] = (1/6)*(-1*(a**3)+9*a**2 - 18*a + 6)
-    # Tx_values[4] = (1/24)*(a**4 - 16*a**3 + 72*a**2 - 96*a + 24)
-    # Tx_values[5] = (1/120)*(-a**5 + 25*a**4 - 200*a**3 + 600*a**2 - 600*a + 120)
-    # Tx_values[6] = (1/720)*(a**6 - 36*a**5 + 450*a**4 - 2400*a**3 + 5400*a**2 - 4320*a + 720)
+    Tx_values[1] = a+1
+    Tx_values[2] = 3*(a**2) + 3*a + 1
+    # Tx_values[3] = 15*(a**3)+15*a**2 + 6*a + 1
+    # Tx_values[4] = 105*(a**4) +105*a**3 + 45*a**2 + 10*a + 1
+    # Tx_values[5] = 945*a**5 + 945*a**4 + 420*a**3 + 105*a**2 + 15*a + 1
     return Tx_values
 
 # Weights = [0.5, 0.5, 0.5]
@@ -106,7 +105,7 @@ def model(X_train, y_train, epochs, learning_rate):
 
     return Weights, bias
 
-epochs = 1000
+epochs = 2000
 
 learning_rate = 0.001
 
@@ -145,7 +144,7 @@ y_train = ys.inverse_transform(y_train_transformed)
 
 plt.plot(y_train[:50, 0], color = 'green', label = 'y original', marker = 'x')
 plt.plot(y_predicted[:50, 0], color = 'red', label = 'Y_prediction', marker = 'o')
-plt.title("using 2rd degree Laguerre polynomial")
+plt.title("using 2nd degree Bessel polynomial")
 plt.legend(loc = 'upper right')
 plt.show()
 

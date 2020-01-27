@@ -37,14 +37,13 @@ ys.fit(y_train)
 y_train_transformed = ys.transform(y_train)
 
 def Tx(a):
-    Tx_values = [0, 0, 0]
+    Tx_values = [0, 0, 0, 0]
     Tx_values[0] = 1
-    Tx_values[1] = -a+1
-    Tx_values[2] = (1/2)*(a**2 - 4*a + 2)
-    # Tx_values[3] = (1/6)*(-1*(a**3)+9*a**2 - 18*a + 6)
-    # Tx_values[4] = (1/24)*(a**4 - 16*a**3 + 72*a**2 - 96*a + 24)
-    # Tx_values[5] = (1/120)*(-a**5 + 25*a**4 - 200*a**3 + 600*a**2 - 600*a + 120)
-    # Tx_values[6] = (1/720)*(a**6 - 36*a**5 + 450*a**4 - 2400*a**3 + 5400*a**2 - 4320*a + 720)
+    Tx_values[1] = a+1
+    Tx_values[2] = 3*(a**2) + 3*a + 1
+    Tx_values[3] = 15*(a**3)+15*a**2 + 6*a + 1
+    # Tx_values[4] = 105*(a**4) +105*a**3 + 45*a**2 + 10*a + 1
+    # Tx_values[5] = 945*a**5 + 945*a**4 + 420*a**3 + 105*a**2 + 15*a + 1
     return Tx_values
 
 # Weights = [0.5, 0.5, 0.5]
@@ -57,21 +56,21 @@ def output(Weights, Tx_values):
 
 def model(X_train, y_train, epochs, learning_rate):
     n = len(X_train)
-    m = [0, 0, 0]
-    v = [0, 0, 0]
+    m = [0, 0, 0, 0]
+    v = [0, 0, 0, 0]
     bias_m = 0
     bias_v = 00.
     epsilon = 0.00000001
     # bias = 1.0
     beta_1 = 0.9
     beta_2 = 0.999
-    Weights = (np.random.randn(1,3))*np.sqrt(2/3)
+    Weights = (np.random.randn(1,4))*np.sqrt(2/3)
     print(Weights)
     Weights = Weights[0]
     # Weights = [-0.02345428, 0.44043124, -0.01990337]
     bias = 1
     for no_of_epochs in range(epochs):
-        gradient = [0, 0, 0]
+        gradient = [0, 0, 0, 0]
         bias_gradient = 0
         for i in range(len(X_train)):
             Tx_values = Tx(X_train[i])
@@ -106,7 +105,7 @@ def model(X_train, y_train, epochs, learning_rate):
 
     return Weights, bias
 
-epochs = 1000
+epochs = 2000
 
 learning_rate = 0.001
 
@@ -145,7 +144,7 @@ y_train = ys.inverse_transform(y_train_transformed)
 
 plt.plot(y_train[:50, 0], color = 'green', label = 'y original', marker = 'x')
 plt.plot(y_predicted[:50, 0], color = 'red', label = 'Y_prediction', marker = 'o')
-plt.title("using 2rd degree Laguerre polynomial")
+plt.title("using 3rd degree Bessel polynomial")
 plt.legend(loc = 'upper right')
 plt.show()
 

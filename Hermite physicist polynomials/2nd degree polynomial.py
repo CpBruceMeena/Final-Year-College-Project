@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import time
 
 # The result for this case using 50 datapoints is
 #     [-0.08229602  0.52726302 - 0.09916695 - 0.16669065][0.63815072]
@@ -37,14 +36,14 @@ ys.fit(y_train)
 y_train_transformed = ys.transform(y_train)
 
 def Tx(a):
+
     Tx_values = [0, 0, 0]
     Tx_values[0] = 1
-    Tx_values[1] = -a+1
-    Tx_values[2] = (1/2)*(a**2 - 4*a + 2)
-    # Tx_values[3] = (1/6)*(-1*(a**3)+9*a**2 - 18*a + 6)
-    # Tx_values[4] = (1/24)*(a**4 - 16*a**3 + 72*a**2 - 96*a + 24)
-    # Tx_values[5] = (1/120)*(-a**5 + 25*a**4 - 200*a**3 + 600*a**2 - 600*a + 120)
-    # Tx_values[6] = (1/720)*(a**6 - 36*a**5 + 450*a**4 - 2400*a**3 + 5400*a**2 - 4320*a + 720)
+    Tx_values[1] = 2*a
+    Tx_values[2] = 4*(a**2) - 2
+    # Tx_values[3] = 8*(a**3) - 12*a
+    # Tx_values[4] = 16*(a**4) - 48*(a**2) + 12
+    # Tx_values[5] = 32*(a**5) - 160*(a**3) + 120*a
     return Tx_values
 
 # Weights = [0.5, 0.5, 0.5]
@@ -106,18 +105,14 @@ def model(X_train, y_train, epochs, learning_rate):
 
     return Weights, bias
 
-epochs = 1000
+epochs = 2000
 
 learning_rate = 0.001
 
 # X_train = [5.6431, 7.2574]
 # y_train = [314300, 352100]
 
-start_time = time.time()
-
 Weights, bias = model(X_train_transformed, y_train_transformed, epochs, learning_rate)
-
-print("The time required for training is ---" + str((time.time() - start_time)) + ' seconds')
 
 def predict(X_test, Weights, bias):
     y_predicted = []
@@ -136,6 +131,7 @@ print(Weights, bias)
 y_predicted = predict(X_train_transformed, Weights, bias)
 y_predicted = np.asarray(y_predicted)
 y_predicted = y_predicted.reshape(-1, 1)
+print(type(y_predicted))
 y_predicted = ys.inverse_transform(y_predicted)
 y_train = ys.inverse_transform(y_train_transformed)
 
@@ -145,8 +141,8 @@ y_train = ys.inverse_transform(y_train_transformed)
 
 plt.plot(y_train[:50, 0], color = 'green', label = 'y original', marker = 'x')
 plt.plot(y_predicted[:50, 0], color = 'red', label = 'Y_prediction', marker = 'o')
-plt.title("using 2rd degree Laguerre polynomial")
-plt.legend(loc = 'upper right')
+plt.title("using 2nd degree hermite physicists polynomial")
+plt.legend(loc = 'upper left')
 plt.show()
 
 plt.show()
