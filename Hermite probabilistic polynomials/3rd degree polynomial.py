@@ -2,13 +2,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-# The result for this case using 50 datapoints is
-#     [-0.08229602  0.52726302 - 0.09916695 - 0.16669065][0.63815072]
-# The    r2    score    on    the    training    data is 0.7707040090291927
-
-# The result for this case using 500 datapoints is
-# [ 0.25132578  0.13831302 -0.40664837 -0.37903709] [0.19723916]
-# The r2 score on the training data is  0.5213129429474388
+# The time required for training is ---50.495160818099976 seconds
+# [-1.01099569  0.08379646  0.02715391 -0.18260971] [1.59832208]
+# <class 'numpy.ndarray'>
+# The r2 score on the training data is  0.5566238444615783
 
 df = pd.read_csv("F://PycharmProjects//Zero_to_deep_learning//cal_housing.csv")
 # df.info()
@@ -105,14 +102,19 @@ def model(X_train, y_train, epochs, learning_rate):
 
     return Weights, bias
 
-epochs = 1000
+epochs = 2000
 
 learning_rate = 0.001
 
 # X_train = [5.6431, 7.2574]
 # y_train = [314300, 352100]
 
+import time
+start_time = time.time()
+
 Weights, bias = model(X_train_transformed, y_train_transformed, epochs, learning_rate)
+
+print("The time required for training is ---" + str((time.time() - start_time)) + ' seconds')
 
 def predict(X_test, Weights, bias):
     y_predicted = []

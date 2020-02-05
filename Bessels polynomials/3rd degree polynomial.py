@@ -3,13 +3,10 @@ import numpy as np
 import pandas as pd
 import time
 
-# The result for this case using 50 datapoints is
-#     [-0.08229602  0.52726302 - 0.09916695 - 0.16669065][0.63815072]
-# The    r2    score    on    the    training    data is 0.7707040090291927
 
-# The result for this case using 500 datapoints is
-# [ 0.25132578  0.13831302 -0.40664837 -0.37903709] [0.19723916]
-# The r2 score on the training data is  0.5213129429474388
+# The time required for training is ---71.12969541549683 seconds
+# [-0.95297157  0.56107821  0.03696494 -0.01738236] [0.94504748]
+# The r2 score on the training data is  0.5649673402871651
 
 df = pd.read_csv("F://PycharmProjects//Zero_to_deep_learning//cal_housing.csv")
 # df.info()
@@ -41,7 +38,7 @@ def Tx(a):
     Tx_values[0] = 1
     Tx_values[1] = a+1
     Tx_values[2] = 3*(a**2) + 3*a + 1
-    Tx_values[3] = 15*(a**3)+15*a**2 + 6*a + 1
+    Tx_values[3] = 15*(a**3)+15*(a**2) + 6*a + 1
     # Tx_values[4] = 105*(a**4) +105*a**3 + 45*a**2 + 10*a + 1
     # Tx_values[5] = 945*a**5 + 945*a**4 + 420*a**3 + 105*a**2 + 15*a + 1
     return Tx_values

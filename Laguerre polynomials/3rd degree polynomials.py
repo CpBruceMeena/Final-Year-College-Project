@@ -3,13 +3,9 @@ import numpy as np
 import pandas as pd
 import time
 
-# The result for this case using 50 datapoints is
-#     [-0.08229602  0.52726302 - 0.09916695 - 0.16669065][0.63815072]
-# The    r2    score    on    the    training    data is 0.7707040090291927
-
-# The result for this case using 500 datapoints is
-# [ 0.25132578  0.13831302 -0.40664837 -0.37903709] [0.19723916]
-# The r2 score on the training data is  0.5213129429474388
+# The time required for training is ---66.12553429603577 seconds
+# [-0.35657639 -0.13461882  0.07195982 -0.12629315] [1.0860885]
+# The r2 score on the training data is  0.5294983419530725
 
 df = pd.read_csv("F://PycharmProjects//Zero_to_deep_learning//cal_housing.csv")
 # df.info()
@@ -106,7 +102,7 @@ def model(X_train, y_train, epochs, learning_rate):
 
     return Weights, bias
 
-epochs = 1000
+epochs = 2000
 
 learning_rate = 0.001
 
@@ -145,7 +141,7 @@ y_train = ys.inverse_transform(y_train_transformed)
 
 plt.plot(y_train[:50, 0], color = 'green', label = 'y original', marker = 'x')
 plt.plot(y_predicted[:50, 0], color = 'red', label = 'Y_prediction', marker = 'o')
-plt.title("using 2rd degree Laguerre polynomial")
+plt.title("using 3rd degree Laguerre polynomial")
 plt.legend(loc = 'upper right')
 plt.show()
 

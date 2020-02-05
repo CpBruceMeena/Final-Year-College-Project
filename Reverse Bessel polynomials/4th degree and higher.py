@@ -3,13 +3,9 @@ import numpy as np
 import pandas as pd
 import time
 
-# The result for this case using 50 datapoints is
-#     [-0.08229602  0.52726302 - 0.09916695 - 0.16669065][0.63815072]
-# The    r2    score    on    the    training    data is 0.7707040090291927
-
-# The result for this case using 500 datapoints is
-# [ 0.25132578  0.13831302 -0.40664837 -0.37903709] [0.19723916]
-# The r2 score on the training data is  0.5213129429474388
+# The time required for training is ---88.95321393013 seconds
+# [-1.01436036  0.07227494  0.11192912  0.04795907 -0.00523938] [0.96470215]
+# The r2 score on the training data is  0.5388021209458876
 
 df = pd.read_csv("F://PycharmProjects//Zero_to_deep_learning//cal_housing.csv")
 # df.info()

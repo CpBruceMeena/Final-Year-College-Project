@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import time
 
 # The result for this case using 50 datapoints is
 #     [-0.08229602  0.52726302 - 0.09916695 - 0.16669065][0.63815072]
@@ -109,7 +110,11 @@ learning_rate = 0.001
 # X_train = [5.6431, 7.2574]
 # y_train = [314300, 352100]
 
+start_time = time.time()
+
 Weights, bias = model(X_train_transformed, y_train_transformed, epochs, learning_rate)
+
+print("The time required for training is ---" + str((time.time() - start_time)) + ' seconds')
 
 def predict(X_test, Weights, bias):
     y_predicted = []

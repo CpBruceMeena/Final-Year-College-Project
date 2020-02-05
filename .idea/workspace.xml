@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fbe6b625-a9d2-404c-881e-c834612f3670" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Bessels polynomials/2nd degree polynomial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bessels polynomials/3rd degree polynomial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bessels polynomials/4th degree and higher polynomial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hermite physicist polynomials/2nd degree polynomial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hermite physicist polynomials/3rd degree polynomial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hermite physicist polynomials/4th and higher degree polynomial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hermite probabilistic polynomials/2nd degree polynomial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hermite probabilistic polynomials/3rd degree polynomial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hermite probabilistic polynomials/4th and higher degree polynomial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reverse Bessel polynomials/2nd degree polynomials.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reverse Bessel polynomials/3rd degree polynomials.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reverse Bessel polynomials/4th degree and higher.py" afterDir="false" />
+    <list default="true" id="fbe6b625-a9d2-404c-881e-c834612f3670" name="Default Changelist" comment="Adding all the files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bessels polynomials/3rd degree polynomial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bessels polynomials/3rd degree polynomial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bessels polynomials/4th degree and higher polynomial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bessels polynomials/4th degree and higher polynomial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hermite physicist polynomials/2nd degree polynomial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hermite physicist polynomials/2nd degree polynomial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hermite physicist polynomials/3rd degree polynomial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hermite physicist polynomials/3rd degree polynomial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hermite physicist polynomials/4th and higher degree polynomial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hermite physicist polynomials/4th and higher degree polynomial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hermite probabilistic polynomials/2nd degree polynomial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hermite probabilistic polynomials/2nd degree polynomial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hermite probabilistic polynomials/3rd degree polynomial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hermite probabilistic polynomials/3rd degree polynomial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hermite probabilistic polynomials/4th and higher degree polynomial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hermite probabilistic polynomials/4th and higher degree polynomial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Laguerre polynomials/3rd degree polynomials.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laguerre polynomials/3rd degree polynomials.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Laguerre polynomials/4th degree and higher polynomials.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laguerre polynomials/4th degree and higher polynomials.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Laguerre polynomials/using 2nd degree polynomial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laguerre polynomials/using 2nd degree polynomial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reverse Bessel polynomials/3rd degree polynomials.py" beforeDir="false" afterPath="$PROJECT_DIR$/Reverse Bessel polynomials/3rd degree polynomials.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reverse Bessel polynomials/4th degree and higher.py" beforeDir="false" afterPath="$PROJECT_DIR$/Reverse Bessel polynomials/4th degree and higher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chebyshev method/2degree polynomial.py" beforeDir="false" afterPath="$PROJECT_DIR$/chebyshev method/2degree polynomial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chebyshev method/3rd degree polynomial.py" beforeDir="false" afterPath="$PROJECT_DIR$/chebyshev method/3rd degree polynomial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chebyshev method/4th degree polynomial.py" beforeDir="false" afterPath="$PROJECT_DIR$/chebyshev method/4th degree polynomial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/using_single_feature.py" beforeDir="false" afterPath="$PROJECT_DIR$/using_single_feature.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,72 +32,38 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Hermite probabilistic polynomials/2nd degree polynomial.py">
+        <entry file="file://$PROJECT_DIR$/using_single_feature_auto_medianIncome.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/manual.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
+            <state relative-caret-position="453">
+              <caret line="96" column="50" lean-forward="true" selection-start-line="96" selection-start-column="50" selection-end-line="96" selection-end-column="50" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Hermite probabilistic polynomials/3rd degree polynomial.py">
+        <entry file="file://$PROJECT_DIR$/Bessels polynomials/2nd degree polynomial.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="143" column="20" selection-start-line="143" selection-start-column="20" selection-end-line="143" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Hermite probabilistic polynomials/4th and higher degree polynomial.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="137" column="1" lean-forward="true" selection-end-line="150" selection-end-column="78" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Hermite physicist polynomials/2nd degree polynomial.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Hermite physicist polynomials/3rd degree polynomial.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="135" column="39" selection-start-line="135" selection-start-column="39" selection-end-line="135" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="34">
+              <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Hermite physicist polynomials/4th and higher degree polynomial.py">
+        <entry file="file://$PROJECT_DIR$/using_single_feature.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="79" column="20" lean-forward="true" selection-start-line="79" selection-start-column="20" selection-end-line="79" selection-end-column="20" />
+            <state relative-caret-position="136">
+              <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#174#193#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -113,6 +80,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -127,7 +97,6 @@
         <option value="$PROJECT_DIR$/Third_degree_polynomial_and_cubis_spline/Third_degree_polynomial_using_regression.py" />
         <option value="$PROJECT_DIR$/Third_degree_polynomial_and_cubis_spline/temp.py" />
         <option value="$PROJECT_DIR$/housing_using_least_square_fitting.py" />
-        <option value="$PROJECT_DIR$/using_single_feature.py" />
         <option value="$PROJECT_DIR$/House_Price_prediction.py" />
         <option value="$PROJECT_DIR$/Third_degree_polynomial_and_cubis_spline/For_testing.py" />
         <option value="$PROJECT_DIR$/Third_degree_polynomial_and_cubis_spline/cubic_spline_manual.py" />
@@ -136,31 +105,32 @@
         <option value="$PROJECT_DIR$/FLNN/using 3rd degree polynomial.py" />
         <option value="$PROJECT_DIR$/FLNN/using 4th degree polynomial.py" />
         <option value="$PROJECT_DIR$/FLNN/using 5th degree polynomial.py" />
-        <option value="$PROJECT_DIR$/chebyshev method/2degree polynomial.py" />
-        <option value="$PROJECT_DIR$/chebyshev method/3rd degree polynomial.py" />
-        <option value="$PROJECT_DIR$/chebyshev method/4th degree polynomial.py" />
         <option value="$PROJECT_DIR$/Laguerre polynomials/using 2nd degree polynomial.py" />
-        <option value="$PROJECT_DIR$/Laguerre polynomials/3rd degree polynomials.py" />
-        <option value="$PROJECT_DIR$/Laguerre polynomials/4th degree and higher polynomials.py" />
-        <option value="$PROJECT_DIR$/Bessels polynomials/2nd degree polynomial.py" />
-        <option value="$PROJECT_DIR$/Bessels polynomials/3rd degree polynomial.py" />
-        <option value="$PROJECT_DIR$/Reverse Bessel polynomials/4th degree and higher.py" />
-        <option value="$PROJECT_DIR$/Reverse Bessel polynomials/3rd degree polynomials.py" />
         <option value="$PROJECT_DIR$/Reverse Bessel polynomials/2nd degree polynomials.py" />
-        <option value="$PROJECT_DIR$/Bessels polynomials/4th degree and higher polynomial.py" />
+        <option value="$PROJECT_DIR$/chebyshev method/2degree polynomial.py" />
+        <option value="$PROJECT_DIR$/Hermite physicist polynomials/2nd degree polynomial.py" />
         <option value="$PROJECT_DIR$/Hermite probabilistic polynomials/2nd degree polynomial.py" />
+        <option value="$PROJECT_DIR$/chebyshev method/4th degree polynomial.py" />
+        <option value="$PROJECT_DIR$/chebyshev method/3rd degree polynomial.py" />
+        <option value="$PROJECT_DIR$/Bessels polynomials/3rd degree polynomial.py" />
+        <option value="$PROJECT_DIR$/Hermite physicist polynomials/3rd degree polynomial.py" />
+        <option value="$PROJECT_DIR$/Hermite physicist polynomials/4th and higher degree polynomial.py" />
         <option value="$PROJECT_DIR$/Hermite probabilistic polynomials/3rd degree polynomial.py" />
         <option value="$PROJECT_DIR$/Hermite probabilistic polynomials/4th and higher degree polynomial.py" />
-        <option value="$PROJECT_DIR$/Hermite physicist polynomials/4th and higher degree polynomial.py" />
-        <option value="$PROJECT_DIR$/Hermite physicist polynomials/2nd degree polynomial.py" />
-        <option value="$PROJECT_DIR$/Hermite physicist polynomials/3rd degree polynomial.py" />
+        <option value="$PROJECT_DIR$/Laguerre polynomials/3rd degree polynomials.py" />
+        <option value="$PROJECT_DIR$/Laguerre polynomials/4th degree and higher polynomials.py" />
+        <option value="$PROJECT_DIR$/Reverse Bessel polynomials/3rd degree polynomials.py" />
+        <option value="$PROJECT_DIR$/Bessels polynomials/4th degree and higher polynomial.py" />
+        <option value="$PROJECT_DIR$/Reverse Bessel polynomials/4th degree and higher.py" />
+        <option value="$PROJECT_DIR$/Bessels polynomials/2nd degree polynomial.py" />
+        <option value="$PROJECT_DIR$/using_single_feature.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1088" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="width" value="978" />
+    <option name="height" value="1089" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -168,7 +138,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -179,17 +148,13 @@
             <path>
               <item name="Final_Year_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Final_Year_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="Hermite physicist polynomials" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Final_Year_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Final_Year_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="Hermite probabilistic polynomials" type="462c0819:PsiDirectoryNode" />
+              <item name="Bessels polynomials" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -209,28 +174,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.4th and higher degree polynomial (1)">
-    <configuration name="2nd degree polynomial (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Final_Year_Project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Hermite physicist polynomials" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Hermite physicist polynomials/2nd degree polynomial.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.using_single_feature">
     <configuration name="2nd degree polynomial" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Final_Year_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -239,11 +183,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Hermite probabilistic polynomials" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Bessels polynomials" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Hermite probabilistic polynomials/2nd degree polynomial.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Bessels polynomials/2nd degree polynomial.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -252,7 +196,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3rd degree polynomial (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="3rd degree polynomials (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Final_Year_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -260,11 +204,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Hermite physicist polynomials" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Reverse Bessel polynomials" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Hermite physicist polynomials/3rd degree polynomial.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Reverse Bessel polynomials/3rd degree polynomials.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -273,7 +217,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="4th and higher degree polynomial (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="4th degree and higher polynomial" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Final_Year_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -281,11 +225,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Hermite physicist polynomials" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Bessels polynomials" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Hermite physicist polynomials/4th and higher degree polynomial.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Bessels polynomials/4th degree and higher polynomial.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -294,7 +238,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="4th and higher degree polynomial" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="4th degree and higher" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Final_Year_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -302,11 +246,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Hermite probabilistic polynomials" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Reverse Bessel polynomials" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Hermite probabilistic polynomials/4th and higher degree polynomial.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Reverse Bessel polynomials/4th degree and higher.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="using_single_feature" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Final_Year_Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/using_single_feature.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -317,11 +282,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.4th and higher degree polynomial (1)" />
-        <item itemvalue="Python.3rd degree polynomial (1)" />
-        <item itemvalue="Python.2nd degree polynomial (1)" />
-        <item itemvalue="Python.4th and higher degree polynomial" />
+        <item itemvalue="Python.using_single_feature" />
         <item itemvalue="Python.2nd degree polynomial" />
+        <item itemvalue="Python.4th degree and higher polynomial" />
+        <item itemvalue="Python.4th degree and higher" />
+        <item itemvalue="Python.3rd degree polynomials (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -385,24 +350,38 @@
       <option name="project" value="LOCAL" />
       <updated>1579685694385</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Completing hermite probabilistic and physicist polynomials">
+      <created>1580101574692</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1580101574692</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Adding all the files">
+      <created>1580101839999</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1580101839999</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="0" width="781" height="870" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49649122" visible="true" weight="0.24563758" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49649122" visible="true" weight="0.120871864" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.50350875" side_tool="true" weight="0.09114927" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4993395" visible="true" weight="0.26792964" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4993395" visible="true" weight="0.28380188" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39892906" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32931727" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32882273" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32931727" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5006605" side_tool="true" weight="0.14993307" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32931727" />
@@ -420,7 +399,9 @@
     <MESSAGE value="Completing the Free Layer Neural Network" />
     <MESSAGE value="Checking the model for 500 training datapoints" />
     <MESSAGE value="Using Laguerre polynomials" />
-    <option name="LAST_COMMIT_MESSAGE" value="Using Laguerre polynomials" />
+    <MESSAGE value="Completing hermite probabilistic and physicist polynomials" />
+    <MESSAGE value="Adding all the files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding all the files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -483,19 +464,6 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/explanation of kernels in SVR.html" />
-    <entry file="file://$PROJECT_DIR$/using_single_feature_auto_medianIncome.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manual.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/check_manual.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="59">
@@ -540,13 +508,6 @@
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Single_feature_with_regression_and_weight_setting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="87" selection-start-line="87" selection-end-line="90" />
         </state>
       </provider>
     </entry>
@@ -620,50 +581,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chebyshev method/2degree polynomial.py">
+    <entry file="file://$PROJECT_DIR$/Laguerre polynomials/using 2nd degree polynomial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="62" column="18" lean-forward="true" selection-end-line="147" selection-end-column="78" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chebyshev method/3rd degree polynomial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="45" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/using_single_feature.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="50" column="60" lean-forward="true" selection-start-line="50" selection-start-column="60" selection-end-line="50" selection-end-column="60" />
-          <folding>
-            <element signature="e#174#193#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bessels polynomials/2nd degree polynomial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="58" selection-end-line="153" selection-end-column="78" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bessels polynomials/3rd degree polynomial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="467">
+          <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -672,108 +593,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Reverse Bessel polynomials/2nd degree polynomials.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="63" column="16" lean-forward="true" selection-start-line="63" selection-start-column="16" selection-end-line="63" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Reverse Bessel polynomials/3rd degree polynomials.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="11" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Reverse Bessel polynomials/4th degree and higher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="38" column="10" lean-forward="true" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Laguerre polynomials/4th degree and higher polynomials.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="44" column="40" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Laguerre polynomials/3rd degree polynomials.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Laguerre polynomials/using 2nd degree polynomial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bessels polynomials/4th degree and higher polynomial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chebyshev method/4th degree polynomial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="36" lean-forward="true" selection-end-line="149" selection-end-column="78" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hermite probabilistic polynomials/3rd degree polynomial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="143" column="20" selection-start-line="143" selection-start-column="20" selection-end-line="143" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hermite probabilistic polynomials/4th and higher degree polynomial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="137" column="1" lean-forward="true" selection-end-line="150" selection-end-column="78" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Hermite probabilistic polynomials/2nd degree polynomial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="331">
+          <caret line="124" column="18" lean-forward="true" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -782,8 +603,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Hermite physicist polynomials/2nd degree polynomial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="382">
+          <caret line="118" column="93" selection-start-line="118" selection-start-column="93" selection-end-line="118" selection-end-column="93" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hermite probabilistic polynomials/2nd degree polynomial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="119" column="93" selection-start-line="119" selection-start-column="93" selection-end-line="119" selection-end-column="93" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chebyshev method/3rd degree polynomial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chebyshev method/4th degree.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bessels polynomials/3rd degree polynomial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bessels polynomials/4th degree and higher polynomial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="5" column="58" selection-start-line="5" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -792,8 +655,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Hermite physicist polynomials/3rd degree polynomial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="135" column="39" selection-start-line="135" selection-start-column="39" selection-end-line="135" selection-end-column="39" />
+        <state>
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -802,10 +664,127 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Hermite physicist polynomials/4th and higher degree polynomial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="79" column="20" lean-forward="true" selection-start-line="79" selection-start-column="20" selection-end-line="79" selection-end-column="20" />
+        <state relative-caret-position="170">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hermite probabilistic polynomials/3rd degree polynomial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chebyshev method/4th degree polynomial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Single_feature_with_regression_and_weight_setting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="104" column="88" lean-forward="true" selection-start-line="104" selection-start-column="88" selection-end-line="104" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chebyshev method/3rd degree.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reverse Bessel polynomials/4th degree and higher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reverse Bessel polynomials/3rd degree polynomials.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Laguerre polynomials/4th degree and higher polynomials.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chebyshev method/2degree polynomial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="148" lean-forward="true" selection-start-line="148" selection-end-line="148" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Laguerre polynomials/3rd degree polynomials.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Hermite probabilistic polynomials/4th and higher degree polynomial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/using_single_feature_auto_medianIncome.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manual.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="96" column="50" lean-forward="true" selection-start-line="96" selection-start-column="50" selection-end-line="96" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bessels polynomials/2nd degree polynomial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/using_single_feature.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+          <folding>
+            <element signature="e#174#193#0" expanded="true" />
           </folding>
         </state>
       </provider>
